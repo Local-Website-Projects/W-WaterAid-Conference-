@@ -1,4 +1,5 @@
 import React from "react";
+import CountUp from "react-countup";
 import Header from "../Components/header";
 import Banner from "../Components/banner";
 import Footer from "../Components/footer";
@@ -56,7 +57,7 @@ function Home() {
                         <div className="col-xl-3 col-lg-3 col-md-4 col-sm-3">
                             <div className="single-counter xs-mb40">
                                 <div className="count-content">
-                                    <span className="count">80</span>
+                  <CountUp start={0} end={80} duration={2}/>
                                     <p>Countries</p>
                                 </div>
                             </div>
@@ -64,7 +65,7 @@ function Home() {
                         <div className="col-xl-3 col-lg-3 col-md-4 col-sm-3">
                             <div className="single-counter xs-mb40">
                                 <div className="count-content">
-                                    <span className="count">120</span>
+                  <CountUp start={0} end={120} duration={2}/>
                                     <p>Programs</p>
                                 </div>
                             </div>
@@ -72,7 +73,7 @@ function Home() {
                         <div className="col-xl-3 col-lg-3 col-md-4 col-sm-3">
                             <div className="single-counter xs-mb40">
                                 <div className="count-content">
-                                    <span className="count">65</span>
+                  <CountUp start={0} end={65} duration={2}/>
                                     <p>Speakers</p>
                                 </div>
                             </div>
@@ -80,7 +81,7 @@ function Home() {
                         <div className="col-xl-3 col-lg-3 d-md-none d-lg-block col-sm-3">
                             <div className="single-counter">
                                 <div className="count-content">
-                                    <span className="count">30</span>
+                  <CountUp start={0} end={30} duration={2}/>
                                     <p>Sponsors</p>
                                 </div>
                             </div>
