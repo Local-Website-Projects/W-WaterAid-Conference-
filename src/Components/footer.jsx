@@ -9,7 +9,7 @@ function Footer () {
                         <div className="col-lg-5">
                             <div className="am">
                                 <div className="f-logo">
-                                    <img src="assets/img/logo/logo-2.png" alt=""/>
+                                    <img src="assets/img/logo/logo-2.png" alt="" height='300px'/>
                                 </div>
                                 <div className="border-right"></div>
                             </div>

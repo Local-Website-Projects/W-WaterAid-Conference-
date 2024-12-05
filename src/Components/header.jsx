@@ -8,8 +8,8 @@ function Header() {
                     <div className="row">
                         <div className="col-lg-2">
                             <div className="brand-logo">
-                                <a className="eventex-brand" href="index-2.html"><img src="assets/img/logo/logo.png"
-                                                                                      alt=""/></a>
+                                <a className="eventex-brand" href="#"><img src="assets/img/logo/logo.png"
+                                                                                      alt="" width='100px'/></a>
                             </div>
                         </div>
                         <div className="col-lg-8">

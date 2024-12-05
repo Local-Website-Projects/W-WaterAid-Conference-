@@ -112,7 +112,7 @@ ul {
   padding-left: 70px; }
 
 .section-title .title-text h2 {
-  color: #252525;
+  color: #296173;
   font-size: 45px;
   line-height: 45px;
   font-weight: 600;
@@ -533,7 +533,7 @@ a {
   background-size: cover; }
 
 .bg-counter {
-  background-image: url(../img/bg/5.jpg); }
+  background-color: #296173; }
 
 .bg-contact {
   background-image: url(../img/bg/6.jpg); }
@@ -1040,7 +1040,7 @@ a {
   box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
   margin-bottom: 0; }
   .event-schedule-area-two .tab-content .table thead {
-    background-color: #007bff;
+    background-color: #296173;
     color: #fff;
     font-size: 20px; }
     .event-schedule-area-two .tab-content .table thead tr th {
@@ -1069,7 +1069,7 @@ a {
       .event-schedule-area-two .tab-content .table tbody tr td .event-wrap h3 a {
         font-size: 20px;
         line-height: 20px;
-        color: #cf057c;
+        color: #296173;
         -webkit-transition: all 0.4s;
         -o-transition: all 0.4s;
         transition: all 0.4s; }
