@@ -20,8 +20,7 @@ function Banner () {
         } else if (password.length === 0) {
             alert("Password has left Blank!");
         } else {
-            /*const url = 'https://conference.frogbid.com//api/register_user.php';*/
-            const url = 'http://localhost/W-Toilet-Conference-Admin/api/register_user.php';
+            const url = 'https://conference.frogbid.com//api/register_user.php';
             let fData = new FormData();
             fData.append('name', name);
             fData.append('number', number);
