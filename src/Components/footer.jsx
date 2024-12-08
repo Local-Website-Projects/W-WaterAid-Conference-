@@ -44,8 +44,8 @@ function Footer () {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="copyright">
-                                <p>©2018. All Rights Reserved. Designed By</p>
-                                <em><i className="fa fa-heart"></i></em>&nbsp;<a href="#">iThemesLab</a>
+                                <p>©2024. All Rights Reserved. Designed By</p>
+                                <em><i className="fa fa-heart"></i></em>&nbsp;<a href="#">FrogBID</a>
                             </div>
                         </div>
                     </div>

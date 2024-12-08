@@ -1,0 +1,8 @@
+# Redirect all requests to index.html except for existing files or directories
+RewriteEngine On
+RewriteBase /
+
+# If the requested file or directory doesn't exist, serve index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [QSA,L]

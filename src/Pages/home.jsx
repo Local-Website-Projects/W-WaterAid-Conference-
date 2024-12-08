@@ -17,7 +17,7 @@ function Home() {
                 <Banner/>
                 {/*banner with form section ends*/}
             </div>
-            <div className="generel-information-area pad100">
+            {/*<div className="generel-information-area pad100">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-5 xs-mb40">
@@ -887,7 +887,7 @@ function Home() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*/}
 
             {/*footer start*/}
             <Footer/>
