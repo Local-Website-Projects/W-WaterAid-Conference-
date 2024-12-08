@@ -6,9 +6,15 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const navigate = useNavigate();  // Use useNavigate for navigation in React Router v6
+    const navigate = useNavigate();
+    const [error, setError] = useState("");
 
     const handleSubmit = async () => {
+        const token = localStorage.getItem("userToken");
+        if (token) {
+            setError("You are already logged in.");
+            return navigate("/Profile");
+        }
         if (!email || !password) {
             setErrorMessage("Both fields are required!");
             return;

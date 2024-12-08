@@ -70,10 +70,13 @@ function Profile() {
                                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                         <ul className="navbar-nav ml-auto">
                                             <li className="nav-item">
+                                                <Link className="nav-link" to="/Profile">Profile</Link>
+                                            </li>
+                                            <li className="nav-item">
                                                 <Link className="nav-link" to="/Ticket">Ticket Purchase </Link>
                                             </li>
                                             <li className="nav-item">
-                                                <a className="nav-link" href="">Logout </a>
+                                                <Link className="nav-link" to="/Logout">Logout </Link>
                                             </li>
                                         </ul>
                                     </div>
@@ -102,7 +105,7 @@ function Profile() {
 
                 <div className="container mt-3 mb-3">
                     <div className="row">
-                        {emailStatus === 0 ? (
+                        {emailStatus == 0 ? (
                             <div className="col-12">
                                 <div className="alert alert-warning" role="alert">
                                     Please click{" "}
@@ -120,7 +123,7 @@ function Profile() {
                             <div></div>
                         )}
 
-                        {studentVerification === 0 && studentStatus === 1 ? (
+                        {studentVerification == 0 && studentStatus == 1 ? (
                             <div className="col-12">
                                 <div className="alert alert-warning" role="alert">
                                     Are you a student? Please click <a href="#" className="alert-link">here</a> to

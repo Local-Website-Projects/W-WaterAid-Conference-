@@ -12,10 +12,10 @@ function TicketPurchase() {
         const fetchSessionData = async () => {
             const token = localStorage.getItem("userToken");
 
-            if (!token) {
+            /*if (!token) {
                 setError("You are not logged in.");
                 return navigate("/Login"); // Redirect to login if no token
-            }
+            }*/
 
             try {
                 const response = await axios.get("https://conference.frogbid.com/api/fetch_profile.php", {
@@ -59,10 +59,13 @@ function TicketPurchase() {
                                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul className="navbar-nav ml-auto">
                                         <li className="nav-item">
+                                            <Link className="nav-link" to="/Profile">Profile</Link>
+                                        </li>
+                                        <li className="nav-item">
                                             <Link className="nav-link" to="/Ticket">Ticket Purchase </Link>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="">Logout </a>
+                                            <Link className="nav-link" to="/Logout">Logout </Link>
                                         </li>
                                     </ul>
                                 </div>
