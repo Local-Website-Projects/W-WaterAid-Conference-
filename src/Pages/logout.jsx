@@ -34,6 +34,8 @@ function Logout() {
         }
     };
 
+    handleLogout();
+
     return (
         <div>
 
