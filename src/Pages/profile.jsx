@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Link, useNavigate} from "react-router-dom";
-import Header from "../Components/header";
-import Footer from "../Components/footer";  // Import the useNavigate hook
+import Footer from "../Components/footer";
 
 function Profile() {
     const [user_id, setUserId] = useState("");
@@ -25,8 +24,8 @@ function Profile() {
             try {
                 const response = await axios.get("https://conference.frogbid.com/api/fetch_profile.php", {
                     headers: {
-                        "Authorization": `Bearer ${token}` // Send token as a Bearer token
-                    }
+                        "Authorization": `Bearer ${token}`,
+                    },
                 });
 
                 if (response.data.status === "success") {
@@ -44,7 +43,14 @@ function Profile() {
             }
         };
 
+        // Call the function initially
         fetchSessionData();
+
+        // Set up polling
+        const interval = setInterval(fetchSessionData, 5000);
+
+        // Clear interval on component unmount
+        return () => clearInterval(interval);
     }, [navigate]);
 
     return (

@@ -5,6 +5,7 @@ import Footer from "../Components/footer";
 
 function TicketPurchase() {
     const [user_id, setUsername] = useState("");
+    const [userName, setUserName] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate(); // Initialize navigate
 
@@ -26,6 +27,7 @@ function TicketPurchase() {
 
                 if (response.data.status === "success") {
                     setUsername(response.data.user_id);
+                    setUserName(response.data.userName);
                 } else {
                     setError(response.data.message || "Failed to fetch profile.");
                 }
@@ -36,6 +38,11 @@ function TicketPurchase() {
         };
 
         fetchSessionData();
+        // Set up polling
+        const interval = setInterval(fetchSessionData, 5000);
+
+        // Clear interval on component unmount
+        return () => clearInterval(interval);
     }, [navigate]);
     return (
         <div>
@@ -80,7 +87,7 @@ function TicketPurchase() {
                         <div className="col-lg-12">
                             <div className="about-content">
                                 <div className="section-title text-center">
-                                    <h2>Hi, Mugdho</h2>
+                                    <h2>Hi, {userName}</h2>
                                     <ol className="breadcrumb">
                                         <li>Purchase Ticket</li>
                                     </ol>
@@ -91,141 +98,64 @@ function TicketPurchase() {
                 </div>
             </div>
 
-            <div className="container">
-                <h2 className="mt-5 mb-3">Please fill up the form to continue purchasing tickets </h2>
-                <form action="#">
+            <div className="ct-2 contact-area pad100">
+                <div className="container">
                     <div className="row">
-                        <div className="col-lg-6 col-md-6 col-12">
-                            <lable>Nationality</lable>
-                            <input className="form-control" type="text" name="nationality"
-                                   placeholder="e.g., Bangladeshi" required
-                                   autoComplete="off"/>
-                        </div>
-                        <div className="col-lg-6 col-md-6 col-12">
-                            <lable>City of current residence</lable>
-                            <input className="form-control" type="text" name="city"
-                                   placeholder="e.g., Dhaka, Bangladesh" required
-                                   autoComplete="off"/>
-                        </div>
-                        <div className="col-lg-6 col-md-6 col-12 mt-3">
-                            <lable>Name of organisation/ institution</lable>
-                            <input className="form-control" type="text" name="organization"
-                                   placeholder="e.g., WaterAid" required
-                                   autoComplete="off"/>
-                        </div>
-                        <div className="col-lg-6 col-md-6 col-12 mt-3">
-                            <lable>Designation</lable>
-                            <input className="form-control" type="text" name="designation"
-                                   placeholder="e.g., Student" required
-                                   autoComplete="off"/>
-                        </div>
-                        <div className="col-lg-6 col-md-6 col-12 mt-3">
-                            <lable>Do you need visa invitation letter?</lable>
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="invitation"
-                                       id="flexRadioDefault1"/>
-                                <label className="form-check-label" htmlFor="flexRadioDefault1">
-                                    Yes
-                                </label>
+                        <div className="col-lg-12">
+                            <div className="section-title">
+                                <div className="title-text pl">
+                                    <h2>Get in Touch</h2>
+                                    <p>Get In Touch With The Financial Team</p>
+                                </div>
                             </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="invitation"
-                                       id="flexRadioDefault2" checked/>
-                                <label className="form-check-label" htmlFor="flexRadioDefault2">
-                                    No
-                                </label>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 col-md-6 col-12 mt-3">
-                            <lable>Provide passport number</lable>
-                            <input className="form-control" type="text" name="passport"
-                                   placeholder="" required
-                                   autoComplete="off"/>
-                        </div>
-                        <div className="col-lg-6 col-md-6 col-12 mt-3">
-                            <lable>Dietary Preferences</lable>
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="dietary"
-                                       id="flexRadioDefault1"/>
-                                <label className="form-check-label" htmlFor="flexRadioDefault1">
-                                    Vegetarian
-                                </label>
-                            </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="dietary"
-                                       id="flexRadioDefault2"/>
-                                <label className="form-check-label" htmlFor="flexRadioDefault2">
-                                    Non-Vegetarian
-                                </label>
-                            </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="dietary"
-                                       id="flexRadioDefault2"/>
-                                <label className="form-check-label" htmlFor="flexRadioDefault2">
-                                    Vegan
-                                </label>
-                            </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="dietary"
-                                       id="flexRadioDefault2"/>
-                                <label className="form-check-label" htmlFor="flexRadioDefault2">
-                                    Not applicable
-                                </label>
-                            </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="dietary"
-                                       id="flexRadioDefault2"/>
-                                <label className="form-check-label" htmlFor="flexRadioDefault2">
-                                    Other
-                                </label>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 col-md-6 col-12 mt-3">
-                            <lable>Accessibility Needs</lable>
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="accessibility"
-                                       id="flexRadioDefault1" checked/>
-                                <label className="form-check-label" htmlFor="flexRadioDefault1">
-                                    Wheelchair access
-                                </label>
-                            </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="accessibility"
-                                       id="flexRadioDefault2"/>
-                                <label className="form-check-label" htmlFor="flexRadioDefault2">
-                                    Visual aids
-                                </label>
-                            </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="accessibility"
-                                       id="flexRadioDefault2"/>
-                                <label className="form-check-label" htmlFor="flexRadioDefault2">
-                                    Sign language interpretation
-                                </label>
-                            </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="accessibility"
-                                       id="flexRadioDefault2"/>
-                                <label className="form-check-label" htmlFor="flexRadioDefault2">
-                                    Not applicable
-                                </label>
-                            </div>
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="accessibility"
-                                       id="flexRadioDefault2"/>
-                                <label className="form-check-label" htmlFor="flexRadioDefault2">
-                                    Other
-                                </label>
-                            </div>
-                        </div>
-                        <div className="col-lg-12 mt-3 mb-5">
-                            <button className="btn-primary" type="button" name="submit" id="submit">Purchase Now
-                            </button>
-                            <button className="btn-primary ml-3" type="button" name="submit" id="submit">Save for Later
-                            </button>
                         </div>
                     </div>
-                </form>
+                    <div className="row">
+                        <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <div className="contact ct-form">
+                                <div className="row">
+                                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <div className="contact-form">
+                                            <form id="contact-form" data-toggle="validator" role="form">
+                                                <div className="form-group">
+                                                    <input id="inputName" type="text" name="name"
+                                                           className="form-control" placeholder="Name" required
+                                                           data-error="Enter your name"/>
+                                                    <div className="help-block with-errors"></div>
+                                                </div>
+                                                <div className="form-group">
+                                                    <input id="inputEmail" type="email" name="email"
+                                                           className="form-control" placeholder="Email" required
+                                                           data-error="Enter your email"/>
+                                                    <div className="help-block with-errors"></div>
+                                                </div>
+                                                <div className="form-group">
+                                                    <input id="inputSubject" type="text" name="subject"
+                                                           className="form-control" placeholder="Subject" required
+                                                           data-error="Enter your email"/>
+                                                    <div className="help-block with-errors"></div>
+                                                </div>
+                                                <div className="form-group">
+                                                        <textarea id="inputMessage" name="message"
+                                                                  className="form-control" placeholder="Massage"
+                                                                  rows="5" required
+                                                                  data-error="Enter message with details"></textarea>
+                                                    <div className="help-block with-errors"></div>
+                                                </div>
+                                                <div className="btn-2">
+                                                    <button className="btn-primary" name="submit-form"
+                                                            type="submit">Send
+                                                    </button>
+                                                </div>
+                                            </form>
+                                            <div id="msgalert" className="hidden"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <Footer/>

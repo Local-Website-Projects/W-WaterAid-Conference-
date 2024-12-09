@@ -900,10 +900,6 @@ function Home() {
                     </div>
                 </div>
             </div>*/}
-
-            {/*footer start*/}
-            <Footer/>
-            {/*footer end*/}
         </div>
     )
 }
