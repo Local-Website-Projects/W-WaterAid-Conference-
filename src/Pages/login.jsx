@@ -21,7 +21,7 @@ function Login() {
         }
 
         try {
-            const response = await fetch("https://conference.frogbid.com/api/user_login.php", {
+            const response = await fetch("https://regtoiletconference.org/api/user_login.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -22,7 +22,7 @@ function Profile() {
             }
 
             try {
-                const response = await axios.get("https://conference.frogbid.com/api/fetch_profile.php", {
+                const response = await axios.get("https://regtoiletconference.org/api/fetch_profile.php", {
                     headers: {
                         "Authorization": `Bearer ${token}`,
                     },

@@ -44,7 +44,7 @@ function TicketPurchase() {
         } else if (notification.length === 0) {
             alert("Notification has left Blank!");
         } else {
-            const url = 'https://conference.frogbid.com/api/purchase_ticket.php';
+            const url = 'https://regtoiletconference.org/api/purchase_ticket.php';
             let fData = new FormData();
             fData.append('nationality', nationality);
             fData.append('city', city);

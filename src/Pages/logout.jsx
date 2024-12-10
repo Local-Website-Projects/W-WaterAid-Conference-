@@ -7,7 +7,7 @@ function Logout() {
     const handleLogout = async () => {
         try {
             // Send a logout request to the backend
-            const response = await fetch("https://conference.frogbid.com/api/user_logout.php", {
+            const response = await fetch("https://regtoiletconference.org/api/user_logout.php", {
                 method: "POST", // You can use GET if POST is not required
                 credentials: "include", // Send cookies to maintain the session
             });
