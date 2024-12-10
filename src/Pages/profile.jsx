@@ -53,6 +53,27 @@ function Profile() {
         return () => clearInterval(interval);
     }, [navigate]);
 
+
+    const sendEmail = () => {
+        const token = localStorage.getItem("userToken");
+        try {
+            const response = axios.get("https://conference.frogbid.com/api/send_email.php", {
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                },
+            });
+
+            if (response.data.status === "success") {
+               alert('Please check your email and verify your account.');
+            } else {
+                setError(response.data.message || "Failed to fetch profile.");
+            }
+        } catch (err) {
+            setError("Email verification failed!");
+            console.error(err);
+        }
+    }
+
     return (
         <div>
             <div className="main-container">
@@ -115,13 +136,13 @@ function Profile() {
                             <div className="col-12">
                                 <div className="alert alert-warning" role="alert">
                                     Please click{" "}
-                                    <a
-                                        href="#"
-                                        onClick={(e) => e.preventDefault()} // Prevent reload
+                                    <Link
+                                        to=""
+                                        onClick={sendEmail}
                                         className="alert-link"
                                     >
                                         here
-                                    </a>{" "}
+                                    </Link>{" "}
                                     to verify your email.
                                 </div>
                             </div>

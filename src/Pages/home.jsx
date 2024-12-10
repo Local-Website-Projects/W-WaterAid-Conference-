@@ -1,22 +1,27 @@
-import React, {useState} from "react";
-import CountUp from "react-countup";
+import React, {useState, useEffect} from "react";
 import Header from "../Components/header";
 import Banner from "../Components/banner";
-import Footer from "../Components/footer";
-import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
 function Home() {
-    const [error, setError] = useState("");
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
+
+    // Define the async function
     const fetchSessionData = async () => {
         const token = localStorage.getItem("userToken");
+
         if (token) {
             setError("You are already logged in.");
-            return navigate("/Profile");
+            navigate("/Profile");
         }
+        console.log(token);
     };
-    fetchSessionData();
+
+    // Call fetchSessionData on component mount
+    useEffect(() => {
+        fetchSessionData();
+    }, []);
     return (
         <div>
 
