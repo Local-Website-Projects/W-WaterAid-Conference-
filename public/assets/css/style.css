@@ -729,11 +729,12 @@ a:focus {
 /*animation*/
 /* 2 navbar global */
 .header {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 2;
+    background-color: #f9fcfb;
 }
 
 .header .navbar {
@@ -776,7 +777,7 @@ a:focus {
 }
 
 .header.white-color .navbar-nav .nav-link {
-    color: #fff;
+    color: #252525;
 }
 
 .header.white-color .navbar-nav .nav-link:hover {
@@ -1040,7 +1041,8 @@ a:focus {
 
 /*Home-page 3 hero banner Start*/
 .home-4 {
-    height: 100vh;
+    min-height: 100vh;
+    padding: 20px 0;
 }
 
 .home-4 .banner-content {
@@ -2208,7 +2210,7 @@ button.btn-primary {
     margin-bottom: 25px;
 }
 
-.contact-area .contact-form input.form-control {
+.contact-area .contact-form input.form-control, select.form-control {
     border: 1px solid #dee2e6;
     min-height: 60px;
     padding-left: 20px;
@@ -3118,7 +3120,7 @@ button.btn-primary {
 }
 
 lable{
-    font-size: 19px !important;
+    font-size: 17px !important;
 }
 
 .form-check-label{

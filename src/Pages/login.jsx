@@ -106,7 +106,7 @@ function Login() {
                                             )}
                                             <div className="p-3">
                                                 <p>
-                                                    You don't have an account? <Link to="/">Register Now.</Link>
+                                                    You don't have an account? <Link to="/Register">Register Now.</Link>
                                                 </p>
                                             </div>
                                         </div>

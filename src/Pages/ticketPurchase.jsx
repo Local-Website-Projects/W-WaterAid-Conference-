@@ -7,7 +7,6 @@ function TicketPurchase() {
     const [userName, setUserName] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
-
     const [nationality, setNationality] = useState('');
     const [city, setCity] = useState('');
     const [organization, setOrganization] = useState('');
@@ -17,10 +16,33 @@ function TicketPurchase() {
     const [dietary, setDietary] = useState('');
     const [accessibility, setAccessibility] = useState('');
     const [notification, setNotification] = useState('');
+    const [issueDate, setIssueDate] = useState('');
+    const [expireDate, setExpireDate] = useState('');
+    const [file, setFile] = useState(null);
     const [selectedTours, setSelectedTours] = useState({
         preConference: false,
         postConference: false
     });
+    const handleFileChange = (e) => {
+        setFile(e.target.files[0]); // Capture the selected file
+    };
+
+    const [cities, setCities] = useState([]);
+
+
+    useEffect(() => {
+        const fetchCountries = async () => {
+            try {
+                const response = await fetch('/api/fetch_country.php'); // Path to your PHP script
+                const data = await response.json();
+                setCities(data);  // Set the countries in state
+            } catch (error) {
+                console.error('Error fetching countries:', error);
+            }
+        };
+
+        fetchCountries();
+    }, []);
 
     const handleCheckboxChange = (event) => {
         const { name, checked } = event.target;
@@ -55,6 +77,11 @@ function TicketPurchase() {
             fData.append('dietary', dietary);
             fData.append('accessibility', accessibility);
             fData.append('notification', notification);
+            fData.append('issueDate', issueDate);
+            fData.append('expireDate', expireDate);
+            if (file) {
+                fData.append('file', file);
+            }
             // Create a string for selectedTours (comma-separated)
             const selectedToursString = `${selectedTours.preConference},${selectedTours.postConference}`;
             fData.append('selectedTours', selectedToursString);
@@ -179,7 +206,7 @@ function TicketPurchase() {
                                 <div className="row">
                                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <div className="contact-form">
-                                            <form id="contact-form" data-toggle="validator" role="form">
+                                            <form id="contact-form" data-toggle="validator" role="form" encType="multipart/form-data">
                                                 <div className="row">
                                                     <div className="col-lg-6 col-md-6 col-sm-12">
                                                         <div className="form-group">
@@ -192,12 +219,24 @@ function TicketPurchase() {
                                                     </div>
                                                     <div className="col-lg-6 col-md-6 col-sm-12">
                                                         <div className="form-group">
-                                                            <input id="inputName" type="text" name="city"
-                                                                   className="form-control"
-                                                                   placeholder="City of current residence * (e.g., Dhaka, Bangladesh)"
-                                                                   required value={city}
-                                                                   onChange={(e) => setCity(e.target.value)}
-                                                                   data-error="Enter your name" autoComplete="off"/>
+                                                            <select
+                                                                id="citySelect"
+                                                                name="city"
+                                                                className="form-control"
+                                                                required
+                                                                value={city}
+                                                                onChange={(e) => setCity(e.target.value)}
+                                                                data-error="Select your city"
+                                                            >
+                                                                <option value="" disabled>
+                                                                    Country of current residence
+                                                                </option>
+                                                                {cities.map((cityOption, index) => (
+                                                                    <option key={index} value={cityOption}>
+                                                                        {cityOption}
+                                                                    </option>
+                                                                ))}
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <div className="col-lg-6 col-md-6 col-sm-12">
@@ -253,74 +292,79 @@ function TicketPurchase() {
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                     <div className="col-lg-6 col-md-6 col-sm-12">
                                                         <div className="form-group">
-                                                            <input id="inputName" type="text" name="passport"
-                                                                   className="form-control"
-                                                                   placeholder="Provide passport number."
-                                                                   value={passport}
-                                                                   onChange={(e) => setPassport(e.target.value)}
-                                                                   autoComplete="off"/>
+                                                            <input
+                                                                id="inputName"
+                                                                type="text"
+                                                                name="passport"
+                                                                className="form-control"
+                                                                placeholder="Provide passport number."
+                                                                value={passport}
+                                                                onChange={(e) => setPassport(e.target.value)}
+                                                                autoComplete="off"
+                                                                disabled={invitation !== "Yes"} // Disable if "No" is selected
+                                                                required={invitation === "Yes"}
+                                                            />
                                                         </div>
                                                     </div>
+
                                                     <div className="col-lg-6 col-md-6 col-sm-12">
                                                         <div className="form-group">
-                                                            <lable>Dietary Preferences *</lable>
-                                                            <div className="form-check">
-                                                                <input className="form-check-input" type="radio"
-                                                                       name="dietary" id="flexRadioDefault1"
-                                                                       checked={dietary === "Vegetarian"}
-                                                                       onChange={() => setDietary("Vegetarian")}/>
-                                                                <label className="form-check-label"
-                                                                       htmlFor="flexRadioDefault1">
-                                                                    Vegetarian
-                                                                </label>
-                                                            </div>
-                                                            <div className="form-check">
-                                                                <input className="form-check-input" type="radio"
-                                                                       name="dietary" id="flexRadioDefault1"
-                                                                       checked={dietary === "Non-Vegetarian"}
-                                                                       onChange={() => setDietary("Non-Vegetarian")}/>
-                                                                <label className="form-check-label"
-                                                                       htmlFor="flexRadioDefault1">
-                                                                    Non-Vegetarian
-                                                                </label>
-                                                            </div>
-                                                            <div className="form-check">
-                                                                <input className="form-check-input" type="radio"
-                                                                       name="dietary" id="flexRadioDefault1"
-                                                                       checked={dietary === "Vegan"}
-                                                                       onChange={() => setDietary("Vegan")}/>
-                                                                <label className="form-check-label"
-                                                                       htmlFor="flexRadioDefault1">
-                                                                    Vegan
-                                                                </label>
-                                                            </div>
-                                                            <div className="form-check">
-                                                                <input className="form-check-input" type="radio"
-                                                                       name="dietary" id="flexRadioDefault1"
-                                                                       checked={dietary === "Not applicable"}
-                                                                       onChange={() => setDietary("Not applicable")}/>
-                                                                <label className="form-check-label"
-                                                                       htmlFor="flexRadioDefault1">
-                                                                    Not applicable
-                                                                </label>
-                                                            </div>
-                                                            <div className="form-check">
-                                                                <input className="form-check-input" type="radio"
-                                                                       name="dietary" id="flexRadioDefault1"
-                                                                       checked={dietary === "Other"}
-                                                                       onChange={() => setDietary("Other")}/>
-                                                                <label className="form-check-label"
-                                                                       htmlFor="flexRadioDefault1">
-                                                                    Other
-                                                                </label>
-                                                            </div>
+                                                            <label htmlFor="fileUpload">Upload Passport Scanned
+                                                                File</label>
+                                                            <input
+                                                                type="file"
+                                                                id="fileUpload"
+                                                                className="form-control pt-3"
+                                                                onChange={handleFileChange}
+                                                                disabled={invitation !== "Yes"} // Disable if "No" is selected
+                                                                required={invitation === "Yes"}
+                                                            />
                                                         </div>
                                                     </div>
+
                                                     <div className="col-lg-6 col-md-6 col-sm-12">
                                                         <div className="form-group">
-                                                            <lable>Accessibility Needs *</lable>
+                                                            <label>Passport issue date</label>
+                                                            <input
+                                                                id="inputName"
+                                                                type="date"
+                                                                name="passport"
+                                                                className="form-control"
+                                                                placeholder="Provide passport issue date."
+                                                                value={issueDate}
+                                                                onChange={(e) => setIssueDate(e.target.value)}
+                                                                autoComplete="off"
+                                                                disabled={invitation !== "Yes"} // Disable if "No" is selected
+                                                                required={invitation === "Yes"}
+                                                            />
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="col-lg-6 col-md-6 col-sm-12">
+                                                        <div className="form-group">
+                                                            <label>Passport expiration date</label>
+                                                            <input
+                                                                id="inputName"
+                                                                type="date"
+                                                                name="passport"
+                                                                className="form-control"
+                                                                placeholder="Provide passport expiration date."
+                                                                value={expireDate}
+                                                                onChange={(e) => setExpireDate(e.target.value)}
+                                                                autoComplete="off"
+                                                                disabled={invitation !== "Yes"} // Disable if "No" is selected
+                                                                required={invitation === "Yes"}
+                                                            />
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div className="col-lg-6 col-md-6 col-sm-12">
+                                                        <div className="form-group">
+                                                            <label>Accessibility Needs *</label>
                                                             <div className="form-check">
                                                                 <input className="form-check-input" type="radio"
                                                                        name="accessibility" id="flexRadioDefault1"
@@ -407,9 +451,65 @@ function TicketPurchase() {
                                                     </div>
                                                     <div className="col-lg-6 col-md-6 col-sm-12">
                                                         <div className="form-group">
-                                                            <lable>Do you consent to receive updates and notifications
-                                                                about the conference via email? *
-                                                            </lable>
+                                                            <label>Dietary Preferences *</label>
+                                                            <div className="form-check">
+                                                                <input className="form-check-input" type="radio"
+                                                                       name="dietary" id="flexRadioDefault1"
+                                                                       checked={dietary === "Vegetarian"}
+                                                                       onChange={() => setDietary("Vegetarian")}/>
+                                                                <label className="form-check-label"
+                                                                       htmlFor="flexRadioDefault1">
+                                                                    Vegetarian
+                                                                </label>
+                                                            </div>
+                                                            <div className="form-check">
+                                                                <input className="form-check-input" type="radio"
+                                                                       name="dietary" id="flexRadioDefault1"
+                                                                       checked={dietary === "Non-Vegetarian"}
+                                                                       onChange={() => setDietary("Non-Vegetarian")}/>
+                                                                <label className="form-check-label"
+                                                                       htmlFor="flexRadioDefault1">
+                                                                    Non-Vegetarian
+                                                                </label>
+                                                            </div>
+                                                            <div className="form-check">
+                                                                <input className="form-check-input" type="radio"
+                                                                       name="dietary" id="flexRadioDefault1"
+                                                                       checked={dietary === "Vegan"}
+                                                                       onChange={() => setDietary("Vegan")}/>
+                                                                <label className="form-check-label"
+                                                                       htmlFor="flexRadioDefault1">
+                                                                    Vegan
+                                                                </label>
+                                                            </div>
+                                                            <div className="form-check">
+                                                                <input className="form-check-input" type="radio"
+                                                                       name="dietary" id="flexRadioDefault1"
+                                                                       checked={dietary === "Not applicable"}
+                                                                       onChange={() => setDietary("Not applicable")}/>
+                                                                <label className="form-check-label"
+                                                                       htmlFor="flexRadioDefault1">
+                                                                    Not applicable
+                                                                </label>
+                                                            </div>
+                                                            <div className="form-check">
+                                                                <input className="form-check-input" type="radio"
+                                                                       name="dietary" id="flexRadioDefault1"
+                                                                       checked={dietary === "Other"}
+                                                                       onChange={() => setDietary("Other")}/>
+                                                                <label className="form-check-label"
+                                                                       htmlFor="flexRadioDefault1">
+                                                                    Other
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div className="col-lg-6 col-md-6 col-sm-12">
+                                                        <div className="form-group">
+                                                            <label>Do you consent to receive updates and notifications
+                                                                about the conference via email? *</label>
                                                             <div className="form-check">
                                                                 <input className="form-check-input" type="radio"
                                                                        name="notification" id="flexRadioDefault1"
