@@ -20,7 +20,7 @@ function Banner () {
         } else if (password.length === 0) {
             alert("Password has left Blank!");
         } else {
-            const url = 'https://regtoiletconference.org/api/register_user.php';
+            const url = '/api/register_user.php';
             let fData = new FormData();
             fData.append('name', name);
             fData.append('number', number);

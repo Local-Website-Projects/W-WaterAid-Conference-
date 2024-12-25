@@ -22,7 +22,7 @@ function Profile() {
             }
 
             try {
-                const response = await axios.get("https://regtoiletconference.org/api/fetch_profile.php", {
+                const response = await axios.get("/api/fetch_profile.php", {
                     headers: {
                         "Authorization": `Bearer ${token}`,
                     },
@@ -54,17 +54,17 @@ function Profile() {
     }, [navigate]);
 
 
-    const sendEmail = () => {
+    const sendEmail = async () => {
         const token = localStorage.getItem("userToken");
         try {
-            const response = axios.get("https://conference.frogbid.com/api/send_email.php", {
+            const response = await axios.get("/api/send_email.php", {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                 },
             });
 
             if (response.data.status === "success") {
-               alert('Please check your email and verify your account.');
+               alert('Please check your email and verify your account!');
             } else {
                 setError(response.data.message || "Failed to fetch profile.");
             }

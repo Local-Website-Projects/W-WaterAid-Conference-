@@ -44,7 +44,7 @@ function TicketPurchase() {
         } else if (notification.length === 0) {
             alert("Notification has left Blank!");
         } else {
-            const url = 'https://regtoiletconference.org/api/purchase_ticket.php';
+            const url = '/api/purchase_ticket.php';
             let fData = new FormData();
             fData.append('nationality', nationality);
             fData.append('city', city);
@@ -84,7 +84,7 @@ function TicketPurchase() {
             }*/
 
             try {
-                const response = await axios.get("https://conference.frogbid.com/api/fetch_profile.php", {
+                const response = await axios.get("/api/fetch_profile.php", {
                     headers: {
                         "Authorization": `Bearer ${token}` // Send token as a Bearer token
                     }
