@@ -1,17 +1,16 @@
 import React, {useEffect, useState} from "react";
-import axios from "axios";
 import {Link, useNavigate} from "react-router-dom";
 import Footer from "../Components/footer";
+import axios from "axios";
 
-function Profile() {
+function Terms () {
     const [user_id, setUserId] = useState("");
     const [emailStatus, setEmailStatus] = useState("");
     const [studentStatus, setStudentStatus] = useState("");
     const [studentVerification, setStudentVerification] = useState("");
     const [userName, setUserName] = useState("");
     const [error, setError] = useState("");
-    const navigate = useNavigate(); // Initialize navigate
-
+    const navigate = useNavigate();
     useEffect(() => {
         const fetchSessionData = async () => {
             const token = localStorage.getItem("userToken");
@@ -52,28 +51,6 @@ function Profile() {
         // Clear interval on component unmount
         return () => clearInterval(interval);
     }, [navigate]);
-
-
-    const sendEmail = async () => {
-        const token = localStorage.getItem("userToken");
-        try {
-            const response = await axios.get("/api/send_email.php", {
-                headers: {
-                    "Authorization": `Bearer ${token}`,
-                },
-            });
-
-            if (response.data.status === "success") {
-               alert('Please check your email and verify your account!');
-            } else {
-                setError(response.data.message || "Failed to fetch profile.");
-            }
-        } catch (err) {
-            setError("Email verification failed!");
-            console.error(err);
-        }
-    }
-
     return (
         <div>
             <div className="main-container">
@@ -121,7 +98,7 @@ function Profile() {
                                     <div className="section-title text-center">
                                         <h2>Hi, {userName}</h2>
                                         <ol className="breadcrumb">
-                                            <li>Information Page</li>
+                                            <li>Terms & Conditions</li>
                                         </ol>
                                     </div>
                                 </div>
@@ -130,44 +107,49 @@ function Profile() {
                     </div>
                 </div>
 
-                <div className="container mt-3 mb-3">
-                    <div className="row">
-                        {emailStatus == 0 ? (
-                            <div className="col-12">
-                                <div className="alert alert-warning" role="alert">
-                                    Please click{" "}
-                                    <Link
-                                        to=""
-                                        onClick={sendEmail}
-                                        className="alert-link"
-                                    >
-                                        here
-                                    </Link>{" "}
-                                    to verify your email.
+                <div className="pricing-tables-area bg-color pad100">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12">
+                                <div className="section-title text-center">
+                                    <div className="title-text mb50">
+                                        <h2>Terms & Conditions</h2>
+                                    </div>
                                 </div>
                             </div>
-                        ) : (
-                            <div></div>
-                        )}
-
-                        {studentVerification == 0 && studentStatus == 1 ? (
-                            <div className="col-12">
-                                <div className="alert alert-warning" role="alert">
-                                    Are you a student? Please click <a href="#" className="alert-link">here</a> to
-                                    verify your
-                                    studentship.
-                                </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                <p>By registering for the Toilet Conference 2025, you agree to the following terms and conditions:</p>
+                                <p>1. Registration is confirmed only upon the completion of full payment.</p>
+                                <p>2. WaterAid Bangladesh reserves the right to refuse or cancel registrations under specific circumstances</p>
+                                <p>3. The Conference dates are subject to change in the event of unforeseen circumstances, including but not limited to political unrest or natural disasters in Bangladesh.</p>
+                                <p>4. If the event is postponed, all registrations will remain valid for the rescheduled dates, and further updates will be informed.</p>
+                                <p>5. In case of cancellation, participants will be informed promptly, and further instructions will be provided.</p>
+                                <p>6. All participants are expected to behave respectfully towards fellow attendees, speakers, and organizers, maintaining professional decorum at all times.</p>
+                                <p>7. Harassment, discrimination, or any behavior that disrupts the conference environment is strictly prohibited.</p>
+                                <p>8. The Conference Secretariat reserves the right to remove any participant violating these terms and conditions without refund of registration fee.</p>
+                                <p>9. By participating in the Conference, you consent to photography, videography, and audio recording by the conference organisers and its partners.</p>
+                                <p>10. Your image, video, or audio may be used in promotional materials, reports, and digital content in accordance with Conference Secretariat’s content usage policies.</p>
+                                <p>11. Any requests to access, modify, or delete your personal information can be directed to [wateraidbangladesh@wateraid.org].</p>
+                                <p>12. WaterAid Bangladesh complies with GDPR/ UK Privacy Act, and Bangladesh ICT Act (2018), ensuring your personal data is stored securely and used only for Conference-related purposes.</p>
+                                <p>13. All registration fees are non-refundable.</p>
+                                <p>14. WaterAid Bangladesh is not liable for any personal injury, loss, or damage to property during the Conference.</p>
+                                <p>15. Participants are responsible for arranging their own travel, accommodation, and personal insurance, unless otherwise determined by the Conference Secretariat.</p>
+                                <p>16. All materials presented at the Conference, including but not limited to presentations, handouts, and session recordings, remain the intellectual property of the respective authors or Conference Secretariat.</p>
+                                <p>17. Redistribution or unauthorized use of Conference materials without explicit permission is prohibited.</p>
+                                <p>18. Conference Secretariat reserves the right to update or amend these terms and conditions at any time.</p>
+                                <p>19. Any updates will be communicated to participants via email and the official conference website.</p>
+                                <p>By completing your registration, you confirm that you have read, understood, and agree to these terms and conditions.</p>
                             </div>
-                        ) : (
-                            <div></div>
-                        )}
+                        </div>
                     </div>
                 </div>
 
                 <Footer/>
             </div>
         </div>
-    );
+    )
 }
 
-export default Profile;
+export default Terms

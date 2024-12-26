@@ -533,6 +533,19 @@ function TicketPurchase() {
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div className="col-lg-12 col-md-12 col-sm-12">
+                                                        <div className="form-check">
+                                                            <input className="form-check-input" type="checkbox" required={true}
+                                                                   name="terms" id="flexRadioDefault2"/>
+                                                            <label className="form-check-label"
+                                                                   htmlFor="flexRadioDefault2">
+                                                                I have agreed to the <a href="/Terms" target="_blank"
+                                                                                        rel="noopener noreferrer">
+                                                                Terms & Conditions
+                                                            </a>
+                                                            </label>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div className="btn-2">
                                                     <button className="btn-primary" name="submit-form"

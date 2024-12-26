@@ -1362,9 +1362,9 @@ button.btn-primary {
 }
 
 .event-schedule-area-two .tab-content .table tbody tr th .event-date span {
-    font-size: 50px;
+    font-size: 35px;
     line-height: 50px;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 .event-schedule-area-two .tab-content .table tbody tr td {
