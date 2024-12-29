@@ -10,7 +10,7 @@ function Header() {
                         <div className="col-lg-2">
                             <div className="brand-logo">
                                 <a className="eventex-brand" href="#"><img src="assets/img/logo/logo.png"
-                                                                                      alt="" width='100px'/></a>
+                                                                                      alt="" width='200px'/></a>
                             </div>
                         </div>
                         <div className="col-lg-8">

@@ -52,14 +52,14 @@ body {
 }
 
 ::-moz-selection {
-    background: #4ca36a;
+    background: #29a9e1;
     color: #fff;
     text-shadow: none;
     outline: none;
 }
 
 ::selection {
-    background: #4ca36a;
+    background: #29a9e1;
     color: #fff;
     text-shadow: none;
     outline: none;
@@ -85,8 +85,8 @@ ul {
     border-radius: 28px;
     display: inline-block;
     text-transform: capitalize;
-    border-color: #4ca36a;
-    background-color: #4ca36a;
+    border-color: #29a9e1;
+    background-color: #29a9e1;
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
     transition: all 0.4s;
@@ -95,8 +95,8 @@ ul {
 .primary-btn a.btn-primary:focus, .primary-btn a.btn-primary:active {
     -webkit-box-shadow: none;
     box-shadow: none;
-    background-color: #4ca36a !important;
-    border-color: #4ca36a !important;
+    background-color: #29a9e1 !important;
+    border-color: #29a9e1 !important;
 }
 
 .primary-btn a.btn-primary:hover {
@@ -116,8 +116,8 @@ ul {
 }
 
 .bordered-btn a:hover {
-    background: #4ca36a;
-    border-color: #4ca36a;
+    background: #29a9e1;
+    border-color: #29a9e1;
     color: #fff;
 }
 
@@ -142,7 +142,7 @@ ul {
     content: "";
     height: 3px;
     width: 50px;
-    background: #4ca36a;
+    background: #29a9e1;
 }
 
 /*price-slider*/
@@ -158,7 +158,7 @@ ul {
 .ui-button,
 html .ui-button.ui-state-disabled:hover,
 html .ui-button.ui-state-disabled:active {
-    background: #4ca36a;
+    background: #29a9e1;
     border: medium none;
     border-radius: 100%;
     color: transparent;
@@ -169,7 +169,7 @@ html .ui-button.ui-state-disabled:active {
 }
 
 .ui-slider-horizontal .ui-slider-range {
-    background: #4ca36a;
+    background: #29a9e1;
     border: medium none;
     height: 100%;
     top: 0;
@@ -182,7 +182,7 @@ html .ui-button.ui-state-disabled:active {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #4ca36a;
+    background-color: #29a9e1;
     margin: auto;
     z-index: 9999;
 }
@@ -561,7 +561,7 @@ a:focus {
 }
 
 .bg-color-brand {
-    background: #4ca36a;
+    background: #29a9e1;
 }
 
 .parallax {
@@ -836,7 +836,7 @@ a:focus {
 }
 
 .header .navbar-nav .dropdown-menu li a:hover {
-    background-color: #4ca36a;
+    background-color: #29a9e1;
 }
 
 .header ul li.header-ticket {
@@ -878,7 +878,7 @@ a:focus {
 }
 
 .base-style-2 .navbar-nav li.active > a:before {
-    background: #4ca36a;
+    background: #29a9e1;
 }
 
 .base-style-2 .navbar-nav .nav-link {
@@ -888,7 +888,7 @@ a:focus {
 .base-style-2 ul li.header-ticket a {
     background: transparent;
     color: #000000;
-    border: 2px solid #4ca36a;
+    border: 2px solid #29a9e1;
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
     transition: all 0.4s;
@@ -968,13 +968,13 @@ a:focus {
     font-size: 70px;
     font-weight: 700;
     line-height: 70px;
-    color: #4ca36a;
+    color: #29a9e1;
     text-align: center;
     background: transparent;
 }
 
 .hero-banner-area.home-2 .upcoming div .cdown p {
-    color: #4ca36a;
+    color: #29a9e1;
     display: block;
     font-weight: 600;
     margin-bottom: 0;
@@ -1113,7 +1113,7 @@ a:focus {
 .home-4 .contact-box .inner-content input.form-control:focus {
     -webkit-box-shadow: none;
     box-shadow: none;
-    border-color: #4ca36a;
+    border-color: #29a9e1;
 }
 
 .home-4 .contact-box .inner-content button {
@@ -1121,7 +1121,7 @@ a:focus {
 }
 
 button.btn-primary {
-    background-color: #4ca36a;
+    background-color: #29a9e1;
     border-color: #fff;
     border: 0;
     padding: 15px 25px;
@@ -1217,7 +1217,7 @@ button.btn-primary {
 }
 
 .event-schedule-area .tab-area .nav-item .nav-link.active {
-    color: #4ca36a;
+    color: #29a9e1;
     background-color: transparent;
 }
 
@@ -1252,7 +1252,7 @@ button.btn-primary {
 
 .event-schedule-area .tab-area .tab-content .table tbody th span,
 .event-schedule-area .tab-area .tab-content .table tbody td span {
-    color: #4ca36a;
+    color: #29a9e1;
     font-size: 18px;
     text-transform: uppercase;
     margin-bottom: 6px;
@@ -1309,7 +1309,7 @@ button.btn-primary {
     left: 0;
     bottom: 0;
     content: "";
-    background: #4ca36a;
+    background: #29a9e1;
     width: 0;
     height: 2px;
     -webkit-transition: all 0.4s;
@@ -1318,7 +1318,7 @@ button.btn-primary {
 }
 
 .event-schedule-area-two ul.custom-tab li a.active {
-    color: #4ca36a;
+    color: #29a9e1;
 }
 
 .event-schedule-area-two .primary-btn {
@@ -1386,7 +1386,7 @@ button.btn-primary {
 }
 
 .event-schedule-area-two .tab-content .table tbody tr td .event-wrap h3 a:hover {
-    color: #4ca36a;
+    color: #29a9e1;
 }
 
 .event-schedule-area-two .tab-content .table tbody tr td .event-wrap .categories {
@@ -1423,7 +1423,7 @@ button.btn-primary {
 }
 
 .event-schedule-area-two .tab-content .table tbody tr td .event-wrap .organizers a {
-    color: #4ca36a;
+    color: #29a9e1;
     font-size: 16px;
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
@@ -1431,7 +1431,7 @@ button.btn-primary {
 }
 
 .event-schedule-area-two .tab-content .table tbody tr td .event-wrap .organizers a:hover {
-    color: #4ca36a;
+    color: #29a9e1;
 }
 
 .event-schedule-area-two .tab-content .table tbody tr td .event-wrap .organizers a:before {
@@ -1617,7 +1617,7 @@ button.btn-primary {
 }
 
 .whos-speaking-area .speakers .spk-info h3:hover {
-    color: #4ca36a;
+    color: #29a9e1;
 }
 
 .whos-speaking-area .speakers .spk-info p {
@@ -1720,7 +1720,7 @@ button.btn-primary {
     position: relative;
     height: 130px;
     width: 100%;
-    background: #4ca36a;
+    background: #29a9e1;
 }
 
 .pricing-tables-area .pricing-bg:hover {
@@ -1767,7 +1767,7 @@ button.btn-primary {
 }
 
 .pricing-tables-area .pricing-box .pricing-header .price-value {
-    color: #4ca36a;
+    color: #29a9e1;
     font-size: 50px;
     line-height: 50px;
     font-weight: 600;
@@ -1832,7 +1832,7 @@ button.btn-primary {
 }
 
 .pricing-tables-area.event-schedule .pricing-content span.time {
-    color: #4ca36a;
+    color: #29a9e1;
     font-size: 18px;
     font-weight: 500;
     display: block;
@@ -1840,7 +1840,7 @@ button.btn-primary {
 }
 
 .pricing-tables-area.event-schedule .pricing-content span {
-    color: #4ca36a;
+    color: #29a9e1;
     font-size: 18px;
     font-weight: 500;
 }
@@ -1894,7 +1894,7 @@ button.btn-primary {
 }
 
 .our-sponsers-area-tow .sponsers-active .owl-nav div:hover {
-    background: #4ca36a;
+    background: #29a9e1;
 }
 
 .our-sponsers-area-tow .sponsers-active .owl-nav div.owl-next {
@@ -1964,7 +1964,7 @@ button.btn-primary {
 }
 
 .our-blog-area .single-blog .blog-content a h3:hover {
-    color: #4ca36a;
+    color: #29a9e1;
 }
 
 .our-blog-area .single-blog .blog-content p {
@@ -1988,7 +1988,7 @@ button.btn-primary {
 }
 
 .our-blog-area .single-blog .blog-content .date ul li span i.fa:hover {
-    color: #4ca36a;
+    color: #29a9e1;
 }
 
 .our-blog-area .owl-theme .owl-nav {
@@ -2011,7 +2011,7 @@ button.btn-primary {
 }
 
 .our-blog-area .owl-theme .owl-nav div:hover {
-    background: #4ca36a;
+    background: #29a9e1;
 }
 
 .our-blog-area .owl-theme .owl-nav .owl-next {
@@ -2082,7 +2082,7 @@ button.btn-primary {
 .contact-us-area .inner-contact form .form-control:focus {
     -webkit-box-shadow: none;
     box-shadow: none;
-    border-color: #4ca36a;
+    border-color: #29a9e1;
 }
 
 .contact-us-area .inner-contact textarea {
@@ -2102,7 +2102,7 @@ button.btn-primary {
     border: none;
     padding: 15px 25px;
     border-radius: 28px;
-    background: #4ca36a;
+    background: #29a9e1;
     color: #fff;
     cursor: pointer;
     outline: none;
@@ -2119,7 +2119,7 @@ button.btn-primary {
 .contact-us-area .inner-contact button.btn-primary:focus {
     -webkit-box-shadow: none;
     box-shadow: none;
-    border-color: #4ca36a;
+    border-color: #29a9e1;
 }
 
 .contact-us-area-two .title-text h2 {
@@ -2147,7 +2147,7 @@ button.btn-primary {
 .contact-us-area-two .inner-box form input.form-control:focus {
     -webkit-box-shadow: none;
     box-shadow: none;
-    border-color: #4ca36a;
+    border-color: #29a9e1;
 }
 
 .contact-us-area-two .inner-box form textarea.form-control {
@@ -2161,7 +2161,7 @@ button.btn-primary {
 .contact-us-area-two .inner-box form textarea.form-control:focus {
     -webkit-box-shadow: none;
     box-shadow: none;
-    border-color: #4ca36a;
+    border-color: #29a9e1;
 }
 
 .contact-us-area-two .inner-box button {
@@ -2173,7 +2173,7 @@ button.btn-primary {
     border: none;
     padding: 15px 25px;
     border-radius: 50px;
-    background: #4ca36a;
+    background: #29a9e1;
     color: #fff;
     cursor: pointer;
     outline: none;
@@ -2221,7 +2221,7 @@ button.btn-primary {
 .contact-area .contact-form input.form-control:focus {
     -webkit-box-shadow: none;
     box-shadow: none;
-    border: 1px solid #4ca36a;
+    border: 1px solid #29a9e1;
 }
 
 .contact-area .contact-form textarea {
@@ -2234,7 +2234,7 @@ button.btn-primary {
 .contact-area .contact-form textarea:focus {
     -webkit-box-shadow: none;
     box-shadow: none;
-    border: 1px solid #4ca36a;
+    border: 1px solid #29a9e1;
 }
 
 .contact-area .contact-form .btn-2 {
@@ -2246,7 +2246,7 @@ button.btn-primary {
     border: none;
     padding: 15px 25px;
     border-radius: 50px;
-    background: #4ca36a;
+    background: #29a9e1;
     color: #fff;
     cursor: pointer;
     outline: none;
@@ -2278,7 +2278,7 @@ button.btn-primary {
 }
 
 .contact-area .inner-box .inner-content i.fa {
-    color: #4ca36a;
+    color: #29a9e1;
     font-size: 25px;
     margin-right: 15px;
 }
@@ -2300,7 +2300,7 @@ button.btn-primary {
 }
 
 .feature-area .feature-box .sinlge-feature:hover .feature-content a h3 {
-    color: #4ca36a;
+    color: #29a9e1;
 }
 
 .feature-area .feature-box .sinlge-feature .feature-icon img {
@@ -2356,7 +2356,7 @@ button.btn-primary {
 
 .footer-area .f-content .inner-content .f-icon i.fa {
     font-size: 30px;
-    color: #4ca36a;
+    color: #29a9e1;
     margin-right: 15px;
 }
 
@@ -2389,9 +2389,9 @@ button.btn-primary {
 }
 
 .footer-area .f-content .sub-btn button {
-    background: #4ca36a;
+    background: #29a9e1;
     border: none;
-    border: 1px solid #4ca36a;
+    border: 1px solid #29a9e1;
     outline: none;
     padding: 15px 25px 15px;
     border-radius: 28px;
@@ -2452,7 +2452,7 @@ button.btn-primary {
 }
 
 .footer-area .copyright em i.fa {
-    color: #4ca36a;
+    color: #29a9e1;
 }
 
 .footer-area .copyright a {
@@ -2590,7 +2590,7 @@ button.btn-primary {
     content: "";
     height: 3px;
     width: 50px;
-    background: #4ca36a;
+    background: #29a9e1;
 }
 
 .conference-area .inner-content {
@@ -2612,7 +2612,7 @@ button.btn-primary {
 }
 
 .conference-area .read-more-btn a:hover {
-    color: #4ca36a;
+    color: #29a9e1;
 }
 
 .conference-area .conference-active .owl-theme.owl-nav {
@@ -2685,7 +2685,7 @@ button.btn-primary {
     position: absolute;
     right: 33%;
     top: 24%;
-    color: #4ca36a;
+    color: #29a9e1;
     font-size: 50px;
     content: "\f10e";
     font-family: fontawesome;
@@ -2815,7 +2815,7 @@ button.btn-primary {
 }
 
 .speakers-single-area .inner-content .social-icon ul li a i.fa:hover {
-    color: #4ca36a;
+    color: #29a9e1;
 }
 
 /*5.6 Blgo Page Start*/
@@ -2926,7 +2926,7 @@ button.btn-primary {
 }
 
 .blog-single .left-sidebar .sidebar-widget .popular-tag ul li a:hover {
-    background: #4ca36a;
+    background: #29a9e1;
     color: #fff;
 }
 
@@ -2971,7 +2971,7 @@ button.btn-primary {
 }
 
 .blog-single .content-side .inner-box .lower-box .post-info ul li a {
-    color: #4ca36a;
+    color: #29a9e1;
 }
 
 .blog-single .pagination {
@@ -3000,7 +3000,7 @@ button.btn-primary {
 }
 
 .blog-single .pagination ul li a:hover {
-    background: #4ca36a;
+    background: #29a9e1;
     color: #fff;
 }
 
@@ -3067,7 +3067,7 @@ button.btn-primary {
 }
 
 .product-area .single-product .cart-box:hover .cart-element a:hover {
-    background: #4ca36a;
+    background: #29a9e1;
     color: #fff;
 }
 
