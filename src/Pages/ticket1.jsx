@@ -3,7 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import Footer from "../Components/footer";
 
-function TicketPurchase() {
+function TicketPurchase1() {
     const navigate = useNavigate();
     const [phone, setPhone] = useState("");
     const [city, setCity] = useState("");
@@ -179,7 +179,7 @@ function TicketPurchase() {
                                     <a className="nav-link active" id="home-taThursday" href="#home">General information</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile">Professional/Academic Information</a>
+                                    <a className="nav-link active" id="profile-tab" data-toggle="tab" href="#profile">Professional/Academic Information</a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" id="contact-tab" data-toggle="tab" href="#contact">Visa Invitation</a>
@@ -419,4 +419,4 @@ function TicketPurchase() {
     );
 }
 
-export default TicketPurchase
+export default TicketPurchase1

@@ -7,6 +7,7 @@ import TicketPurchase from "./Pages/ticketPurchase";
 import Logout from "./Pages/logout";
 import Landing from "./Pages/landing";
 import Terms from "./Pages/terms";
+import TicketPurchase1 from "./Pages/ticket1";
 function App() {
   return (
       <div className="App">
@@ -26,6 +27,7 @@ function App() {
                   <Route path='/Login' element={<Login/>}/>
                   <Route path='/Profile' element={<Profile/>}/>
                   <Route path='/Ticket' element={<TicketPurchase/>}/>
+                  <Route path='/Ticket-1' element={<TicketPurchase1/>}/>
                   <Route path='/Terms' element={<Terms/>}/>
                   <Route path='/Logout' element={<Logout/>}/>
               </Routes>
