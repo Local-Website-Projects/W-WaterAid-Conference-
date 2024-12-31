@@ -3,7 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import Footer from "../Components/footer";
 
-function TicketPurchase1() {
+function Step6 () {
     const navigate = useNavigate();
     const [flag, setFlag] = useState("2");
     const [student, setStudent] = useState("");
@@ -186,16 +186,16 @@ function TicketPurchase1() {
                                     <a className="nav-link active" id="profile-tab" data-toggle="tab" href="#profile">Professional/Academic Information</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" id="contact-tab" data-toggle="tab" href="#contact">Visa Invitation</a>
+                                    <a className="nav-link active" id="contact-tab" data-toggle="tab" href="#contact">Visa Invitation</a>
                                 </li>
                                 <li className="nav-item d-none d-lg-block">
-                                    <a className="nav-link" id="sunday-tab" data-toggle="tab" href="#sunday">Requirements</a>
+                                    <a className="nav-link active" id="sunday-tab" data-toggle="tab" href="#sunday">Requirements</a>
                                 </li>
                                 <li className="nav-item mr-0 d-none d-lg-block">
-                                    <a className="nav-link" id="monday-tab" data-toggle="tab" href="#monday">Technical Tour</a>
+                                    <a className="nav-link active" id="monday-tab" data-toggle="tab" href="#monday">Technical Tour</a>
                                 </li>
                                 <li className="nav-item mr-0 d-none d-lg-block">
-                                    <a className="nav-link" id="monday-tab-2" data-toggle="tab" href="#monday">Notifications</a>
+                                    <a className="nav-link active" id="monday-tab-2" data-toggle="tab" href="#monday">Notifications</a>
                                 </li>
                             </ul>
                         </div>
@@ -208,7 +208,7 @@ function TicketPurchase1() {
                                                   onSubmit={handleTicket}>
                                                 <div className="col-12">
                                                     <div className="form-group">
-                                                        <label>Are you a student? *</label>
+                                                        <label>Do you consent to receive updates and notifications about the conference via email? *</label>
                                                         <div className="form-check">
                                                             <input
                                                                 className="form-check-input"
@@ -237,66 +237,6 @@ function TicketPurchase1() {
                                                                 No
                                                             </label>
                                                         </div>
-                                                        {student === "Yes" && (
-                                                            <>
-                                                                <div className="mt-3">
-                                                                    <label htmlFor="otherGenderInput">Name of
-                                                                        institution</label>
-                                                                    <br></br><small>e.g., BRAC University</small>
-                                                                    <input
-                                                                        type="text"
-                                                                        id="otherGenderInput"
-                                                                        className="form-control"
-                                                                        value={otherInput}
-                                                                        onChange={handleOtherInputChange}
-                                                                        required={student === "Yes"}
-                                                                    />
-                                                                </div>
-                                                                <div className="col-12">
-                                                                <div className="form-group">
-                                                                    <label htmlFor="fileUpload">Upload scanned copy of
-                                                                        student ID card</label>
-                                                                    <input
-                                                                        type="file"
-                                                                        id="fileUpload"
-                                                                        className="form-control pt-3"
-                                                                        onChange={handleFileChange}
-                                                                        required={student === "Yes"}
-                                                                    />
-                                                                </div>
-                                                            </div>
-                                                            </>
-
-                                                        )}
-                                                        {student === "No" && (
-                                                            <>
-                                                                <div className="mt-3">
-                                                                    <label htmlFor="otherGenderInput">Name of affiliated
-                                                                        organization</label>
-                                                                    <br></br><small>e.g., WaterAid Bangladesh</small>
-                                                                    <input
-                                                                        type="text"
-                                                                        id="otherGenderInput"
-                                                                        className="form-control"
-                                                                        value={otherInput}
-                                                                        onChange={handleOtherInputChange}
-                                                                        required={student === "No"}
-                                                                    />
-                                                                </div>
-                                                                <div className="mt-3">
-                                                            <label htmlFor="otherGenderInput">Designation</label>
-                                                                <br></br><small>e.g., Associate Officer</small>
-                                                            <input
-                                                            type="text"
-                                                            id="otherGenderInput"
-                                                            className="form-control"
-                                                            value={otherInput}
-                                                            onChange={handleOtherInputChange}
-                                                            required={student === "No"}
-                                                    />
-                                                </div>
-                                                            </>
-                                                        )}
                                                     </div>
                                                 </div>
 
@@ -320,4 +260,4 @@ function TicketPurchase1() {
     );
 }
 
-export default TicketPurchase1
+export default Step6

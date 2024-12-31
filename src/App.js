@@ -8,6 +8,10 @@ import Logout from "./Pages/logout";
 import Landing from "./Pages/landing";
 import Terms from "./Pages/terms";
 import TicketPurchase1 from "./Pages/ticket1";
+import Step3 from "./Pages/step3";
+import Step4 from "./Pages/step4";
+import Step5 from "./Pages/step5";
+import Step6 from "./Pages/step6";
 function App() {
   return (
       <div className="App">
@@ -27,7 +31,11 @@ function App() {
                   <Route path='/Login' element={<Login/>}/>
                   <Route path='/Profile' element={<Profile/>}/>
                   <Route path='/Ticket' element={<TicketPurchase/>}/>
-                  <Route path='/Ticket-1' element={<TicketPurchase1/>}/>
+                  <Route path='/Second-Step' element={<TicketPurchase1/>}/>
+                  <Route path='/Third-Step' element={<Step3/>}/>
+                  <Route path='/Fourth-Step' element={<Step4/>}/>
+                  <Route path='/Fifth-Step' element={<Step5/>}/>
+                  <Route path='/Sixth-Step' element={<Step6/>}/>
                   <Route path='/Terms' element={<Terms/>}/>
                   <Route path='/Logout' element={<Logout/>}/>
               </Routes>

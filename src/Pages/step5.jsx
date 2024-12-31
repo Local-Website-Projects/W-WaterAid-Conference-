@@ -3,7 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import Footer from "../Components/footer";
 
-function TicketPurchase1() {
+function Step5 () {
     const navigate = useNavigate();
     const [flag, setFlag] = useState("2");
     const [student, setStudent] = useState("");
@@ -186,13 +186,13 @@ function TicketPurchase1() {
                                     <a className="nav-link active" id="profile-tab" data-toggle="tab" href="#profile">Professional/Academic Information</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" id="contact-tab" data-toggle="tab" href="#contact">Visa Invitation</a>
+                                    <a className="nav-link active" id="contact-tab" data-toggle="tab" href="#contact">Visa Invitation</a>
                                 </li>
                                 <li className="nav-item d-none d-lg-block">
-                                    <a className="nav-link" id="sunday-tab" data-toggle="tab" href="#sunday">Requirements</a>
+                                    <a className="nav-link active" id="sunday-tab" data-toggle="tab" href="#sunday">Requirements</a>
                                 </li>
                                 <li className="nav-item mr-0 d-none d-lg-block">
-                                    <a className="nav-link" id="monday-tab" data-toggle="tab" href="#monday">Technical Tour</a>
+                                    <a className="nav-link active" id="monday-tab" data-toggle="tab" href="#monday">Technical Tour</a>
                                 </li>
                                 <li className="nav-item mr-0 d-none d-lg-block">
                                     <a className="nav-link" id="monday-tab-2" data-toggle="tab" href="#monday">Notifications</a>
@@ -208,7 +208,7 @@ function TicketPurchase1() {
                                                   onSubmit={handleTicket}>
                                                 <div className="col-12">
                                                     <div className="form-group">
-                                                        <label>Are you a student? *</label>
+                                                        <label>Do you want to take any technical tour? *</label>
                                                         <div className="form-check">
                                                             <input
                                                                 className="form-check-input"
@@ -239,62 +239,56 @@ function TicketPurchase1() {
                                                         </div>
                                                         {student === "Yes" && (
                                                             <>
-                                                                <div className="mt-3">
-                                                                    <label htmlFor="otherGenderInput">Name of
-                                                                        institution</label>
-                                                                    <br></br><small>e.g., BRAC University</small>
-                                                                    <input
-                                                                        type="text"
-                                                                        id="otherGenderInput"
-                                                                        className="form-control"
-                                                                        value={otherInput}
-                                                                        onChange={handleOtherInputChange}
-                                                                        required={student === "Yes"}
-                                                                    />
+                                                                <div className="form-check mt-3">
+                                                                    <input className="form-check-input" type="checkbox"
+                                                                           name="terms" id="flexRadioDefault2"/>
+                                                                    <label className="form-check-label"
+                                                                           htmlFor="flexRadioDefault2">
+                                                                        Pre conference technical tour – Dasherkandi
+                                                                    </label>
+                                                                    <br></br><small>Dhaka, Bangladesh<br></br>
+                                                                    24 February 2025<br></br>
+                                                                    The Dasherkandi Sewage Treatment Plant has set
+                                                                    several records, including becoming the first and
+                                                                    the largest modern sewage treatment plant in
+                                                                    Bangladesh, the largest single sewage treatment
+                                                                    plant in South Asia, and the first modern sludge
+                                                                    drying-incineration in Bangladesh.
+                                                                </small>
                                                                 </div>
-                                                                <div className="col-12">
-                                                                <div className="form-group">
-                                                                    <label htmlFor="fileUpload">Upload scanned copy of
-                                                                        student ID card</label>
-                                                                    <input
-                                                                        type="file"
-                                                                        id="fileUpload"
-                                                                        className="form-control pt-3"
-                                                                        onChange={handleFileChange}
-                                                                        required={student === "Yes"}
-                                                                    />
+                                                                <div className="form-check mt-3">
+                                                                    <input className="form-check-input" type="checkbox"
+                                                                           name="terms" id="flexRadioDefault2"/>
+                                                                    <label className="form-check-label"
+                                                                           htmlFor="flexRadioDefault2">
+                                                                        Post conference technical tour - Munda Community
+                                                                    </label>
+                                                                    <br></br><small>Shatkhira, Bangladesh<br></br>
+                                                                    27 February 2025<br></br>
+                                                                    Visit the Munda community in Shatkhira to understand
+                                                                    the unique sanitation challenges faced by indigenous
+                                                                    communities. This tour will showcase WaterAid’s
+                                                                    initiatives to promote sustainable sanitation
+                                                                    practices and improve hygiene standards within the
+                                                                    Munda community. Participants will have the chance
+                                                                    to interact with community members, learn about
+                                                                    their traditional practices, and see firsthand the
+                                                                    positive changes brought about by targeted
+                                                                    sanitation interventions.
+                                                                </small>
                                                                 </div>
-                                                            </div>
-                                                            </>
-
-                                                        )}
-                                                        {student === "No" && (
-                                                            <>
-                                                                <div className="mt-3">
-                                                                    <label htmlFor="otherGenderInput">Name of affiliated
-                                                                        organization</label>
-                                                                    <br></br><small>e.g., WaterAid Bangladesh</small>
-                                                                    <input
-                                                                        type="text"
-                                                                        id="otherGenderInput"
-                                                                        className="form-control"
-                                                                        value={otherInput}
-                                                                        onChange={handleOtherInputChange}
-                                                                        required={student === "No"}
-                                                                    />
+                                                                <div className="form-check mt-3">
+                                                                    <input className="form-check-input" type="checkbox"
+                                                                           name="terms" id="flexRadioDefault2"/>
+                                                                    <label className="form-check-label"
+                                                                           htmlFor="flexRadioDefault2">
+                                                                        Faridpur technical tour
+                                                                    </label>
+                                                                    <br></br><small>Faridpur, Bangladesh<br></br>
+                                                                    To be confirmed<br></br>
+                                                                    Visit Faridpur and learn about the challenges, opportunities, needs and desired of sanitation workers from 6 regional towns across south west Bangladesh. This Sanitation Workers' Forum will place the voices of sanitation workers on the center stage. The field visit will hear from sanitation workers about Practical Action's Transformative Cooperative Model and SKATE Waste's private sanitation worker model. participants will also hear from independant sanitation workers who have not received any external support. Participants will visit the Faridpur feacal sludge treatment plant, and will ahve the opportunity to discuss with sanitation workers, muncipality leaders and Government leaders the next steps in improving the lives and livelihoods of sanitation workers.
+                                                                </small>
                                                                 </div>
-                                                                <div className="mt-3">
-                                                            <label htmlFor="otherGenderInput">Designation</label>
-                                                                <br></br><small>e.g., Associate Officer</small>
-                                                            <input
-                                                            type="text"
-                                                            id="otherGenderInput"
-                                                            className="form-control"
-                                                            value={otherInput}
-                                                            onChange={handleOtherInputChange}
-                                                            required={student === "No"}
-                                                    />
-                                                </div>
                                                             </>
                                                         )}
                                                     </div>
@@ -320,4 +314,4 @@ function TicketPurchase1() {
     );
 }
 
-export default TicketPurchase1
+export default Step5
