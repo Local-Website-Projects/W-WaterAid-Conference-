@@ -4,57 +4,10 @@ import Footer from "../Components/footer";
 import axios from "axios";
 
 function Terms () {
-    const [user_id, setUserId] = useState("");
-    const [emailStatus, setEmailStatus] = useState("");
-    const [studentStatus, setStudentStatus] = useState("");
-    const [studentVerification, setStudentVerification] = useState("");
-    const [userName, setUserName] = useState("");
-    const [error, setError] = useState("");
-    const navigate = useNavigate();
-    useEffect(() => {
-        const fetchSessionData = async () => {
-            const token = localStorage.getItem("userToken");
-
-            /*if (!token) {
-                setError("You are not logged in.");
-                return navigate("/Login"); // Redirect to login if no token
-            }*/
-
-            try {
-                const response = await axios.get("/api/fetch_profile.php", {
-                    headers: {
-                        "Authorization": `Bearer ${token}`,
-                    },
-                });
-
-                if (response.data.status === "success") {
-                    setUserId(response.data.user_id);
-                    setEmailStatus(response.data.emailStatus);
-                    setStudentStatus(response.data.studentStatus);
-                    setUserName(response.data.userName);
-                    setStudentVerification(response.data.studentVerification);
-                } else {
-                    setError(response.data.message || "Failed to fetch profile.");
-                }
-            } catch (err) {
-                setError("Failed to fetch session data");
-                console.error(err);
-            }
-        };
-
-        // Call the function initially
-        fetchSessionData();
-
-        // Set up polling
-        const interval = setInterval(fetchSessionData, 5000);
-
-        // Clear interval on component unmount
-        return () => clearInterval(interval);
-    }, [navigate]);
     return (
         <div>
             <div className="main-container">
-                <header className="header base-style-2 white-color">
+                <header className="header base-style-2 white-color pb-5">
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-2">
@@ -63,63 +16,15 @@ function Terms () {
                                         src="assets/img/logo/logo-3.png" alt=""/></a>
                                 </div>
                             </div>
-                            <div className="col-lg-8">
-                                <nav className="navbar navbar-expand-lg">
-                                    <button className="navbar-toggler" type="button" data-toggle="collapse"
-                                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                            aria-expanded="false" aria-label="Toggle navigation">
-                                        <span className="navbar-toggler-icon"><i className="fa fa-bars"></i></span>
-                                    </button>
-
-                                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                                        <ul className="navbar-nav ml-auto">
-                                            <li className="nav-item">
-                                                <Link className="nav-link" to="/Profile">Profile</Link>
-                                            </li>
-                                            <li className="nav-item">
-                                                <Link className="nav-link" to="/Ticket">Ticket Purchase </Link>
-                                            </li>
-                                            <li className="nav-item">
-                                                <Link className="nav-link" to="/Logout">Logout </Link>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </nav>
-                            </div>
                         </div>
                     </div>
                 </header>
 
-                <div className="about-us-area pad-head bg-about">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div className="about-content">
-                                    <div className="section-title text-center">
-                                        <h2>Hi, {userName}</h2>
-                                        <ol className="breadcrumb">
-                                            <li>Terms & Conditions</li>
-                                        </ol>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <div className="pricing-tables-area bg-color pad100">
                     <div className="container">
                         <div className="row">
-                            <div className="col-lg-12">
-                                <div className="section-title text-center">
-                                    <div className="title-text mb50">
-                                        <h2>Terms & Conditions</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row">
                             <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                <h4 className='mb-5'>Terms & Conditions</h4>
                                 <p>By registering for the Toilet Conference 2025, you agree to the following terms and conditions:</p>
                                 <p>1. Registration is confirmed only upon the completion of full payment.</p>
                                 <p>2. WaterAid Bangladesh reserves the right to refuse or cancel registrations under specific circumstances</p>
@@ -145,8 +50,6 @@ function Terms () {
                         </div>
                     </div>
                 </div>
-
-                <Footer/>
             </div>
         </div>
     )

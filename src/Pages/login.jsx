@@ -52,7 +52,7 @@ function Login() {
                     <div className="row">
                         <div className="col-lg-7 col-md-6 col-sm-5 d-none d-lg-block">
                             <div className="banner-content">
-                                <h1>Toilet</h1>
+                                <h1>Register <span style={{fontSize: '20px'}}>for</span> Toilet</h1>
                                 <h2>Conference 2025</h2>
                                 <p>Dhaka, Bangladesh | 25-26 February 2025</p>
                             </div>
@@ -60,7 +60,7 @@ function Login() {
                         <div className="col-lg-5">
                             <div className="contact-box">
                                 <div className="inner-content">
-                                    <h3>Guests Login</h3>
+                                    <h3>Login</h3>
                                     <form action="#" onSubmit={(e) => e.preventDefault()}>
                                         <div className="row">
                                             <div className="col-lg-12">
