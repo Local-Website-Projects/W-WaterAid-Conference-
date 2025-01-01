@@ -16,6 +16,7 @@ function Login() {
             setError("You are already logged in.");
             return navigate("/Profile");
         }
+
         if (!email || !password) {
             setErrorMessage("Both fields are required!");
             return;
@@ -32,9 +33,10 @@ function Login() {
 
             const result = await response.json();
 
-            if (response.ok) {
-                localStorage.setItem("userToken", result.token);  // Example token storage
-                navigate("/Profile");
+            // Handle the result based on the 'status' field from PHP
+            if (result.status === 'success') {
+                localStorage.setItem("userToken", result.token);  // Store token
+                navigate("/Ticket");
             } else {
                 setErrorMessage(result.message || "Login failed. Please try again.");
             }
@@ -61,7 +63,13 @@ function Login() {
                             <div className="contact-box">
                                 <div className="inner-content">
                                     <h3>Login</h3>
-                                    <form action="#" onSubmit={(e) => e.preventDefault()}>
+                                    <form
+                                        action="#"
+                                        onSubmit={(e) => {
+                                            e.preventDefault(); // Prevent default form submission
+                                            handleSubmit(); // Call your custom handleSubmit function
+                                        }}
+                                    >
                                         <div className="row">
                                             <div className="col-lg-12">
                                                 <label>Email</label>
@@ -92,10 +100,9 @@ function Login() {
                                             <div className="col-lg-12">
                                                 <button
                                                     className="btn-primary"
-                                                    type="button"
+                                                    type="submit"
                                                     name="submit"
                                                     id="submit"
-                                                    onClick={handleSubmit}
                                                 >
                                                     Log In
                                                 </button>

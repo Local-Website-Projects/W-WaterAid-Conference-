@@ -46,10 +46,10 @@ function Step3 () {
         const fetchSessionData = async () => {
             const token = localStorage.getItem("userToken");
 
-            /*if (!token) {
+            if (!token) {
                 setError("You are not logged in.");
                 return navigate("/Login"); // Redirect to login if no token
-            }*/
+            }
 
             try {
                 const response = await axios.get("/api/fetch_profile.php", {
@@ -209,7 +209,7 @@ function Step3 () {
                                                                         id="otherGenderInput"
                                                                         className="form-control"
                                                                         value={issueDate}
-                                                                        onChange={() => setIssueDate ()}
+                                                                        onChange={(e) => setIssueDate(e.target.value)}
                                                                         required={invitation === "Yes"}
                                                                     />
                                                                 </div>
@@ -222,7 +222,7 @@ function Step3 () {
                                                                         id="otherGenderInput"
                                                                         className="form-control"
                                                                         value={expireDate}
-                                                                        onChange={() => setExpireDate()}
+                                                                        onChange={(e) => setExpireDate(e.target.value)}
                                                                         required={invitation === "Yes"}
                                                                     />
                                                                 </div>
