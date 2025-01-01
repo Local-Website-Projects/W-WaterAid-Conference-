@@ -7,84 +7,33 @@ function TicketPurchase1() {
     const navigate = useNavigate();
     const [flag, setFlag] = useState("2");
     const [student, setStudent] = useState("");
-
-
-
-
-    const [phone, setPhone] = useState("");
-    const [city, setCity] = useState("");
-    const [nationality, setNationality] = useState("");
-    const [gender, setGender] = useState("");
-    const [otherInput, setOtherInput] = useState("");
-    const [birthYear, setBirthYear] = useState("");
-
-
+    const [userName, setUserName] = useState([]);
+    const [error, setError] = useState([]);
+    const [institution, setInstitution] = useState([]);
+    const [organization, setOrganization] = useState([]);
+    const [designation, setDesignation] = useState([]);
 
     const handleFileChange = (e) => {
         setFile(e.target.files[0]); // Capture the selected file
     };
 
-    const handleOtherInputChange = (e) => {
-        setOtherInput(e.target.value); // Update the "Other" input field
-    };
-    const [cities, setCities] = useState([]);
-
-    const [userName, setUserName] = useState([]);
-    const [error, setError] = useState([]);
-
-
     const [file, setFile] = useState(null);
-    const [selectedTours, setSelectedTours] = useState({
-        preConference: false,
-        postConference: false
-    });
 
-
-    useEffect(() => {
-        const fetchCountries = async () => {
-            try {
-                const response = await fetch('/api/fetch_country.php'); // Path to your PHP script
-                const data = await response.json();
-                setCities(data);  // Set the countries in state
-            } catch (error) {
-                console.error('Error fetching countries:', error);
-            }
-        };
-
-        fetchCountries();
-    }, []);
-
-    const [nationalities, setNationalities] = useState([]);
-    useEffect(() => {
-        const fetchNationalities = async () => {
-            try {
-                const response = await fetch('/api/fetch_nationality.php');
-                const data = await response.json();
-                setNationalities(data);
-            } catch (error) {
-                console.error('Error fetching countries:', error);
-            }
-        };
-
-        fetchNationalities();
-    }, []);
-
-
-    const handleTicket = () => {
+    const handleTicket = (event) => {
+        event.preventDefault();
         const url = '/api/purchase_ticket.php';
         let fData = new FormData();
-        fData.append('phone', phone);
-        fData.append('city', city);
-        fData.append('nationality', nationality);
-        fData.append('gender', gender);
-        fData.append('otherInput', otherInput);
-        fData.append('birthYear', birthYear);
+        fData.append('student', student);
+        fData.append('institution', institution);
+        fData.append('organization', organization);
+        fData.append('designation', designation);
+        fData.append('file', file);
         fData.append('flag', flag);
         axios.post(url, fData)
             .then(response => {
-                alert(response.data);
+                console.log(response.data);
                 if(response.data === "Success"){
-                    navigate("/Profile");
+                    navigate("/Third-Step");
                 }
             })
             .catch(error => {
@@ -247,8 +196,8 @@ function TicketPurchase1() {
                                                                         type="text"
                                                                         id="otherGenderInput"
                                                                         className="form-control"
-                                                                        value={otherInput}
-                                                                        onChange={handleOtherInputChange}
+                                                                        value={institution}
+                                                                        onChange={(e) => setInstitution(e.target.value)}
                                                                         required={student === "Yes"}
                                                                     />
                                                                 </div>
@@ -278,8 +227,8 @@ function TicketPurchase1() {
                                                                         type="text"
                                                                         id="otherGenderInput"
                                                                         className="form-control"
-                                                                        value={otherInput}
-                                                                        onChange={handleOtherInputChange}
+                                                                        value={organization}
+                                                                        onChange={(e) => setOrganization(e.target.value)}
                                                                         required={student === "No"}
                                                                     />
                                                                 </div>
@@ -290,8 +239,8 @@ function TicketPurchase1() {
                                                             type="text"
                                                             id="otherGenderInput"
                                                             className="form-control"
-                                                            value={otherInput}
-                                                            onChange={handleOtherInputChange}
+                                                            value={designation}
+                                                            onChange={(e) => setDesignation(e.target.value)}
                                                             required={student === "No"}
                                                     />
                                                 </div>

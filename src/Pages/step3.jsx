@@ -5,86 +5,35 @@ import Footer from "../Components/footer";
 
 function Step3 () {
     const navigate = useNavigate();
-    const [flag, setFlag] = useState("2");
-    const [student, setStudent] = useState("");
-
-
-
-
-    const [phone, setPhone] = useState("");
-    const [city, setCity] = useState("");
-    const [nationality, setNationality] = useState("");
-    const [gender, setGender] = useState("");
-    const [otherInput, setOtherInput] = useState("");
-    const [birthYear, setBirthYear] = useState("");
-
-
-
+    const [flag, setFlag] = useState("3");
+    const [invitation, setInvitation] = useState("");
+    const [passport, setPassport] = useState("");
+    const [issueDate, setIssueDate] = useState("");
+    const [expireDate, setExpireDate] = useState("");
     const handleFileChange = (e) => {
         setFile(e.target.files[0]); // Capture the selected file
     };
 
-    const handleOtherInputChange = (e) => {
-        setOtherInput(e.target.value); // Update the "Other" input field
-    };
-    const [cities, setCities] = useState([]);
-
     const [userName, setUserName] = useState([]);
     const [error, setError] = useState([]);
-
-
     const [file, setFile] = useState(null);
-    const [selectedTours, setSelectedTours] = useState({
-        preConference: false,
-        postConference: false
-    });
 
 
-    useEffect(() => {
-        const fetchCountries = async () => {
-            try {
-                const response = await fetch('/api/fetch_country.php'); // Path to your PHP script
-                const data = await response.json();
-                setCities(data);  // Set the countries in state
-            } catch (error) {
-                console.error('Error fetching countries:', error);
-            }
-        };
-
-        fetchCountries();
-    }, []);
-
-    const [nationalities, setNationalities] = useState([]);
-    useEffect(() => {
-        const fetchNationalities = async () => {
-            try {
-                const response = await fetch('/api/fetch_nationality.php');
-                const data = await response.json();
-                setNationalities(data);
-            } catch (error) {
-                console.error('Error fetching countries:', error);
-            }
-        };
-
-        fetchNationalities();
-    }, []);
-
-
-    const handleTicket = () => {
+    const handleTicket = (event) => {
+        event.preventDefault();
         const url = '/api/purchase_ticket.php';
         let fData = new FormData();
-        fData.append('phone', phone);
-        fData.append('city', city);
-        fData.append('nationality', nationality);
-        fData.append('gender', gender);
-        fData.append('otherInput', otherInput);
-        fData.append('birthYear', birthYear);
+        fData.append('invitation', invitation);
+        fData.append('passport', passport);
+        fData.append('issueDate', issueDate);
+        fData.append('expireDate', expireDate);
+        fData.append('file', file);
         fData.append('flag', flag);
         axios.post(url, fData)
             .then(response => {
-                alert(response.data);
+                console.log(response.data);
                 if(response.data === "Success"){
-                    navigate("/Profile");
+                    navigate("/Fourth-Step");
                 }
             })
             .catch(error => {
@@ -213,10 +162,10 @@ function Step3 () {
                                                             <input
                                                                 className="form-check-input"
                                                                 type="radio"
-                                                                name="gender"
+                                                                name="invitation"
                                                                 id="flexRadioFemale"
-                                                                checked={student === "Yes"}
-                                                                onChange={() => setStudent("Yes")}
+                                                                checked={invitation === "Yes"}
+                                                                onChange={() => setInvitation("Yes")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
@@ -227,17 +176,17 @@ function Step3 () {
                                                             <input
                                                                 className="form-check-input"
                                                                 type="radio"
-                                                                name="gender"
+                                                                name="invitation"
                                                                 id="flexRadioFemale"
-                                                                checked={student === "No"}
-                                                                onChange={() => setStudent("No")}
+                                                                checked={invitation === "No"}
+                                                                onChange={() => setInvitation("No")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
                                                                 No
                                                             </label>
                                                         </div>
-                                                        {student === "Yes" && (
+                                                        {invitation === "Yes" && (
                                                             <>
                                                                 <div className="mt-3">
                                                                     <label htmlFor="otherGenderInput">Provide passport
@@ -246,35 +195,35 @@ function Step3 () {
                                                                         type="text"
                                                                         id="otherGenderInput"
                                                                         className="form-control"
-                                                                        value={otherInput}
-                                                                        onChange={handleOtherInputChange}
-                                                                        required={student === "Yes"}
+                                                                        value={passport}
+                                                                        onChange={(e) => setPassport(e.target.value)}
+                                                                        required={invitation === "Yes"}
                                                                     />
                                                                 </div>
                                                                 <div className="mt-3">
                                                                     <label htmlFor="otherGenderInput">Passport issue
                                                                         date </label>
-                                                                    <br></br><small>Please input date</small>
+                                                                    <br></br><small>Please input date (Format mm/dd/yyyy)</small>
                                                                     <input
                                                                         type="date"
                                                                         id="otherGenderInput"
                                                                         className="form-control"
-                                                                        value={otherInput}
-                                                                        onChange={handleOtherInputChange}
-                                                                        required={student === "Yes"}
+                                                                        value={issueDate}
+                                                                        onChange={() => setIssueDate ()}
+                                                                        required={invitation === "Yes"}
                                                                     />
                                                                 </div>
                                                                 <div className="mt-3">
                                                                     <label htmlFor="otherGenderInput">Passport
                                                                         expiration date</label>
-                                                                    <br></br><small>Please input date</small>
+                                                                    <br></br><small>Please input date (Format mm/dd/yyyy)</small>
                                                                     <input
                                                                         type="date"
                                                                         id="otherGenderInput"
                                                                         className="form-control"
-                                                                        value={otherInput}
-                                                                        onChange={handleOtherInputChange}
-                                                                        required={student === "Yes"}
+                                                                        value={expireDate}
+                                                                        onChange={() => setExpireDate()}
+                                                                        required={invitation === "Yes"}
                                                                     />
                                                                 </div>
                                                                 <div className="col-12 mt-3">
@@ -285,7 +234,7 @@ function Step3 () {
                                                                             id="fileUpload"
                                                                             className="form-control pt-3"
                                                                             onChange={handleFileChange}
-                                                                            required={student === "Yes"}
+                                                                            required={invitation === "Yes"}
                                                                         />
                                                                     </div>
                                                                 </div>

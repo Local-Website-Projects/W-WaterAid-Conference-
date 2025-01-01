@@ -5,86 +5,39 @@ import Footer from "../Components/footer";
 
 function Step5 () {
     const navigate = useNavigate();
-    const [flag, setFlag] = useState("2");
-    const [student, setStudent] = useState("");
-
-
-
-
-    const [phone, setPhone] = useState("");
-    const [city, setCity] = useState("");
-    const [nationality, setNationality] = useState("");
-    const [gender, setGender] = useState("");
-    const [otherInput, setOtherInput] = useState("");
-    const [birthYear, setBirthYear] = useState("");
-
-
-
-    const handleFileChange = (e) => {
-        setFile(e.target.files[0]); // Capture the selected file
-    };
-
-    const handleOtherInputChange = (e) => {
-        setOtherInput(e.target.value); // Update the "Other" input field
-    };
-    const [cities, setCities] = useState([]);
+    const [flag, setFlag] = useState("5");
+    const [tour, setTour] = useState("");
 
     const [userName, setUserName] = useState([]);
     const [error, setError] = useState([]);
 
-
-    const [file, setFile] = useState(null);
     const [selectedTours, setSelectedTours] = useState({
-        preConference: false,
-        postConference: false
+        dasherkandi: false,
+        munda: false,
+        faridpur: false
     });
 
-
-    useEffect(() => {
-        const fetchCountries = async () => {
-            try {
-                const response = await fetch('/api/fetch_country.php'); // Path to your PHP script
-                const data = await response.json();
-                setCities(data);  // Set the countries in state
-            } catch (error) {
-                console.error('Error fetching countries:', error);
-            }
-        };
-
-        fetchCountries();
-    }, []);
-
-    const [nationalities, setNationalities] = useState([]);
-    useEffect(() => {
-        const fetchNationalities = async () => {
-            try {
-                const response = await fetch('/api/fetch_nationality.php');
-                const data = await response.json();
-                setNationalities(data);
-            } catch (error) {
-                console.error('Error fetching countries:', error);
-            }
-        };
-
-        fetchNationalities();
-    }, []);
+    const handleCheckboxChange = (event) => {
+        const { name, checked } = event.target;
+        setSelectedTours((prevState) => ({
+            ...prevState,
+            [name]: checked
+        }));
+    };
 
 
-    const handleTicket = () => {
+    const handleTicket = (event) => {
+        event.preventDefault();
         const url = '/api/purchase_ticket.php';
         let fData = new FormData();
-        fData.append('phone', phone);
-        fData.append('city', city);
-        fData.append('nationality', nationality);
-        fData.append('gender', gender);
-        fData.append('otherInput', otherInput);
-        fData.append('birthYear', birthYear);
         fData.append('flag', flag);
+        const selectedToursString = `${selectedTours.dasherkandi},${selectedTours.munda},${selectedTours.faridpur}`;
+        fData.append('selectedTours', selectedToursString);
         axios.post(url, fData)
             .then(response => {
-                alert(response.data);
+                console.log(response.data);
                 if(response.data === "Success"){
-                    navigate("/Profile");
+                    navigate("/Sixth-Step");
                 }
             })
             .catch(error => {
@@ -213,10 +166,11 @@ function Step5 () {
                                                             <input
                                                                 className="form-check-input"
                                                                 type="radio"
-                                                                name="gender"
+                                                                name="tour"
                                                                 id="flexRadioFemale"
-                                                                checked={student === "Yes"}
-                                                                onChange={() => setStudent("Yes")}
+                                                                checked={tour === "Yes"}
+                                                                onChange={() => setTour("Yes")}
+                                                                required
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
@@ -227,21 +181,27 @@ function Step5 () {
                                                             <input
                                                                 className="form-check-input"
                                                                 type="radio"
-                                                                name="gender"
+                                                                name="tour"
                                                                 id="flexRadioFemale"
-                                                                checked={student === "No"}
-                                                                onChange={() => setStudent("No")}
+                                                                checked={tour === "No"}
+                                                                onChange={() => setTour("No")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
                                                                 No
                                                             </label>
                                                         </div>
-                                                        {student === "Yes" && (
+                                                        {tour === "Yes" && (
                                                             <>
                                                                 <div className="form-check mt-3">
-                                                                    <input className="form-check-input" type="checkbox"
-                                                                           name="terms" id="flexRadioDefault2"/>
+                                                                    <input
+                                                                        className="form-check-input"
+                                                                        type="checkbox"
+                                                                        name="dasherkandi"
+                                                                        checked={selectedTours.dasherkandi}
+                                                                        onChange={handleCheckboxChange}
+                                                                        id="flexCheckPreConference"
+                                                                    />
                                                                     <label className="form-check-label"
                                                                            htmlFor="flexRadioDefault2">
                                                                         Pre conference technical tour – Dasherkandi
@@ -257,8 +217,14 @@ function Step5 () {
                                                                 </small>
                                                                 </div>
                                                                 <div className="form-check mt-3">
-                                                                    <input className="form-check-input" type="checkbox"
-                                                                           name="terms" id="flexRadioDefault2"/>
+                                                                    <input
+                                                                        className="form-check-input"
+                                                                        type="checkbox"
+                                                                        name="munda"
+                                                                        checked={selectedTours.munda}
+                                                                        onChange={handleCheckboxChange}
+                                                                        id="flexCheckPreConference"
+                                                                    />
                                                                     <label className="form-check-label"
                                                                            htmlFor="flexRadioDefault2">
                                                                         Post conference technical tour - Munda Community
@@ -278,15 +244,36 @@ function Step5 () {
                                                                 </small>
                                                                 </div>
                                                                 <div className="form-check mt-3">
-                                                                    <input className="form-check-input" type="checkbox"
-                                                                           name="terms" id="flexRadioDefault2"/>
+                                                                    <input
+                                                                        className="form-check-input"
+                                                                        type="checkbox"
+                                                                        name="faridpur"
+                                                                        checked={selectedTours.faridpur}
+                                                                        onChange={handleCheckboxChange}
+                                                                        id="flexCheckPreConference"
+                                                                    />
                                                                     <label className="form-check-label"
                                                                            htmlFor="flexRadioDefault2">
                                                                         Faridpur technical tour
                                                                     </label>
                                                                     <br></br><small>Faridpur, Bangladesh<br></br>
                                                                     To be confirmed<br></br>
-                                                                    Visit Faridpur and learn about the challenges, opportunities, needs and desired of sanitation workers from 6 regional towns across south west Bangladesh. This Sanitation Workers' Forum will place the voices of sanitation workers on the center stage. The field visit will hear from sanitation workers about Practical Action's Transformative Cooperative Model and SKATE Waste's private sanitation worker model. participants will also hear from independant sanitation workers who have not received any external support. Participants will visit the Faridpur feacal sludge treatment plant, and will ahve the opportunity to discuss with sanitation workers, muncipality leaders and Government leaders the next steps in improving the lives and livelihoods of sanitation workers.
+                                                                    Visit Faridpur and learn about the challenges,
+                                                                    opportunities, needs and desired of sanitation
+                                                                    workers from 6 regional towns across south west
+                                                                    Bangladesh. This Sanitation Workers' Forum will
+                                                                    place the voices of sanitation workers on the center
+                                                                    stage. The field visit will hear from sanitation
+                                                                    workers about Practical Action's Transformative
+                                                                    Cooperative Model and SKATE Waste's private
+                                                                    sanitation worker model. participants will also hear
+                                                                    from independant sanitation workers who have not
+                                                                    received any external support. Participants will
+                                                                    visit the Faridpur feacal sludge treatment plant,
+                                                                    and will ahve the opportunity to discuss with
+                                                                    sanitation workers, muncipality leaders and
+                                                                    Government leaders the next steps in improving the
+                                                                    lives and livelihoods of sanitation workers.
                                                                 </small>
                                                                 </div>
                                                             </>

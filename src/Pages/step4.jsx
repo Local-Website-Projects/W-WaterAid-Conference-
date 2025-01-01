@@ -5,86 +5,38 @@ import Footer from "../Components/footer";
 
 function Step4 () {
     const navigate = useNavigate();
-    const [flag, setFlag] = useState("2");
-    const [student, setStudent] = useState("");
-
-
-
-
-    const [phone, setPhone] = useState("");
-    const [city, setCity] = useState("");
-    const [nationality, setNationality] = useState("");
-    const [gender, setGender] = useState("");
-    const [otherInput, setOtherInput] = useState("");
-    const [birthYear, setBirthYear] = useState("");
-
-
-
-    const handleFileChange = (e) => {
-        setFile(e.target.files[0]); // Capture the selected file
-    };
-
-    const handleOtherInputChange = (e) => {
-        setOtherInput(e.target.value); // Update the "Other" input field
-    };
-    const [cities, setCities] = useState([]);
-
+    const [flag, setFlag] = useState("4");
+    const [dietary, setDietary] = useState("");
     const [userName, setUserName] = useState([]);
     const [error, setError] = useState([]);
+    const [otherDietary, setOtherDietary] = useState([]);
+    const [accessibility, setAccessibility] = useState([]);
+    const [otherAccessibility, setOtherAccessibility] = useState([]);
+    const [language, setLanguage] = useState([]);
+
+    const handleOtherDietary = (e) => {
+        setOtherDietary(e.target.value);
+    };
+    const handleOtherAccessibility = (e) => {
+        setOtherAccessibility(e.target.value);
+    };
 
 
-    const [file, setFile] = useState(null);
-    const [selectedTours, setSelectedTours] = useState({
-        preConference: false,
-        postConference: false
-    });
-
-
-    useEffect(() => {
-        const fetchCountries = async () => {
-            try {
-                const response = await fetch('/api/fetch_country.php'); // Path to your PHP script
-                const data = await response.json();
-                setCities(data);  // Set the countries in state
-            } catch (error) {
-                console.error('Error fetching countries:', error);
-            }
-        };
-
-        fetchCountries();
-    }, []);
-
-    const [nationalities, setNationalities] = useState([]);
-    useEffect(() => {
-        const fetchNationalities = async () => {
-            try {
-                const response = await fetch('/api/fetch_nationality.php');
-                const data = await response.json();
-                setNationalities(data);
-            } catch (error) {
-                console.error('Error fetching countries:', error);
-            }
-        };
-
-        fetchNationalities();
-    }, []);
-
-
-    const handleTicket = () => {
+    const handleTicket = (event) => {
+        event.preventDefault();
         const url = '/api/purchase_ticket.php';
         let fData = new FormData();
-        fData.append('phone', phone);
-        fData.append('city', city);
-        fData.append('nationality', nationality);
-        fData.append('gender', gender);
-        fData.append('otherInput', otherInput);
-        fData.append('birthYear', birthYear);
         fData.append('flag', flag);
+        fData.append('dietary', dietary);
+        fData.append('otherDietary', otherDietary);
+        fData.append('accessibility', accessibility);
+        fData.append('otherAccessibility', otherAccessibility);
+        fData.append('language', language);
         axios.post(url, fData)
             .then(response => {
-                alert(response.data);
+                console.log(response.data);
                 if(response.data === "Success"){
-                    navigate("/Profile");
+                    navigate("/Fifth-Step");
                 }
             })
             .catch(error => {
@@ -213,10 +165,10 @@ function Step4 () {
                                                             <input
                                                                 className="form-check-input"
                                                                 type="radio"
-                                                                name="gender"
+                                                                name="dietary"
                                                                 id="flexRadioFemale"
-                                                                checked={student === "Vegetarian"}
-                                                                onChange={() => setStudent("Vegetarian")}
+                                                                checked={dietary === "Vegetarian"}
+                                                                onChange={() => setDietary("Vegetarian")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
@@ -227,10 +179,10 @@ function Step4 () {
                                                             <input
                                                                 className="form-check-input"
                                                                 type="radio"
-                                                                name="gender"
+                                                                name="dietary"
                                                                 id="flexRadioFemale"
-                                                                checked={student === "Non-Veg"}
-                                                                onChange={() => setStudent("Non-Veg")}
+                                                                checked={dietary === "Non-Veg"}
+                                                                onChange={() => setDietary("Non-Veg")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
@@ -241,10 +193,10 @@ function Step4 () {
                                                             <input
                                                                 className="form-check-input"
                                                                 type="radio"
-                                                                name="gender"
+                                                                name="dietary"
                                                                 id="flexRadioFemale"
-                                                                checked={student === "Vegan"}
-                                                                onChange={() => setStudent("Vegan")}
+                                                                checked={dietary === "Vegan"}
+                                                                onChange={() => setDietary("Vegan")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
@@ -255,10 +207,10 @@ function Step4 () {
                                                             <input
                                                                 className="form-check-input"
                                                                 type="radio"
-                                                                name="gender"
+                                                                name="dietary"
                                                                 id="flexRadioFemale"
-                                                                checked={student === "Not applicable"}
-                                                                onChange={() => setStudent("Not applicable")}
+                                                                checked={dietary === "Not applicable"}
+                                                                onChange={() => setDietary("Not applicable")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
@@ -269,26 +221,26 @@ function Step4 () {
                                                             <input
                                                                 className="form-check-input"
                                                                 type="radio"
-                                                                name="gender"
+                                                                name="dietary"
                                                                 id="flexRadioFemale"
-                                                                checked={student === "Other"}
-                                                                onChange={() => setStudent("Other")}
+                                                                checked={dietary === "Other"}
+                                                                onChange={() => setDietary("Other")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
                                                                 Other
                                                             </label>
                                                         </div>
-                                                        {student === "Other" && (
+                                                        {dietary === "Other" && (
                                                             <div className="mt-3">
                                                                 <label htmlFor="otherGenderInput">Please Specify</label>
                                                                 <input
                                                                     type="text"
                                                                     id="otherGenderInput"
                                                                     className="form-control"
-                                                                    value={otherInput}
-                                                                    onChange={handleOtherInputChange}
-                                                                    required={student === "Other"}
+                                                                    value={otherDietary}
+                                                                    onChange={handleOtherDietary}
+                                                                    required={dietary === "Other"}
                                                                 />
                                                             </div>
                                                         )}
@@ -301,10 +253,10 @@ function Step4 () {
                                                             <input
                                                                 className="form-check-input"
                                                                 type="radio"
-                                                                name="gender"
+                                                                name="accessibility"
                                                                 id="flexRadioFemale"
-                                                                checked={student === "Wheelchair access"}
-                                                                onChange={() => setStudent("Wheelchair access")}
+                                                                checked={accessibility === "Wheelchair access"}
+                                                                onChange={() => setAccessibility("Wheelchair access")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
@@ -315,10 +267,10 @@ function Step4 () {
                                                             <input
                                                                 className="form-check-input"
                                                                 type="radio"
-                                                                name="gender"
+                                                                name="accessibility"
                                                                 id="flexRadioFemale"
-                                                                checked={student === "Visual aids"}
-                                                                onChange={() => setStudent("Visual aids")}
+                                                                checked={accessibility === "Visual aids"}
+                                                                onChange={() => setAccessibility("Visual aids")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
@@ -329,10 +281,10 @@ function Step4 () {
                                                             <input
                                                                 className="form-check-input"
                                                                 type="radio"
-                                                                name="gender"
+                                                                name="accessibility"
                                                                 id="flexRadioFemale"
-                                                                checked={student === "Sign language interpretation"}
-                                                                onChange={() => setStudent("Sign language interpretation")}
+                                                                checked={accessibility === "Sign language interpretation"}
+                                                                onChange={() => setAccessibility("Sign language interpretation")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
@@ -343,10 +295,10 @@ function Step4 () {
                                                             <input
                                                                 className="form-check-input"
                                                                 type="radio"
-                                                                name="gender"
+                                                                name="accessibility"
                                                                 id="flexRadioFemale"
-                                                                checked={student === "Not applicable"}
-                                                                onChange={() => setStudent("Not applicable")}
+                                                                checked={accessibility === "Not applicable"}
+                                                                onChange={() => setAccessibility("Not applicable")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
@@ -357,26 +309,26 @@ function Step4 () {
                                                             <input
                                                                 className="form-check-input"
                                                                 type="radio"
-                                                                name="gender"
+                                                                name="accessibility"
                                                                 id="flexRadioFemale"
-                                                                checked={student === "Other"}
-                                                                onChange={() => setStudent("Other")}
+                                                                checked={accessibility === "Other"}
+                                                                onChange={() => setAccessibility("Other")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
                                                                 Other
                                                             </label>
                                                         </div>
-                                                        {student === "Other" && (
+                                                        {accessibility === "Other" && (
                                                             <div className="mt-3">
                                                                 <label htmlFor="otherGenderInput">Please Specify</label>
                                                                 <input
                                                                     type="text"
                                                                     id="otherGenderInput"
                                                                     className="form-control"
-                                                                    value={otherInput}
-                                                                    onChange={handleOtherInputChange}
-                                                                    required={student === "Other"}
+                                                                    value={otherAccessibility}
+                                                                    onChange={handleOtherAccessibility}
+                                                                    required={accessibility === "Other"}
                                                                 />
                                                             </div>
                                                         )}
@@ -389,10 +341,10 @@ function Step4 () {
                                                             <input
                                                                 className="form-check-input"
                                                                 type="radio"
-                                                                name="gender"
+                                                                name="language"
                                                                 id="flexRadioFemale"
-                                                                checked={student === "English"}
-                                                                onChange={() => setStudent("English")}
+                                                                checked={language === "English"}
+                                                                onChange={() => setLanguage("English")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
@@ -403,10 +355,10 @@ function Step4 () {
                                                             <input
                                                                 className="form-check-input"
                                                                 type="radio"
-                                                                name="gender"
+                                                                name="language"
                                                                 id="flexRadioFemale"
-                                                                checked={student === "Bangla"}
-                                                                onChange={() => setStudent("Bangla")}
+                                                                checked={language === "Bangla"}
+                                                                onChange={() => setLanguage("Bangla")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">

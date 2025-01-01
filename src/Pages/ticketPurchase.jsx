@@ -66,7 +66,8 @@ function TicketPurchase() {
     }, []);
 
 
-    const handleTicket = () => {
+    const handleTicket = (event) => {
+        event.preventDefault();
         const url = '/api/purchase_ticket.php';
         let fData = new FormData();
         fData.append('phone', phone);
@@ -78,9 +79,9 @@ function TicketPurchase() {
         fData.append('flag', flag);
         axios.post(url, fData)
             .then(response => {
-                alert(response.data);
+                console.log(response.data);
                 if(response.data === "Success"){
-                    navigate("/Profile");
+                    navigate("/Second-Step");
                 }
             })
             .catch(error => {
@@ -401,7 +402,7 @@ function TicketPurchase() {
                                                 </div>
                                                 <div className="btn-2">
                                                     <button className="btn-primary" name="submit-form"
-                                                            type="submit">Purchase Ticket
+                                                            type="submit">Next
                                                     </button>
                                                 </div>
                                             </form>

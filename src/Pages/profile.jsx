@@ -113,23 +113,6 @@ function Profile() {
                     </div>
                 </header>
 
-                <div className="about-us-area pad-head bg-about">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div className="about-content">
-                                    <div className="section-title text-center">
-                                        <h2>Hi, {userName}</h2>
-                                        <ol className="breadcrumb">
-                                            <li>Information Page</li>
-                                        </ol>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <div className="container mt-3 mb-3">
                     <div className="row">
                         {emailStatus == 0 ? (

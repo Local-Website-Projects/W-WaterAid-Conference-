@@ -5,84 +5,21 @@ import Footer from "../Components/footer";
 
 function Step6 () {
     const navigate = useNavigate();
-    const [flag, setFlag] = useState("2");
-    const [student, setStudent] = useState("");
-
-
-
-
-    const [phone, setPhone] = useState("");
-    const [city, setCity] = useState("");
-    const [nationality, setNationality] = useState("");
-    const [gender, setGender] = useState("");
-    const [otherInput, setOtherInput] = useState("");
-    const [birthYear, setBirthYear] = useState("");
-
-
-
-    const handleFileChange = (e) => {
-        setFile(e.target.files[0]); // Capture the selected file
-    };
-
-    const handleOtherInputChange = (e) => {
-        setOtherInput(e.target.value); // Update the "Other" input field
-    };
-    const [cities, setCities] = useState([]);
-
+    const [flag, setFlag] = useState("6");
+    const [notification, setNotification] = useState("");
     const [userName, setUserName] = useState([]);
     const [error, setError] = useState([]);
 
 
-    const [file, setFile] = useState(null);
-    const [selectedTours, setSelectedTours] = useState({
-        preConference: false,
-        postConference: false
-    });
-
-
-    useEffect(() => {
-        const fetchCountries = async () => {
-            try {
-                const response = await fetch('/api/fetch_country.php'); // Path to your PHP script
-                const data = await response.json();
-                setCities(data);  // Set the countries in state
-            } catch (error) {
-                console.error('Error fetching countries:', error);
-            }
-        };
-
-        fetchCountries();
-    }, []);
-
-    const [nationalities, setNationalities] = useState([]);
-    useEffect(() => {
-        const fetchNationalities = async () => {
-            try {
-                const response = await fetch('/api/fetch_nationality.php');
-                const data = await response.json();
-                setNationalities(data);
-            } catch (error) {
-                console.error('Error fetching countries:', error);
-            }
-        };
-
-        fetchNationalities();
-    }, []);
-
-
-    const handleTicket = () => {
+    const handleTicket = (event) => {
+        event.preventDefault();
         const url = '/api/purchase_ticket.php';
         let fData = new FormData();
-        fData.append('phone', phone);
-        fData.append('city', city);
-        fData.append('nationality', nationality);
-        fData.append('gender', gender);
-        fData.append('otherInput', otherInput);
-        fData.append('birthYear', birthYear);
         fData.append('flag', flag);
+        fData.append('notification', notification);
         axios.post(url, fData)
             .then(response => {
-                alert(response.data);
+                console.log(response.data);
                 if(response.data === "Success"){
                     navigate("/Profile");
                 }
@@ -213,10 +150,10 @@ function Step6 () {
                                                             <input
                                                                 className="form-check-input"
                                                                 type="radio"
-                                                                name="gender"
+                                                                name="notification"
                                                                 id="flexRadioFemale"
-                                                                checked={student === "Yes"}
-                                                                onChange={() => setStudent("Yes")}
+                                                                checked={notification === "Yes"}
+                                                                onChange={() => setNotification("Yes")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
@@ -229,8 +166,8 @@ function Step6 () {
                                                                 type="radio"
                                                                 name="gender"
                                                                 id="flexRadioFemale"
-                                                                checked={student === "No"}
-                                                                onChange={() => setStudent("No")}
+                                                                checked={notification === "No"}
+                                                                onChange={() => setNotification("No")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
