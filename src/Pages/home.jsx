@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import Header from "../Components/header";
 import Banner from "../Components/banner";
 import {useNavigate} from "react-router-dom";
+import Footer from "../Components/footer";
 
 function Home() {
     const [error, setError] = useState(null);
@@ -33,6 +34,8 @@ function Home() {
                 {/*banner with form section starts*/}
                 <Banner/>
                 {/*banner with form section ends*/}
+
+                <Footer/>
             </div>
         </div>
     )

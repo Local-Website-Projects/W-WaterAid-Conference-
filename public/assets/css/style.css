@@ -370,18 +370,7 @@ html .ui-button.ui-state-disabled:active {
 }
 
 #scrollUp {
-    text-decoration: none;
-    bottom: 26px;
-    background: url(../img/up.png);
-    background-repeat: no-repeat;
-    height: 50px;
-    position: fixed;
-    background-size: cover;
-    right: 50px;
-    width: 50px;
-    z-index: 1000;
-    border: none;
-    outline: none;
+    display: none;
 }
 
 /*google map*/

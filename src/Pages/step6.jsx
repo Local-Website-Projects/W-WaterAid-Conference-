@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import Footer from "../Components/footer";
+import Menu from "../Components/menu";
 
 function Step6 () {
     const navigate = useNavigate();
@@ -34,10 +35,10 @@ function Step6 () {
         const fetchSessionData = async () => {
             const token = localStorage.getItem("userToken");
 
-            if (!token) {
+            /*if (!token) {
                 setError("You are not logged in.");
                 return navigate("/Login"); // Redirect to login if no token
-            }
+            }*/
 
             try {
                 const response = await axios.get("/api/fetch_profile.php", {
@@ -66,41 +67,7 @@ function Step6 () {
     }, [navigate]);
     return (
         <div>
-            <header className="header base-style-2 white-color">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-2">
-                            <div className="brand-logo">
-                                <a className="eventex-brand" href="index-2.html"><img
-                                    src="assets/img/logo/logo-3.png" alt=""/></a>
-                            </div>
-                        </div>
-                        <div className="col-lg-8">
-                            <nav className="navbar navbar-expand-lg">
-                                <button className="navbar-toggler" type="button" data-toggle="collapse"
-                                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                        aria-expanded="false" aria-label="Toggle navigation">
-                                    <span className="navbar-toggler-icon"><i className="fa fa-bars"></i></span>
-                                </button>
-
-                                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                                    <ul className="navbar-nav ml-auto">
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="/Profile">Profile</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="/Ticket">Ticket Purchase </Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="/Logout">Logout </Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </header>
+            <Menu/>
             <div className="ct-2 contact-area pad100">
                 <div className="container">
                     <div className="row">
@@ -145,7 +112,8 @@ function Step6 () {
                                                   onSubmit={handleTicket}>
                                                 <div className="col-12">
                                                     <div className="form-group">
-                                                        <label>Do you consent to receive updates and notifications about the conference via email? *</label>
+                                                        <label>Do you consent to receive updates and notifications about
+                                                            the conference via email? *</label>
                                                         <div className="form-check">
                                                             <input
                                                                 className="form-check-input"
@@ -179,7 +147,7 @@ function Step6 () {
 
                                                 <div className="btn-2">
                                                     <button className="btn-primary" name="submit-form"
-                                                            type="submit">Next
+                                                            type="submit">Register
                                                     </button>
                                                 </div>
                                             </form>
@@ -187,6 +155,24 @@ function Step6 () {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div className="row mt-5">
+                                <p style={{fontWeight: "bold"}}>We’re delighted to offer our participants convenient
+                                    accommodation options during their stay in Bangladesh for the Toilet Conference
+                                    2025.</p>
+                                <p style={{fontWeight: "bold"}}>Participants who choose to book a room at our designated
+                                    conference hotel can enjoy a special discounted rate. If you opt for this offer, we
+                                    will send you the necessary details, including a promo code or booking link, via
+                                    email.</p>
+                                <p style={{fontWeight: "bold"}}>If you prefer alternative accommodations, here are some
+                                    nearby recommended hotels for your convenience:</p>
+                                <ul>
+                                    <li>Pan Pacific Sonargaon Dhaka</li>
+                                    <li>Radisson Blu Dhaka Water Garden</li>
+                                    <li>Le Méridien Dhaka</li>
+                                </ul>
+                                <p style={{fontWeight: "bold"}}>Make your stay comfortable while you focus on engaging
+                                    with global leaders and experts at the conference!</p>
                             </div>
                         </div>
                     </div>

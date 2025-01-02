@@ -33,11 +33,11 @@ function Banner() {
             axios.post(url, fData)
                 .then(response => {
                     alert(response.data);
-                    // Reset form fields to empty after successful submission
                     setName('');
                     setEmail('');
                     setPassword('');
                     if(response.data === "Your Account is created successfully! Please login to continue.") {
+                        alert('Please check your email (including spam folder) for the 6 digit verification code.');
                         navigate("/Login");
                     }
                 })
@@ -55,8 +55,8 @@ function Banner() {
                     <div className="row">
                         <div className="col-lg-7 col-md-6 col-sm-5 d-none d-lg-block">
                             <div className="banner-content">
-                                <h1>Registration <span style={{fontSize: '20px'}}>for</span> Toilet</h1>
-                                <h2>Conference 2025</h2>
+                                <h1>Registration <span style={{fontSize: '20px'}}>for</span></h1>
+                                <h2>Toilet Conference 2025</h2>
                                 <p>Dhaka, Bangladesh | 25-26 February 2025</p>
                             </div>
                         </div>
