@@ -2427,7 +2427,7 @@ button.btn-primary {
 }
 
 .footer-area .f-content .f-social ul li a i.fa {
-    color: #fff;
+    color: #29a9e1;
     font-size: 20px;
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
@@ -2435,11 +2435,11 @@ button.btn-primary {
 }
 
 .footer-area .f-content .f-social ul li a i.fa:hover {
-    color: #cf057c;
+    color: #296173;
 }
 
 .footer-area .copyright {
-    margin-top: 100px;
+    margin: 50px 0;
     display: inline-block;
 }
 

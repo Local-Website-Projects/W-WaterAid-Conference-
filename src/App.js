@@ -12,6 +12,8 @@ import Step3 from "./Pages/step3";
 import Step4 from "./Pages/step4";
 import Step5 from "./Pages/step5";
 import Step6 from "./Pages/step6";
+import Roombooking from "./Pages/roomBooking";
+import Cart from "./Pages/cart";
 function App() {
   return (
       <div className="App">
@@ -37,6 +39,8 @@ function App() {
                   <Route path='/Fifth-Step' element={<Step5/>}/>
                   <Route path='/Sixth-Step' element={<Step6/>}/>
                   <Route path='/Terms' element={<Terms/>}/>
+                  <Route path='/Accommodation' element={<Roombooking/>}/>
+                  <Route path='/Cart' element={<Cart/>}/>
                   <Route path='/Logout' element={<Logout/>}/>
               </Routes>
           </BrowserRouter>

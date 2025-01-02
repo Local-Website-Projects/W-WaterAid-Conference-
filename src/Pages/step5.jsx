@@ -12,9 +12,12 @@ function Step5 () {
     const [error, setError] = useState([]);
 
     const [selectedTours, setSelectedTours] = useState({
+        sakhipur: false,
         dasherkandi: false,
-        munda: false,
-        faridpur: false
+        faridpur: false,
+        coxs: false,
+        saidpur: false
+
     });
 
     const handleCheckboxChange = (event) => {
@@ -31,7 +34,7 @@ function Step5 () {
         const url = '/api/purchase_ticket.php';
         let fData = new FormData();
         fData.append('flag', flag);
-        const selectedToursString = `${selectedTours.dasherkandi},${selectedTours.munda},${selectedTours.faridpur}`;
+        const selectedToursString = `${selectedTours.sakhipur},${selectedTours.dasherkandi},${selectedTours.faridpur},${selectedTours.coxs},${selectedTours.saidpur}`;
         fData.append('selectedTours', selectedToursString);
         axios.post(url, fData)
             .then(response => {
@@ -50,10 +53,10 @@ function Step5 () {
         const fetchSessionData = async () => {
             const token = localStorage.getItem("userToken");
 
-            if (!token) {
+            /*if (!token) {
                 setError("You are not logged in.");
                 return navigate("/Login"); // Redirect to login if no token
-            }
+            }*/
 
             try {
                 const response = await axios.get("/api/fetch_profile.php", {
@@ -197,6 +200,58 @@ function Step5 () {
                                                                     <input
                                                                         className="form-check-input"
                                                                         type="checkbox"
+                                                                        name="sakhipur"
+                                                                        checked={selectedTours.sakhipur}
+                                                                        onChange={handleCheckboxChange}
+                                                                        id="flexCheckPreConference"
+                                                                    />
+                                                                    <label className="form-check-label"
+                                                                           htmlFor="flexRadioDefault2">
+                                                                        Pre conference technical tour - Sakhipur
+                                                                    </label>
+                                                                    <br></br><small>Sakhipur, Bangladesh<br></br>
+                                                                    24 February 2025<br></br>
+                                                                    Sakhipur FSTP, located in the Tangail district under
+                                                                    Sakhipur Municipality. This generates approximately
+                                                                    15,000 liters of faecal sludge and 8,000 kilograms
+                                                                    of household solid waste daily. However, the Shit
+                                                                    Flow Diagram (SFD) at the time indicated that none
+                                                                    of the faecal sludge was being safely managed,
+                                                                    posing significant environmental and public health
+                                                                    risks.<br></br>
+                                                                    To address this challenge, WaterAid Bangladesh, in
+                                                                    partnership with the BASA Foundation, provided
+                                                                    technical and financial support to the Sakhipur
+                                                                    municipal authority. Together, they established an
+                                                                    integrated and efficient faecal sludge and solid
+                                                                    waste management system. Central to this initiative
+                                                                    is the Sakhipur co-compost plant, which spans an
+                                                                    area of approximately 11,500 square feet and is now
+                                                                    operated by the municipal authority.<br></br>
+                                                                    The plant plays a critical role in mitigating
+                                                                    environmental hazards by managing both faecal sludge
+                                                                    and solid waste. It ensures the sanitation value
+                                                                    chain is upheld—from containment to safe reuse or
+                                                                    disposal. The plant produces a high-quality
+                                                                    co-compost that has gained popularity among local
+                                                                    farmers, further promoting sustainability and
+                                                                    resource recovery.<br></br>
+                                                                    Notably, the Faecal Sludge Treatment Plant (FSTP) in
+                                                                    Sakhipur has been recognized as a replicable model
+                                                                    and included in the Government of Bangladesh’s 8th
+                                                                    Five-Year Plan. This recognition underscores the
+                                                                    potential for scaling up such initiatives to enhance
+                                                                    sanitation management across the country.<br></br>
+                                                                    Visitors to the plant will witness firsthand how an
+                                                                    innovative, community-focused approach can transform
+                                                                    waste management into a integrated, sustainable and
+                                                                    scalable solution for urban sanitation challenges.
+                                                                </small>
+                                                                </div>
+                                                                <div className="form-check mt-3">
+                                                                    <input
+                                                                        className="form-check-input"
+                                                                        type="checkbox"
                                                                         name="dasherkandi"
                                                                         checked={selectedTours.dasherkandi}
                                                                         onChange={handleCheckboxChange}
@@ -204,43 +259,17 @@ function Step5 () {
                                                                     />
                                                                     <label className="form-check-label"
                                                                            htmlFor="flexRadioDefault2">
-                                                                        Pre conference technical tour – Dasherkandi
+                                                                        Post conference technical tour - Dasherkandi
+                                                                        (DWASA)
                                                                     </label>
                                                                     <br></br><small>Dhaka, Bangladesh<br></br>
-                                                                    24 February 2025<br></br>
+                                                                    27 February 2025<br></br>
                                                                     The Dasherkandi Sewage Treatment Plant has set
                                                                     several records, including becoming the first and
                                                                     the largest modern sewage treatment plant in
                                                                     Bangladesh, the largest single sewage treatment
                                                                     plant in South Asia, and the first modern sludge
                                                                     drying-incineration in Bangladesh.
-                                                                </small>
-                                                                </div>
-                                                                <div className="form-check mt-3">
-                                                                    <input
-                                                                        className="form-check-input"
-                                                                        type="checkbox"
-                                                                        name="munda"
-                                                                        checked={selectedTours.munda}
-                                                                        onChange={handleCheckboxChange}
-                                                                        id="flexCheckPreConference"
-                                                                    />
-                                                                    <label className="form-check-label"
-                                                                           htmlFor="flexRadioDefault2">
-                                                                        Post conference technical tour - Munda Community
-                                                                    </label>
-                                                                    <br></br><small>Shatkhira, Bangladesh<br></br>
-                                                                    27 February 2025<br></br>
-                                                                    Visit the Munda community in Shatkhira to understand
-                                                                    the unique sanitation challenges faced by indigenous
-                                                                    communities. This tour will showcase WaterAid’s
-                                                                    initiatives to promote sustainable sanitation
-                                                                    practices and improve hygiene standards within the
-                                                                    Munda community. Participants will have the chance
-                                                                    to interact with community members, learn about
-                                                                    their traditional practices, and see firsthand the
-                                                                    positive changes brought about by targeted
-                                                                    sanitation interventions.
                                                                 </small>
                                                                 </div>
                                                                 <div className="form-check mt-3">
@@ -254,10 +283,10 @@ function Step5 () {
                                                                     />
                                                                     <label className="form-check-label"
                                                                            htmlFor="flexRadioDefault2">
-                                                                        Faridpur technical tour
+                                                                        Post conference technical tour -Faridpur
                                                                     </label>
                                                                     <br></br><small>Faridpur, Bangladesh<br></br>
-                                                                    To be confirmed<br></br>
+                                                                    27 February 2025<br></br>
                                                                     Visit Faridpur and learn about the challenges,
                                                                     opportunities, needs and desired of sanitation
                                                                     workers from 6 regional towns across south west
@@ -267,13 +296,59 @@ function Step5 () {
                                                                     workers about Practical Action's Transformative
                                                                     Cooperative Model and SKATE Waste's private
                                                                     sanitation worker model. participants will also hear
-                                                                    from independant sanitation workers who have not
+                                                                    from independent sanitation workers who have not
                                                                     received any external support. Participants will
-                                                                    visit the Faridpur feacal sludge treatment plant,
-                                                                    and will ahve the opportunity to discuss with
-                                                                    sanitation workers, muncipality leaders and
-                                                                    Government leaders the next steps in improving the
-                                                                    lives and livelihoods of sanitation workers.
+                                                                    visit the Faridpur feacal sludge treatment plant,and
+                                                                    will have the opportunity to discuss with sanitation
+                                                                    workers, municipality leaders and Government leaders
+                                                                    the next steps in improving the lives and
+                                                                    livelihoods of sanitation workers.
+                                                                </small>
+                                                                </div>
+                                                                <div className="form-check mt-3">
+                                                                    <input
+                                                                        className="form-check-input"
+                                                                        type="checkbox"
+                                                                        name="coxs"
+                                                                        checked={selectedTours.coxs}
+                                                                        onChange={handleCheckboxChange}
+                                                                        id="flexCheckPreConference"
+                                                                    />
+                                                                    <label className="form-check-label"
+                                                                           htmlFor="flexRadioDefault2">
+                                                                        Post conference technical tour – Cox’s Bazar
+                                                                        (DPHE)
+                                                                    </label>
+                                                                    <br></br><small>Cox’s Bazar, Bangladesh<br></br>
+                                                                    28 February 2025 – 1 March 2025<br></br>
+                                                                    Omni Processor in Cox’s Bazar, a government
+                                                                    initiative to introduce groundbreaking technology
+                                                                    for the 1st time in Bangladesh that converts faecal
+                                                                    sludge into clean water, electricity, and ash. This
+                                                                    innovative solution addresses sanitation challenges
+                                                                    in densely populated areas, providing sustainable
+                                                                    waste management and resource recovery. Participants
+                                                                    will have the opportunity to see the Omni Processor
+                                                                    in action, understand its operational mechanics, and
+                                                                    discuss its impact on local communities.
+                                                                </small>
+                                                                </div>
+                                                                <div className="form-check mt-3">
+                                                                    <input
+                                                                        className="form-check-input"
+                                                                        type="checkbox"
+                                                                        name="saidpur"
+                                                                        checked={selectedTours.saidpur}
+                                                                        onChange={handleCheckboxChange}
+                                                                        id="flexCheckPreConference"
+                                                                    />
+                                                                    <label className="form-check-label"
+                                                                           htmlFor="flexRadioDefault2">
+                                                                        Post conference technical tour – Saidpur (WaterAid)
+                                                                    </label>
+                                                                    <br></br><small>Saidpur, Nilphamari, Bangladesh<br></br>
+                                                                    28 February 2025 – 1 March 2025<br></br>
+                                                                    Explore the Faecal Sludge Treatment Plant in Saidpur, a vital facility that ensures safe and effective treatment of faecal sludge and solid waste. This tour will highlight the processes involved in FS and SW treatment, from collection to disposal, and the measures taken to prevent environmental contamination. Attendees will gain insights into the plant's capacity, technology used, and the role it plays in improving public health and sanitation in the region.
                                                                 </small>
                                                                 </div>
                                                             </>
