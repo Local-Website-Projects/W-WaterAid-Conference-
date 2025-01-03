@@ -129,63 +129,69 @@ function Login() {
             <div className="whos-speaking-area pad100">
                 <div className="container">
                     <div className="row d-flex align-items-center justify-content-center">
-                        <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 pt-3">
+                        <div className="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 pt-3">
                             <div className="xs-mb30">
                                 <div className="spk-img">
                                     <img className="img-fluid" src="assets/img/convenors/1.png" alt="trainer-img"/>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 pt-3">
+                        <div className="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 pt-3">
                             <div className="xs-mb30">
                                 <div className="spk-img">
                                     <img className="img-fluid" src="assets/img/convenors/2.png" alt="trainer-img"/>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 pt-3">
+                        <div className="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 pt-3">
                             <div className="xs-mb30">
                                 <div className="spk-img">
                                     <img className="img-fluid" src="assets/img/convenors/3.png" alt="trainer-img"/>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 pt-3">
+                        <div className="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 pt-3">
                             <div className="xs-mb30">
                                 <div className="spk-img">
                                     <img className="img-fluid" src="assets/img/convenors/4.png" alt="trainer-img"/>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 pt-3">
+                    </div>
+                </div>
+            </div>
+            <div className="whos-speaking-area pad100">
+                <div className="container">
+                    <div className="row d-flex align-items-center justify-content-center">
+                        <div className="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 pt-3">
                             <div className="xs-mb30">
                                 <div className="spk-img">
                                     <img className="img-fluid" src="assets/img/convenors/5.png" alt="trainer-img"/>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 pt-3">
+                        <div className="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 pt-3">
                             <div className="xs-mb30">
                                 <div className="spk-img">
                                     <img className="img-fluid" src="assets/img/convenors/6.png" alt="trainer-img"/>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 pt-3">
+                        <div className="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 pt-3">
                             <div className="xs-mb30">
                                 <div className="spk-img">
                                     <img className="img-fluid" src="assets/img/convenors/7.png" alt="trainer-img"/>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 pt-3">
+                        <div className="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 pt-3">
                             <div className="xs-mb30">
                                 <div className="spk-img">
                                     <img className="img-fluid" src="assets/img/convenors/8.png" alt="trainer-img"/>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 pt-3">
+                        <div className="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 pt-3">
                             <div className="xs-mb30">
                                 <div className="spk-img">
                                     <img className="img-fluid" src="assets/img/convenors/9.png" alt="trainer-img"/>
