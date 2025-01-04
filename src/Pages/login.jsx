@@ -128,6 +128,15 @@ function Login() {
 
             <div className="whos-speaking-area pad100">
                 <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <div className="section-title text-center">
+                                <div className="title-text mb50 xs-mb40">
+                                    <h2>Convenors</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div className="row d-flex align-items-center justify-content-center">
                         <div className="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 pt-3">
                             <div className="xs-mb30">
@@ -162,6 +171,15 @@ function Login() {
             </div>
             <div className="whos-speaking-area pad100">
                 <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <div className="section-title text-center">
+                                <div className="title-text mb50 xs-mb40">
+                                    <h2>Supporters</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div className="row d-flex align-items-center justify-content-center">
                         <div className="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 pt-3">
                             <div className="xs-mb30">

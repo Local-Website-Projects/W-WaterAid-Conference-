@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Footer from "../Components/footer";
 import Menu from "../Components/menu";
 
-function Profile() {
+function Invoice() {
     const [userId, setUserId] = useState("");
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -33,11 +33,6 @@ function Profile() {
     useEffect(() => {
         const fetchSessionData = async () => {
             const token = localStorage.getItem("userToken");
-
-            /*if (!token) {
-                setError("You are not logged in.");
-                return navigate("/Login"); // Redirect to login if no token
-            }*/
 
             try {
                 const response = await axios.get("/api/fetch_profile.php", {
@@ -123,55 +118,55 @@ function Profile() {
 
 
     return (<div>
-        <div className="main-container">
-            <Menu/>
-            <div className="container mt-3 mb-5">
-                <div className="row event-schedule-area-two">
-                    <div className="col-lg-4 col-md-4 col-sm-12">
-                        <ul className="nav custom-tab" id="myTab" role="tablist" style={{display: "inline"}}>
-                            <li className="nav-item mt-5">
-                                <Link className="nav-link active" id="home-taThursday" to='/Profile'>General information</Link>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile">Download Invoice</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" id="contact-tab" data-toggle="tab" href="#contact">Update Password</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="col-lg-8 col-md-8 col-12">
-                        <div className="row">
-                            <div className="col-12 mt-5 mb-3">
-                                <h4>Personal Information:</h4>
-                            </div>
+            <div className="main-container">
+                <Menu/>
+                <div className="container mt-3 mb-5">
+                    <div className="row event-schedule-area-two">
+                        <div className="col-lg-4 col-md-4 col-sm-12">
+                            <ul className="nav custom-tab" id="myTab" role="tablist" style={{display: "inline"}}>
+                                <li className="nav-item mt-5">
+                                    <Link className="nav-link active" id="home-taThursday" to='/Profile'>General information</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile">Download Invoice</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" id="contact-tab" data-toggle="tab" href="#contact">Update Password</a>
+                                </li>
+                            </ul>
                         </div>
-                        <div className="row">
-                            <div className="col-6">
-                                <h6>Full Name</h6>
+                        <div className="col-lg-8 col-md-8 col-12">
+                            <div className="row">
+                                <div className="col-12 mt-5 mb-3">
+                                    <h4>Personal Information:</h4>
+                                </div>
                             </div>
-                            <div className="col-6">
-                                <p>{name}</p>
+                            <div className="row">
+                                <div className="col-6">
+                                    <h6>Full Name</h6>
+                                </div>
+                                <div className="col-6">
+                                    <p>{name}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="row mt-3">
-                            <div className="col-6">
-                                <h6>Email Address</h6>
+                            <div className="row mt-3">
+                                <div className="col-6">
+                                    <h6>Email Address</h6>
+                                </div>
+                                <div className="col-6">
+                                    <p>{email}</p>
+                                </div>
                             </div>
-                            <div className="col-6">
-                                <p>{email}</p>
+                            <div className="row mt-3">
+                                <div className="col-6">
+                                    <h6>Contact Number</h6>
+                                </div>
+                                <div className="col-6">
+                                    <p>{phone}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="row mt-3">
-                            <div className="col-6">
-                                <h6>Contact Number</h6>
-                            </div>
-                            <div className="col-6">
-                                <p>{phone}</p>
-                            </div>
-                        </div>
-                        <div className="row mt-3">
-                        <div className="col-6">
+                            <div className="row mt-3">
+                                <div className="col-6">
                                     <h6>Country of Residence</h6>
                                 </div>
                                 <div className="col-6">
@@ -283,15 +278,15 @@ function Profile() {
                                         <p>No tours selected</p>
                                     )}
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <Footer/>
-        </div>
+                <Footer/>
+            </div>
         </div>
     );
 }
 
-export default Profile;
+export default Invoice;
