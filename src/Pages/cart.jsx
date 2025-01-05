@@ -22,6 +22,37 @@ function Cart() {
     const [tourGrandTotal, setTourGrandTotal] = useState(0);
     const [grandTotalUpdate, setGrandTotalUpdate] = useState(0);
 
+    // Update grandTotalUpdate when total or tourGrandTotal changes
+    useEffect(() => {
+        setGrandTotalUpdate(total + tourGrandTotal);
+        console.log("Grand Total Updated:", total + tourGrandTotal);
+    }, [total, tourGrandTotal]);
+
+    useEffect(() => {
+        // Set initial subtotal, total, and discount based on nationality and date
+        if (isBeforeDate) {
+            if (nationality === "Bangladeshi") {
+                setSubTotal(12000);
+                setTotal(12000);
+                setDiscount(0);
+            } else {
+                setSubTotal(100);  // Assuming foreign price is 100 USD
+                setTotal(100);
+                setDiscount(0);
+            }
+        } else {
+            if (nationality === "Bangladeshi") {
+                setSubTotal(15000);
+                setTotal(15000);
+                setDiscount(0);
+            } else {
+                setSubTotal(150);
+                setTotal(150);
+                setDiscount(0);
+            }
+        }
+    }, [isBeforeDate, nationality]);
+
     useEffect(() => {
         const fetchSessionData = async () => {
             const token = localStorage.getItem("userToken");
@@ -58,14 +89,12 @@ function Cart() {
                     const activeTours = toursArray
                         .map((isTrue, index) => (isTrue.trim() === "true" ? { name: tourValues[index], price: tourPricing[index] } : null))
                         .filter(Boolean);
-
                     setTours(activeTours);
 
                     // Calculate the total price
                     const calculatedTotalPrice = activeTours.reduce((sum, tour) => sum + tour.price, 0);
                     setTotalPrice(calculatedTotalPrice);
                     setTourGrandTotal(calculatedTotalPrice);
-                    setGrandTotalUpdate(total + tourGrandTotal);
                 } else {
                     setError(response.data.message || "Failed to fetch profile.");
                 }
@@ -78,35 +107,6 @@ function Cart() {
         // Fetch data initially and set polling
         fetchSessionData();
     }, [navigate]);
-
-    useEffect(() => {
-        // Set initial subtotal, total, and discount based on nationality and date
-        if (isBeforeDate) {
-            if (nationality === "Bangladeshi") {
-                setSubTotal(12000);
-                setTotal(12000);
-                setDiscount(0);
-                setGrandTotalUpdate(total + tourGrandTotal);
-            } else {
-                setSubTotal(100);  // Assuming foreign price is 100 USD
-                setTotal(100);
-                setDiscount(0);
-                setGrandTotalUpdate(total + tourGrandTotal);
-            }
-        } else {
-            if (nationality === "Bangladeshi") {
-                setSubTotal(15000);
-                setTotal(15000);
-                setDiscount(0);
-                setGrandTotalUpdate(total + tourGrandTotal);
-            } else {
-                setSubTotal(150);  // Assuming foreign price is 150 USD
-                setTotal(150);
-                setDiscount(0);
-                setGrandTotalUpdate(total + tourGrandTotal);
-            }
-        }
-    }, [isBeforeDate, nationality]);
 
     function verifyPromoRegistration(event) {
         event.preventDefault();
@@ -121,10 +121,8 @@ function Cart() {
                     const percent = parseFloat(response.data.value);  // Ensure it's a number
                     const newDiscount = total * (percent / 100);
                     const newTotal = total - newDiscount;
-
                     setDiscount(newDiscount);
                     setTotal(newTotal);
-                    setGrandTotalUpdate(total + tourGrandTotal);
                 } else {
                     alert("Invalid promo code");
                 }
@@ -151,7 +149,6 @@ function Cart() {
 
                     setTourDiscount(newDiscount);
                     setTourGrandTotal(newTotal);
-                    setGrandTotalUpdate(total + tourGrandTotal);
                 } else {
                     alert("Invalid promo code");
                 }
@@ -168,7 +165,7 @@ function Cart() {
             <div className="container mt-5">
                 <h4>Cart</h4>
                 <h6 className="mt-5">Items</h6>
-                <hr />
+                <hr/>
                 <table className="table table-striped">
                     <thead>
                     <tr>
@@ -243,105 +240,75 @@ function Cart() {
                                 required
                                 autoComplete="off"
                             />
-                            <button className="btn-primary mt-3" type="submit">
-                                Apply
-                            </button>
+                            <button className="btn-primary mt-3" type="submit">Apply</button>
                         </form>
                     </div>
                 </div>
 
-                <div className="row mt-5">
-                    <div className="col-12">
-                        <h6>Tours Selection</h6>
-                        <hr/>
-                    </div>
-                    <div className="col-12">
-                        <table className="table table-striped">
-                            <thead>
-                            <tr>
-                                <th scope="col">Sl No</th>
-                                <th scope="col">Item</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Total</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {tours.length > 0 ? (
-                                tours.map((tour, index) => (
-                                    <tr key={index}>
-                                        <td>{index + 1}</td> {/* Serial number */}
-                                        <td>{tour.name}</td> {/* Tour name */}
-                                        <td>1</td> {/* Always 1 */}
-                                        <td>{tour.price}</td>
-                                        <td>{tour.price}</td>
-                                    </tr>
-                                ))
-                            ) : (
-                                <tr>
-                                    <td colSpan="5">No tours selected</td>
-                                </tr>
-                            )}
-
-                            <tr>
-                                <td colSpan="4"><b>Sub Total</b></td>
-                                <td>{totalPrice}</td>
-                            </tr>
-                            <tr>
-                                <td colSpan="4"><b>Discount</b></td>
-                                <td>{tourDiscount}</td>
-                            </tr>
-                            <tr>
-                                <td colSpan="4"><b>Total</b></td>
-                                <td>{tourGrandTotal}</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div className="row mt-5 mb-5">
-                    <div className="col-6">
-                        <form onSubmit={verifyTourPromo}>
-                            <label>Promo code for tours:</label>
-                            <input
-                                className="form-control"
-                                type="text"
-                                placeholder="Promo Code"
-                                value={tourPromo}
-                                onChange={(e) => setTourPromo(e.target.value)}
-                                required
-                                autoComplete="off"
-                            />
-                            <button className="btn-primary mt-3" type="submit">
-                                Apply
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                <div className="row mt-5 mb-5">
-                    <table className="table">
-                        <tbody>
-                        <tr>
-                            <td>Grand Total</td>
-                            <td>{grandTotalUpdate}</td>
+                <h6 className="mt-5">Technical Tours</h6>
+                <hr/>
+                <table className="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Sl No</th>
+                        <th scope="col">Item</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {tours.map((tour, index) => (
+                        <tr key={index}>
+                            <th scope="row">{index + 1}</th>
+                            <td>{tour.name}</td>
+                            <td>1</td>
+                            <td>{tour.price}</td>
+                            <td>{tour.price}</td>
                         </tr>
-                        </tbody>
-                    </table>
+                    ))}
+                    <tr>
+                        <th colSpan={4}>Sub-Total</th>
+                        <td><b>{totalPrice}</b></td>
+                    </tr>
+                    <tr>
+                        <th colSpan={4}>Discount</th>
+                        <td><b>{tourDiscount}</b></td>
+                    </tr>
+                    <tr>
+                        <th colSpan={4}>Total</th>
+                        <td><b>{tourGrandTotal}</b></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div className="col-6">
+                    <form onSubmit={verifyTourPromo}>
+                        <label>Promo code for tours:</label>
+                        <input
+                            className="form-control"
+                            type="text"
+                            placeholder="Promo Code"
+                            value={tourPromo}
+                            onChange={(e) => setTourPromo(e.target.value)}
+                            required
+                            autoComplete="off"
+                        />
+                        <button className="btn-primary mt-3" type="submit">Apply</button>
+                    </form>
                 </div>
-                <div className="row mt-3 mb-5 d-flex align-items-end justify-content-end">
-                    <div className="col-2">
-                        <button className="btn-primary mt-3" type="button" disabled={true}>
-                            Pay Now
-                        </button>
-                    </div>
-                    <div className="col-2">
-                        <button className="btn-primary mt-3" type="button">
-                            Pay Later
-                        </button>
-                    </div>
-                </div>
+
+                <h6 className="mt-5">Grand Total</h6>
+                <hr/>
+                <table className="table table-striped">
+                    <tbody>
+                    <tr>
+                        <th colSpan={4}>Grand Total</th>
+                        <td><b>{grandTotalUpdate}</b></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
-            <Footer />
+            <Footer/>
         </div>
     );
 }
