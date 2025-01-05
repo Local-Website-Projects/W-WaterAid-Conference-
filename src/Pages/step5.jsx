@@ -177,6 +177,7 @@ function Step5 () {
                                                                         Pre conference technical tour - Sakhipur
                                                                     </label>
                                                                     <br></br><small>Sakhipur, Bangladesh<br></br>
+                                                                    8500 BDT/70 USD<br></br>
                                                                     24 February 2025<br></br>
                                                                     Sakhipur FSTP, located in the Tangail district under
                                                                     Sakhipur Municipality. This generates approximately
@@ -230,6 +231,7 @@ function Step5 () {
                                                                         (DWASA)
                                                                     </label>
                                                                     <br></br><small>Dhaka, Bangladesh<br></br>
+                                                                    7000 BDT/55 USD<br></br>
                                                                     27 February 2025<br></br>
                                                                     The Dasherkandi Sewage Treatment Plant has set
                                                                     several records, including becoming the first and
@@ -253,6 +255,7 @@ function Step5 () {
                                                                         Post conference technical tour -Faridpur
                                                                     </label>
                                                                     <br></br><small>Faridpur, Bangladesh<br></br>
+                                                                    9000 BDT/75 USD<br></br>
                                                                     27 February 2025<br></br>
                                                                     Visit Faridpur and learn about the challenges,
                                                                     opportunities, needs and desired of sanitation
@@ -287,6 +290,7 @@ function Step5 () {
                                                                         (DPHE)
                                                                     </label>
                                                                     <br></br><small>Cox’s Bazar, Bangladesh<br></br>
+                                                                    32000 BDT/260 USD<br></br>
                                                                     28 February 2025 – 1 March 2025<br></br>
                                                                     Omni Processor in Cox’s Bazar, a government
                                                                     initiative to introduce groundbreaking technology
@@ -313,9 +317,20 @@ function Step5 () {
                                                                            htmlFor="flexRadioDefault2">
                                                                         Post conference technical tour – Saidpur (WaterAid)
                                                                     </label>
-                                                                    <br></br><small>Saidpur, Nilphamari, Bangladesh<br></br>
+                                                                    <br></br><small>Saidpur, Nilphamari,
+                                                                    Bangladesh<br></br>
+                                                                    25500 BDT/210 USD<br></br>
                                                                     28 February 2025 – 1 March 2025<br></br>
-                                                                    Explore the Faecal Sludge Treatment Plant in Saidpur, a vital facility that ensures safe and effective treatment of faecal sludge and solid waste. This tour will highlight the processes involved in FS and SW treatment, from collection to disposal, and the measures taken to prevent environmental contamination. Attendees will gain insights into the plant's capacity, technology used, and the role it plays in improving public health and sanitation in the region.
+                                                                    Explore the Faecal Sludge Treatment Plant in
+                                                                    Saidpur, a vital facility that ensures safe and
+                                                                    effective treatment of faecal sludge and solid
+                                                                    waste. This tour will highlight the processes
+                                                                    involved in FS and SW treatment, from collection to
+                                                                    disposal, and the measures taken to prevent
+                                                                    environmental contamination. Attendees will gain
+                                                                    insights into the plant's capacity, technology used,
+                                                                    and the role it plays in improving public health and
+                                                                    sanitation in the region.
                                                                 </small>
                                                                 </div>
                                                             </>

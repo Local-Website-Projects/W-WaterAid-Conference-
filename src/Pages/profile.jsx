@@ -133,10 +133,10 @@ function Profile() {
                                 <Link className="nav-link active" id="home-taThursday" to='/Profile'>General information</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile">Download Invoice</a>
+                                <a className="nav-link" id="profile-tab" data-toggle="tab" href="https://regtoiletconference.org/user_invoice/index.php" target='_blank'>Download Invoice</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" id="contact-tab" data-toggle="tab" href="#contact">Update Password</a>
+                                <a className="nav-link" id="contact-tab" data-toggle="tab" href="#">Update Password</a>
                             </li>
                         </ul>
                     </div>

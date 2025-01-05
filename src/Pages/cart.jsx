@@ -21,37 +21,15 @@ function Cart() {
     const [tourDiscount, setTourDiscount] = useState(0);
     const [tourGrandTotal, setTourGrandTotal] = useState(0);
     const [grandTotalUpdate, setGrandTotalUpdate] = useState(0);
+    const [student, setStudent] = useState(0);
 
-    // Update grandTotalUpdate when total or tourGrandTotal changes
+
     useEffect(() => {
         setGrandTotalUpdate(total + tourGrandTotal);
         console.log("Grand Total Updated:", total + tourGrandTotal);
     }, [total, tourGrandTotal]);
 
-    useEffect(() => {
-        // Set initial subtotal, total, and discount based on nationality and date
-        if (isBeforeDate) {
-            if (nationality === "Bangladeshi") {
-                setSubTotal(12000);
-                setTotal(12000);
-                setDiscount(0);
-            } else {
-                setSubTotal(100);  // Assuming foreign price is 100 USD
-                setTotal(100);
-                setDiscount(0);
-            }
-        } else {
-            if (nationality === "Bangladeshi") {
-                setSubTotal(15000);
-                setTotal(15000);
-                setDiscount(0);
-            } else {
-                setSubTotal(150);
-                setTotal(150);
-                setDiscount(0);
-            }
-        }
-    }, [isBeforeDate, nationality]);
+
 
     useEffect(() => {
         const fetchSessionData = async () => {
@@ -68,6 +46,7 @@ function Cart() {
                     setUserId(response.data.userId);
                     setUpdateDate(response.data.updateDate);
                     setNationality(response.data.nationality);
+                    setStudent(response.data.student);
 
                     // Compare updateDate with 01 Feb 2025
                     const fetchedUpdateDate = new Date(response.data.updateDate);
@@ -83,7 +62,13 @@ function Cart() {
                         "Post conference technical tour – Cox’s Bazar (DPHE)",
                         "Post conference technical tour – Saidpur (WaterAid)",
                     ];
-                    const tourPricing = [100, 200, 300, 400, 500];
+
+                    let tourPricing = [];
+                    if (response.data.nationality === "Bangladeshi") {
+                        tourPricing = [8500, 7000, 9000, 32000, 25500];
+                    } else {
+                        tourPricing = [70, 55, 75, 260, 210];
+                    }
 
                     const toursArray = response.data.tours ? response.data.tours.split(",") : [];
                     const activeTours = toursArray
@@ -107,6 +92,45 @@ function Cart() {
         // Fetch data initially and set polling
         fetchSessionData();
     }, [navigate]);
+
+
+
+    useEffect(() => {
+        if(student === 'Yes'){
+            if (nationality === "Bangladeshi") {
+                setSubTotal(5000);
+                setTotal(5000);
+                setDiscount(0);
+            } else {
+                setSubTotal(50);  // Assuming foreign price is 100 USD
+                setTotal(50);
+                setDiscount(0);
+            }
+        }
+        else{
+            if (isBeforeDate) {
+                if (nationality === "Bangladeshi") {
+                    setSubTotal(12000);
+                    setTotal(12000);
+                    setDiscount(0);
+                } else {
+                    setSubTotal(100);  // Assuming foreign price is 100 USD
+                    setTotal(100);
+                    setDiscount(0);
+                }
+            } else {
+                if (nationality === "Bangladeshi") {
+                    setSubTotal(15000);
+                    setTotal(15000);
+                    setDiscount(0);
+                } else {
+                    setSubTotal(150);
+                    setTotal(150);
+                    setDiscount(0);
+                }
+            }
+        }
+    }, [isBeforeDate, nationality]);
 
     function verifyPromoRegistration(event) {
         event.preventDefault();
@@ -171,6 +195,7 @@ function Cart() {
         fData.append('isBeforeDate', isBeforeDate);
         fData.append('discount', discount);
         fData.append('tourDiscount', tourDiscount);
+        fData.append('student', student);
         axios.post(url, fData)
             .then(response => {
                 if (response.data.status === "Success") {
@@ -204,7 +229,25 @@ function Cart() {
                     </tr>
                     </thead>
                     <tbody>
-                    {isBeforeDate ? (
+                    {student === 'Yes' ? (
+                        nationality === "Bangladeshi" ? (
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Student Registration (Bangladeshi)</td>
+                                <td>1</td>
+                                <td>{subTotal} BDT</td>
+                                <td>{subTotal} BDT</td>
+                            </tr>
+                        ) : (
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Student Registration (Foreign)</td>
+                                <td>1</td>
+                                <td>{subTotal} USD</td>
+                                <td>{subTotal} USD</td>
+                            </tr>
+                        )
+                    ) : isBeforeDate ? (
                         nationality === "Bangladeshi" ? (
                             <tr>
                                 <th scope="row">1</th>
@@ -222,22 +265,24 @@ function Cart() {
                                 <td>{subTotal} USD</td>
                             </tr>
                         )
-                    ) : nationality === "Bangladeshi" ? (
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Regular Registration (Bangladeshi)</td>
-                            <td>1</td>
-                            <td>{subTotal} BDT</td>
-                            <td>{subTotal} BDT</td>
-                        </tr>
                     ) : (
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Regular Registration (Foreign)</td>
-                            <td>1</td>
-                            <td>{subTotal} USD</td>
-                            <td>{subTotal} USD</td>
-                        </tr>
+                        nationality === "Bangladeshi" ? (
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Regular Registration (Bangladeshi)</td>
+                                <td>1</td>
+                                <td>{subTotal} BDT</td>
+                                <td>{subTotal} BDT</td>
+                            </tr>
+                        ) : (
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Regular Registration (Foreign)</td>
+                                <td>1</td>
+                                <td>{subTotal} USD</td>
+                                <td>{subTotal} USD</td>
+                            </tr>
+                        )
                     )}
                     <tr>
                         <th colSpan={4}>Sub-Total</th>
@@ -260,23 +305,26 @@ function Cart() {
                     </tbody>
                 </table>
 
-                <div className="row mt-5">
-                    <div className="col-6">
-                        <form onSubmit={verifyPromoRegistration}>
-                            <label>Promo code for registration:</label>
-                            <input
-                                className="form-control"
-                                type="text"
-                                placeholder="Promo Code"
-                                value={registrationPromo}
-                                onChange={(e) => setRegistrationPromo(e.target.value)}
-                                required
-                                autoComplete="off"
-                            />
-                            <button className="btn-primary mt-3" type="submit">Apply</button>
-                        </form>
+                {student === 'No' && (
+                    <div className="row mt-5">
+                        <div className="col-6">
+                            <form onSubmit={verifyPromoRegistration}>
+                                <label>Promo code for registration:</label>
+                                <input
+                                    className="form-control"
+                                    type="text"
+                                    placeholder="Promo Code"
+                                    value={registrationPromo}
+                                    onChange={(e) => setRegistrationPromo(e.target.value)}
+                                    required
+                                    autoComplete="off"
+                                />
+                                <button className="btn-primary mt-3" type="submit">Apply</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
+                )}
+
 
                 <h6 className="mt-5">Technical Tours</h6>
                 <hr/>
