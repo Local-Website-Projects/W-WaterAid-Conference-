@@ -20,15 +20,6 @@ function Header() {
                                         aria-expanded="false" aria-label="Toggle navigation">
                                     <span className="navbar-toggler-icon"><i className="fa fa-bars"></i></span>
                                 </button>
-
-                                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                                    <ul className="navbar-nav ml-auto">
-                                        <li className="nav-item">
-                                            <a className="nav-link" href="#">Back To Home <span
-                                                className="sr-only">(current)</span></a>
-                                        </li>
-                                    </ul>
-                                </div>
                             </nav>
                         </div>
                         <div className="col-lg-2 d-none d-lg-block">

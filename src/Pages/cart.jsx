@@ -159,6 +159,33 @@ function Cart() {
             });
     }
 
+    function submitInvoiceData (event) {
+        event.preventDefault();
+        const url = '/api/insert_invoice.php';
+        let fData = new FormData();
+        fData.append('tourPromo', tourPromo);
+        fData.append('registrationPromo', registrationPromo);
+        fData.append('tours', tours);
+        fData.append('grandTotalUpdate', grandTotalUpdate);
+        fData.append('nationality', nationality);
+        fData.append('isBeforeDate', isBeforeDate);
+        fData.append('discount', discount);
+        fData.append('tourDiscount', tourDiscount);
+        axios.post(url, fData)
+            .then(response => {
+                if (response.data.status === "Success") {
+                    alert('Please download the invoice for future use');
+                    window.location.href = 'https://regtoiletconference.org/user_invoice';
+                } else {
+                    alert("Something Went Wrong");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Network error occurred');
+            });
+    }
+
     return (
         <div>
             <Menu />
@@ -214,15 +241,21 @@ function Cart() {
                     )}
                     <tr>
                         <th colSpan={4}>Sub-Total</th>
-                        <td><b>{subTotal}</b></td>
+                        <td><b>{subTotal} {nationality === 'Bangladeshi' && (
+                            <span>BDT</span>
+                        )}</b></td>
                     </tr>
                     <tr>
                         <th colSpan={4}>Discount</th>
-                        <td><b>{discount}</b></td>
+                        <td><b>{discount} {nationality === 'Bangladeshi' && (
+                            <span>BDT</span>
+                        )}</b></td>
                     </tr>
                     <tr>
                         <th colSpan={4}>Total</th>
-                        <td><b>{total}</b></td>
+                        <td><b>{total} {nationality === 'Bangladeshi' && (
+                            <span>BDT</span>
+                        )}</b></td>
                     </tr>
                     </tbody>
                 </table>
@@ -263,21 +296,31 @@ function Cart() {
                             <th scope="row">{index + 1}</th>
                             <td>{tour.name}</td>
                             <td>1</td>
-                            <td>{tour.price}</td>
-                            <td>{tour.price}</td>
+                            <td>{tour.price} {nationality === 'Bangladeshi' && (
+                                <span>BDT</span>
+                            )}</td>
+                            <td>{tour.price} {nationality === 'Bangladeshi' && (
+                                <span>BDT</span>
+                            )}</td>
                         </tr>
                     ))}
                     <tr>
                         <th colSpan={4}>Sub-Total</th>
-                        <td><b>{totalPrice}</b></td>
+                        <td><b>{totalPrice} {nationality === 'Bangladeshi' && (
+                            <span>BDT</span>
+                        )}</b></td>
                     </tr>
                     <tr>
                         <th colSpan={4}>Discount</th>
-                        <td><b>{tourDiscount}</b></td>
+                        <td><b>{tourDiscount} {nationality === 'Bangladeshi' && (
+                            <span>BDT</span>
+                        )}</b></td>
                     </tr>
                     <tr>
                         <th colSpan={4}>Total</th>
-                        <td><b>{tourGrandTotal}</b></td>
+                        <td><b>{tourGrandTotal} {nationality === 'Bangladeshi' && (
+                            <span>BDT</span>
+                        )}</b></td>
                     </tr>
                     </tbody>
                 </table>
@@ -303,10 +346,24 @@ function Cart() {
                     <tbody>
                     <tr>
                         <th colSpan={4}>Grand Total</th>
-                        <td><b>{grandTotalUpdate}</b></td>
+                        <td><b>{grandTotalUpdate} {nationality === 'Bangladeshi' && (
+                            <span>BDT</span>
+                        )}</b></td>
                     </tr>
                     </tbody>
                 </table>
+                <div className="row mt-3 mb-5 d-flex align-items-end justify-content-end">
+                    <div className="col-2">
+                        <button className="btn btn-secondary" disabled={true}>
+                            Pay Now
+                        </button>
+                    </div>
+                    <div className="col-2">
+                        <button className="btn btn-primary" disabled={false} onClick={submitInvoiceData}>
+                            Pay Later
+                        </button>
+                    </div>
+                </div>
             </div>
             <Footer/>
         </div>
