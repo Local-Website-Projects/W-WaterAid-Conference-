@@ -14,17 +14,13 @@ import Step5 from "./Pages/step5";
 import Step6 from "./Pages/step6";
 import Roombooking from "./Pages/roomBooking";
 import Cart from "./Pages/cart";
+import UpdatePassword from "./Pages/updatePassword";
+import ForgetPassword from "./Pages/frogetPassword";
 function App() {
   return (
       <div className="App">
-          <div className='loader'>
-              <div className='loader--dot'></div>
-              <div className='loader--dot'></div>
-              <div className='loader--dot'></div>
-              <div className='loader--dot'></div>
-              <div className='loader--dot'></div>
-              <div className='loader--dot'></div>
-              <div className='loader--text'></div>
+          <div className='loader d-flex align-items-center justify-content-center'>
+              <img src="assets/img/logo/preloader.png" alt="FrogBID" style={{width:"200px", height:"auto"}}/>
           </div>
           <BrowserRouter>
               <Routes>
@@ -41,6 +37,8 @@ function App() {
                   <Route path='/Terms' element={<Terms/>}/>
                   <Route path='/Accommodation' element={<Roombooking/>}/>
                   <Route path='/Cart' element={<Cart/>}/>
+                  <Route path='/Update-Password' element={<UpdatePassword/>}/>
+                  <Route path='/Forget-Password' element={<ForgetPassword/>}/>
                   <Route path='/Logout' element={<Logout/>}/>
               </Routes>
           </BrowserRouter>

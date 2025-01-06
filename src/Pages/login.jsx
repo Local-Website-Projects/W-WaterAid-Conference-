@@ -54,8 +54,9 @@ function Login() {
                     <div className="row">
                         <div className="col-lg-7 col-md-6 col-sm-5 d-none d-lg-block">
                             <div className="banner-content">
-                                <h1>Registration <span style={{fontSize: '20px'}}>for</span></h1>
-                                <h2>Toilet Conference 2025</h2>
+                                <h1>Registration <span style={{textTransform:"lowercase"}}>for</span></h1>
+                                <h1>Toilet Conference</h1>
+                                <h2>2025</h2>
                                 <p>Dhaka, Bangladesh | 25-26 February 2025</p>
                             </div>
                         </div>
@@ -115,6 +116,11 @@ function Login() {
                                             <div className="p-3">
                                                 <p>
                                                     You don't have an account? <Link to="/Register">Register Now.</Link>
+                                                </p>
+                                            </div>
+                                            <div className="p-3">
+                                                <p>
+                                                    Forget your password? <Link to="/Forget-Password">Click Here!</Link>
                                                 </p>
                                             </div>
                                         </div>

@@ -913,7 +913,7 @@ a:focus {
     font-weight: 300;
     font-size: 64px;
     color: #fff;
-    line-height: 64px;
+    line-height: 1.2em;
     text-transform: capitalize;
 }
 

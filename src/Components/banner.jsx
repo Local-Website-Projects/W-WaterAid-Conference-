@@ -55,8 +55,9 @@ function Banner() {
                     <div className="row">
                         <div className="col-lg-7 col-md-6 col-sm-5 d-none d-lg-block">
                             <div className="banner-content">
-                                <h1>Registration <span style={{fontSize: '20px'}}>for</span></h1>
-                                <h2>Toilet Conference 2025</h2>
+                                <h1>Registration <span style={{textTransform: "lowercase"}}>for</span></h1>
+                                <h1>Toilet Conference</h1>
+                                <h2>2025</h2>
                                 <p>Dhaka, Bangladesh | 25-26 February 2025</p>
                             </div>
                         </div>
@@ -67,7 +68,7 @@ function Banner() {
                                     <form onSubmit={handleSubmit}>
                                         <div className="row">
                                             <div className="col-lg-12 col-md-12 col-sm-7">
-                                                <label>Full Name</label>
+                                            <label>Full Name</label>
                                                 <input className="form-control"
                                                        type="text"
                                                        placeholder="Write your full name (e.g., Adnan Ahmmed)"
