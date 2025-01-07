@@ -13,9 +13,7 @@ function Banner() {
         e.preventDefault();  // Prevent the default form submission
 
         // Basic form validation
-        if (name.length === 0) {
-            alert("Name cannot be empty!");
-        } else if (email.length === 0) {
+        if (email.length === 0) {
             alert("Email cannot be empty!");
         } else if (password.length === 0) {
             alert("Password cannot be empty!");
@@ -67,17 +65,6 @@ function Banner() {
                                     <h3>Sign Up</h3>
                                     <form onSubmit={handleSubmit}>
                                         <div className="row">
-                                            <div className="col-lg-12 col-md-12 col-sm-7">
-                                            <label>Full Name</label>
-                                                <input className="form-control"
-                                                       type="text"
-                                                       placeholder="Write your full name (e.g., Adnan Ahmmed)"
-                                                       name="full_name"
-                                                       value={name}
-                                                       onChange={(e) => setName(e.target.value)}
-                                                       required
-                                                       autoComplete="off" />
-                                            </div>
                                             <div className="col-lg-12">
                                                 <label>Email</label>
                                                 <input className="form-control"

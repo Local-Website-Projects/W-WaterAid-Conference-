@@ -12,7 +12,8 @@ function Cart() {
     const [discount, setDiscount] = useState(0);  // Initialized as number
     const [registrationPromo, setRegistrationPromo] = useState("");
     const [tourPromo, setTourPromo] = useState("");
-    const [nationality, setNationality] = useState("");  // Holds the nationality
+    const [nationality, setNationality] = useState("");
+    const [country, setCountry] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
     const [updateDate, setUpdateDate] = useState("");
@@ -47,6 +48,7 @@ function Cart() {
                     setUpdateDate(response.data.updateDate);
                     setNationality(response.data.nationality);
                     setStudent(response.data.student);
+                    setCountry(response.data.country);
 
                     // Compare updateDate with 01 Feb 2025
                     const fetchedUpdateDate = new Date(response.data.updateDate);
@@ -64,7 +66,7 @@ function Cart() {
                     ];
 
                     let tourPricing = [];
-                    if (response.data.nationality === "Bangladeshi") {
+                    if (response.data.country === "Bangladesh") {
                         tourPricing = [8500, 7000, 9000, 32000, 25500];
                     } else {
                         tourPricing = [70, 55, 75, 260, 210];
@@ -97,7 +99,7 @@ function Cart() {
 
     useEffect(() => {
         if(student === 'Yes'){
-            if (nationality === "Bangladeshi") {
+            if (country === "Bangladesh") {
                 setSubTotal(5000);
                 setTotal(5000);
                 setDiscount(0);
@@ -109,7 +111,7 @@ function Cart() {
         }
         else{
             if (isBeforeDate) {
-                if (nationality === "Bangladeshi") {
+                if (country === "Bangladesh") {
                     setSubTotal(12000);
                     setTotal(12000);
                     setDiscount(0);
@@ -119,7 +121,7 @@ function Cart() {
                     setDiscount(0);
                 }
             } else {
-                if (nationality === "Bangladeshi") {
+                if (country === "Bangladesh") {
                     setSubTotal(15000);
                     setTotal(15000);
                     setDiscount(0);
@@ -130,7 +132,7 @@ function Cart() {
                 }
             }
         }
-    }, [isBeforeDate, nationality]);
+    }, [isBeforeDate, country]);
 
     function verifyPromoRegistration(event) {
         event.preventDefault();
@@ -192,6 +194,7 @@ function Cart() {
         fData.append('tours', tours);
         fData.append('grandTotalUpdate', grandTotalUpdate);
         fData.append('nationality', nationality);
+        fData.append('country', country);
         fData.append('isBeforeDate', isBeforeDate);
         fData.append('discount', discount);
         fData.append('tourDiscount', tourDiscount);
@@ -230,7 +233,7 @@ function Cart() {
                     </thead>
                     <tbody>
                     {student === 'Yes' ? (
-                        nationality === "Bangladeshi" ? (
+                        country === "Bangladesh" ? (
                             <tr>
                                 <th scope="row">1</th>
                                 <td>Student Registration (Bangladeshi)</td>
@@ -248,7 +251,7 @@ function Cart() {
                             </tr>
                         )
                     ) : isBeforeDate ? (
-                        nationality === "Bangladeshi" ? (
+                        country === "Bangladesh" ? (
                             <tr>
                                 <th scope="row">1</th>
                                 <td>Early Bird Registration (Bangladeshi)</td>
@@ -266,7 +269,7 @@ function Cart() {
                             </tr>
                         )
                     ) : (
-                        nationality === "Bangladeshi" ? (
+                        country === "Bangladesh" ? (
                             <tr>
                                 <th scope="row">1</th>
                                 <td>Regular Registration (Bangladeshi)</td>
@@ -286,19 +289,19 @@ function Cart() {
                     )}
                     <tr>
                         <th colSpan={4}>Sub-Total</th>
-                        <td><b>{subTotal} {nationality === 'Bangladeshi' && (
+                        <td><b>{subTotal} { country === 'Bangladesh' && (
                             <span>BDT</span>
                         )}</b></td>
                     </tr>
                     <tr>
                         <th colSpan={4}>Discount</th>
-                        <td><b>{discount} {nationality === 'Bangladeshi' && (
+                        <td><b>{discount} { country === 'Bangladesh' && (
                             <span>BDT</span>
                         )}</b></td>
                     </tr>
                     <tr>
                         <th colSpan={4}>Total</th>
-                        <td><b>{total} {nationality === 'Bangladeshi' && (
+                        <td><b>{total} { country === 'Bangladesh' && (
                             <span>BDT</span>
                         )}</b></td>
                     </tr>
@@ -344,29 +347,29 @@ function Cart() {
                             <th scope="row">{index + 1}</th>
                             <td>{tour.name}</td>
                             <td>1</td>
-                            <td>{tour.price} {nationality === 'Bangladeshi' && (
+                            <td>{tour.price} { country === 'Bangladesh' && (
                                 <span>BDT</span>
                             )}</td>
-                            <td>{tour.price} {nationality === 'Bangladeshi' && (
+                            <td>{tour.price} { country === 'Bangladesh' && (
                                 <span>BDT</span>
                             )}</td>
                         </tr>
                     ))}
                     <tr>
                         <th colSpan={4}>Sub-Total</th>
-                        <td><b>{totalPrice} {nationality === 'Bangladeshi' && (
+                        <td><b>{totalPrice} { country === 'Bangladesh' && (
                             <span>BDT</span>
                         )}</b></td>
                     </tr>
                     <tr>
                         <th colSpan={4}>Discount</th>
-                        <td><b>{tourDiscount} {nationality === 'Bangladeshi' && (
+                        <td><b>{tourDiscount} { country === 'Bangladesh' && (
                             <span>BDT</span>
                         )}</b></td>
                     </tr>
                     <tr>
                         <th colSpan={4}>Total</th>
-                        <td><b>{tourGrandTotal} {nationality === 'Bangladeshi' && (
+                        <td><b>{tourGrandTotal} { country === 'Bangladesh' && (
                             <span>BDT</span>
                         )}</b></td>
                     </tr>
@@ -394,7 +397,7 @@ function Cart() {
                     <tbody>
                     <tr>
                         <th colSpan={4}>Grand Total</th>
-                        <td><b>{grandTotalUpdate} {nationality === 'Bangladeshi' && (
+                        <td><b>{grandTotalUpdate} { country === 'Bangladesh' && (
                             <span>BDT</span>
                         )}</b></td>
                     </tr>

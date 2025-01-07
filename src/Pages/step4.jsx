@@ -148,26 +148,12 @@ function Step4 () {
                                                                 type="radio"
                                                                 name="dietary"
                                                                 id="flexRadioFemale"
-                                                                checked={dietary === "Non-Veg"}
-                                                                onChange={() => setDietary("Non-Veg")}
+                                                                checked={dietary === "Non-Vegetarian"}
+                                                                onChange={() => setDietary("Non-Vegetarian")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
-                                                                Non-Veg
-                                                            </label>
-                                                        </div>
-                                                        <div className="form-check">
-                                                            <input
-                                                                className="form-check-input"
-                                                                type="radio"
-                                                                name="dietary"
-                                                                id="flexRadioFemale"
-                                                                checked={dietary === "Vegan"}
-                                                                onChange={() => setDietary("Vegan")}
-                                                            />
-                                                            <label className="form-check-label"
-                                                                   htmlFor="flexRadioFemale">
-                                                                Vegan
+                                                                Non-Vegetarian
                                                             </label>
                                                         </div>
                                                         <div className="form-check">
@@ -334,11 +320,21 @@ function Step4 () {
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                <div className="btn-2">
-                                                    <button className="btn-primary" name="submit-form"
-                                                            type="submit">Next
-                                                    </button>
+                                                <div className="row">
+                                                    <div className="col-6">
+                                                        <div className="btn-2">
+                                                            <button className="btn-primary" name="submit-form"
+                                                                    type="button">Back
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-6">
+                                                        <div className="btn-2">
+                                                            <button className="btn-primary" name="submit-form"
+                                                                    type="submit">Save and Continue
+                                                            </button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </form>
                                             <div id="msgalert" className="hidden"></div>

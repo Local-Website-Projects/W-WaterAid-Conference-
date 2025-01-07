@@ -35,10 +35,10 @@ function Step6 () {
         const fetchSessionData = async () => {
             const token = localStorage.getItem("userToken");
 
-            if (!token) {
+            /*if (!token) {
                 setError("You are not logged in.");
                 return navigate("/Login"); // Redirect to login if no token
-            }
+            }*/
 
             try {
                 const response = await axios.get("/api/fetch_profile.php", {
@@ -112,8 +112,7 @@ function Step6 () {
                                                   onSubmit={handleTicket}>
                                                 <div className="col-12">
                                                     <div className="form-group">
-                                                        <label>Do you consent to receive updates and notifications about
-                                                            the conference via email? *</label>
+                                                        <label>Do you want to subscribe to newsletter? *</label>
                                                         <div className="form-check">
                                                             <input
                                                                 className="form-check-input"
@@ -144,35 +143,27 @@ function Step6 () {
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                <div className="btn-2">
-                                                    <button className="btn-primary" name="submit-form"
-                                                            type="submit">Register
-                                                    </button>
+                                                <div className="row">
+                                                    <div className="col-6">
+                                                        <div className="btn-2">
+                                                            <button className="btn-primary" name="submit-form"
+                                                                    type="button">Back
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-6">
+                                                        <div className="btn-2">
+                                                            <button className="btn-primary" name="submit-form"
+                                                                    type="submit">Register
+                                                            </button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </form>
                                             <div id="msgalert" className="hidden"></div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="row mt-5">
-                                <p style={{fontWeight: "bold"}}>We’re delighted to offer our participants convenient
-                                    accommodation options during their stay in Bangladesh for the Toilet Conference
-                                    2025.</p>
-                                <p style={{fontWeight: "bold"}}>Participants who choose to book a room at our designated
-                                    conference hotel can enjoy a special discounted rate. If you opt for this offer, we
-                                    will send you the necessary details, including a promo code or booking link, via
-                                    email.</p>
-                                <p style={{fontWeight: "bold"}}>If you prefer alternative accommodations, here are some
-                                    nearby recommended hotels for your convenience:</p>
-                                <ul>
-                                    <li>Pan Pacific Sonargaon Dhaka</li>
-                                    <li>Radisson Blu Dhaka Water Garden</li>
-                                    <li>Le Méridien Dhaka</li>
-                                </ul>
-                                <p style={{fontWeight: "bold"}}>Make your stay comfortable while you focus on engaging
-                                    with global leaders and experts at the conference!</p>
                             </div>
                         </div>
                     </div>

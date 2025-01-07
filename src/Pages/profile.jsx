@@ -204,7 +204,7 @@ function Profile() {
                             </div>
                             <div className="row mt-3">
                                 <div className="col-6">
-                                    <h6>Organization / Institution</h6>
+                                    <h6>Organisation / Institution</h6>
                                 </div>
                                 <div className="col-6">
                                     <p>{organization}</p>

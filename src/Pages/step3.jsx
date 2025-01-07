@@ -12,7 +12,30 @@ function Step3 () {
     const [issueDate, setIssueDate] = useState("");
     const [expireDate, setExpireDate] = useState("");
     const handleFileChange = (e) => {
-        setFile(e.target.files[0]); // Capture the selected file
+        const file = e.target.files[0];
+
+        if (file) {
+            // Allowed file types (MIME types)
+            const allowedFileTypes = ["image/jpeg", "image/png", "application/pdf"];
+            const maxFileSize = 5 * 1024 * 1024; // 5MB in bytes
+
+            // Check file type
+            if (!allowedFileTypes.includes(file.type)) {
+                alert("Invalid file type. Please upload a JPG, PNG, or PDF file.");
+                e.target.value = ""; // Reset the file input field
+                return;
+            }
+
+            // Check file size
+            if (file.size > maxFileSize) {
+                alert("File size exceeds 5MB. Please upload a smaller file.");
+                e.target.value = ""; // Reset the file input field
+                return;
+            }
+
+            // If valid, set the file state
+            setFile(file); // Store the file in state
+        }
     };
 
     const [userName, setUserName] = useState([]);
@@ -170,7 +193,8 @@ function Step3 () {
                                                                 <div className="mt-3">
                                                                     <label htmlFor="otherGenderInput">Passport issue
                                                                         date </label>
-                                                                    <br></br><small>Please input date (Format mm/dd/yyyy)</small>
+                                                                    <br></br><small>Please input date (Format
+                                                                    mm/dd/yyyy)</small>
                                                                     <input
                                                                         type="date"
                                                                         id="otherGenderInput"
@@ -183,7 +207,8 @@ function Step3 () {
                                                                 <div className="mt-3">
                                                                     <label htmlFor="otherGenderInput">Passport
                                                                         expiration date</label>
-                                                                    <br></br><small>Please input date (Format mm/dd/yyyy)</small>
+                                                                    <br></br><small>Please input date (Format
+                                                                    mm/dd/yyyy)</small>
                                                                     <input
                                                                         type="date"
                                                                         id="otherGenderInput"
@@ -195,13 +220,15 @@ function Step3 () {
                                                                 </div>
                                                                 <div className="col-12 mt-3">
                                                                     <div className="form-group">
-                                                                        <label htmlFor="fileUpload">Upload scanned copy of passport</label>
+                                                                        <label htmlFor="fileUpload">Upload scanned copy
+                                                                            of passport</label>
                                                                         <input
                                                                             type="file"
                                                                             id="fileUpload"
                                                                             className="form-control pt-3"
                                                                             onChange={handleFileChange}
                                                                             required={invitation === "Yes"}
+                                                                            accept=".jpg,.png,.pdf"
                                                                         />
                                                                     </div>
                                                                 </div>
@@ -210,16 +237,28 @@ function Step3 () {
                                                         )}
                                                     </div>
                                                 </div>
-
-                                                <div className="btn-2">
-                                                    <button className="btn-primary" name="submit-form"
-                                                            type="submit">Next
-                                                    </button>
+                                                <div className="row">
+                                                    <div className="col-6">
+                                                        <div className="btn-2">
+                                                            <button className="btn-primary" name="submit-form"
+                                                                    type="button">Back
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-6">
+                                                        <div className="btn-2">
+                                                            <button className="btn-primary" name="submit-form"
+                                                                    type="submit">Save and Continue
+                                                            </button>
+                                                        </div>
+                                                    </div>
                                                 </div>
+
                                             </form>
                                             <div id="msgalert" className="hidden"></div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>

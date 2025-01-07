@@ -13,6 +13,9 @@ function TicketPurchase() {
     const [otherInput, setOtherInput] = useState("");
     const [birthYear, setBirthYear] = useState("");
     const [flag, setFlag] = useState("1");
+    const [title, setTitle] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [surname, setSurname] = useState("");
 
     const handleGenderChange = (value) => {
         setGender(value); // Set gender to the selected value
@@ -78,6 +81,9 @@ function TicketPurchase() {
         fData.append('otherInput', otherInput);
         fData.append('birthYear', birthYear);
         fData.append('flag', flag);
+        fData.append('title', title);
+        fData.append('firstName', firstName);
+        fData.append('surname', surname);
         axios.post(url, fData)
             .then(response => {
                 console.log(response.data);
@@ -171,6 +177,59 @@ function TicketPurchase() {
                                             <form id="contact-form" data-toggle="validator" role="form"
                                                   onSubmit={handleTicket}>
                                                 <div className="row">
+                                                    <div className="col-12">
+                                                        <div className="form-group">
+                                                            <lable>Salutation/Title</lable>
+                                                            <br></br><small
+                                                            className="mb-3">Mr,Miss,Ms,Mrs,Dr,Prof,Engr</small>
+                                                            <input
+                                                                id="inputName"
+                                                                type="text"
+                                                                name="phone"
+                                                                className="form-control"
+                                                                placeholder="Mr,Miss,Ms,Mrs,Dr,Prof,Engr"
+                                                                value={title}
+                                                                onChange={(e) => setTitle(e.target.value)}
+                                                                autoComplete="off"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-12">
+                                                        <div className="form-group">
+                                                            <lable>First name</lable>
+                                                            <br></br><small
+                                                            className="mb-3">According to your passport</small>
+                                                            <input
+                                                                id="inputName"
+                                                                type="text"
+                                                                name="phone"
+                                                                className="form-control"
+                                                                placeholder="John"
+                                                                value={firstName}
+                                                                onChange={(e) => setFirstName(e.target.value)}
+                                                                autoComplete="off"
+                                                                required
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-12">
+                                                        <div className="form-group">
+                                                            <lable>Given name/Surname</lable>
+                                                            <br></br><small
+                                                            className="mb-3">According to your passport</small>
+                                                            <input
+                                                                id="inputName"
+                                                                type="text"
+                                                                name="phone"
+                                                                className="form-control"
+                                                                placeholder="Doe"
+                                                                value={surname}
+                                                                onChange={(e) => setSurname(e.target.value)}
+                                                                autoComplete="off"
+                                                                required
+                                                            />
+                                                        </div>
+                                                    </div>
                                                     <div className="col-12">
                                                         <div className="form-group">
                                                             <lable>Contact Number *</lable>
@@ -366,11 +425,20 @@ function TicketPurchase() {
                                                             </select>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div className="btn-2">
-                                                    <button className="btn-primary" name="submit-form"
-                                                            type="submit">Next
-                                                    </button>
+                                                    <div className="col-6">
+                                                        <div className="btn-2">
+                                                            <button className="btn-primary" name="submit-form"
+                                                                    type="button">Back
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-6">
+                                                        <div className="btn-2">
+                                                            <button className="btn-primary" name="submit-form"
+                                                                    type="submit">Save and Continue
+                                                            </button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </form>
                                             <div id="msgalert" className="hidden"></div>
