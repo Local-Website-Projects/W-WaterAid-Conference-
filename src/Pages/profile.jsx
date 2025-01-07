@@ -6,7 +6,9 @@ import Menu from "../Components/menu";
 
 function Profile() {
     const [userId, setUserId] = useState("");
-    const [name, setName] = useState("");
+    const [title, setTitle] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [surname, setSurname] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [country, setCountry] = useState("");
@@ -47,8 +49,11 @@ function Profile() {
                 });
 
                 if (response.data.status === "success") {
+                    console.log(response.data);
                     setUserId(response.data.userId);
-                    setName(response.data.name);
+                    setTitle(response.data.title);
+                    setFirstName(response.data.firstName);
+                    setSurname(response.data.surname);
                     setEmail(response.data.email);
                     setPhone(response.data.phone);
                     setCountry(response.data.country);
@@ -151,7 +156,7 @@ function Profile() {
                                 <h6>Full Name</h6>
                             </div>
                             <div className="col-6">
-                                <p>{name}</p>
+                                <p>{title} {firstName} {surname}</p>
                             </div>
                         </div>
                         <div className="row mt-3">
