@@ -56,14 +56,16 @@ function Step4 () {
             }
 
             try {
-                const response = await axios.get("/api/fetch_profile.php", {
+                const response = await axios.get("/api/fetch_ticket_data.php", {
                     headers: {
                         "Authorization": `Bearer ${token}` // Send token as a Bearer token
                     }
                 });
 
                 if (response.data.status === "success") {
-                    setUserName(response.data.userName);
+                    setDietary(response.data.dietary);
+                    setAccessibility(response.data.accessibility);
+                    setLanguage(response.data.language);
                 } else {
                     setError(response.data.message || "Failed to fetch profile.");
                 }
@@ -74,11 +76,6 @@ function Step4 () {
         };
 
         fetchSessionData();
-        // Set up polling
-        const interval = setInterval(fetchSessionData, 5000);
-
-        // Clear interval on component unmount
-        return () => clearInterval(interval);
     }, [navigate]);
     return (
         <div>
@@ -324,7 +321,9 @@ function Step4 () {
                                                     <div className="col-6">
                                                         <div className="btn-2">
                                                             <button className="btn-primary" name="submit-form"
-                                                                    type="button">Back
+                                                                    type="button"><Link to='/Third-Step'>
+                                                                Back
+                                                            </Link>
                                                             </button>
                                                         </div>
                                                     </div>

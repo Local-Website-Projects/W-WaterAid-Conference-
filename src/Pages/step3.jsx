@@ -76,14 +76,17 @@ function Step3 () {
             }
 
             try {
-                const response = await axios.get("/api/fetch_profile.php", {
+                const response = await axios.get("/api/fetch_ticket_data.php", {
                     headers: {
                         "Authorization": `Bearer ${token}` // Send token as a Bearer token
                     }
                 });
 
                 if (response.data.status === "success") {
-                    setUserName(response.data.userName);
+                    setInvitation(response.data.visa_invitation);
+                    setPassport(response.data.passport_no);
+                    setIssueDate(response.data.issue_date);
+                    setExpireDate(response.data.expire_date);
                 } else {
                     setError(response.data.message || "Failed to fetch profile.");
                 }
@@ -94,11 +97,6 @@ function Step3 () {
         };
 
         fetchSessionData();
-        // Set up polling
-        const interval = setInterval(fetchSessionData, 5000);
-
-        // Clear interval on component unmount
-        return () => clearInterval(interval);
     }, [navigate]);
     return (
         <div>
@@ -221,7 +219,7 @@ function Step3 () {
                                                                 <div className="col-12 mt-3">
                                                                     <div className="form-group">
                                                                         <label htmlFor="fileUpload">Upload scanned copy
-                                                                            of passport</label>
+                                                                            of passport (JPG, PNG, or PDF format, and under 5MB)</label>
                                                                         <input
                                                                             type="file"
                                                                             id="fileUpload"
@@ -241,7 +239,9 @@ function Step3 () {
                                                     <div className="col-6">
                                                         <div className="btn-2">
                                                             <button className="btn-primary" name="submit-form"
-                                                                    type="button">Back
+                                                                    type="button"><Link to='/Second-Step'>
+                                                                Back
+                                                            </Link>
                                                             </button>
                                                         </div>
                                                     </div>

@@ -10,18 +10,13 @@ function Menu (){
         const verifyRegistration = async () => {
             const token = localStorage.getItem("userToken");
 
-            /*if (!token) {
-                setError("You are not logged in.");
-                return navigate("/Login"); // Redirect to login if no token
-            }*/
-
             try {
                 const response = await axios.get("/api/fetch_registration_status.php", {
                     headers: {
                         "Authorization": `Bearer ${token}`,
                     },
                 });
-                if (response.data.status === "success") {
+                if (response.data.status === "Success") {
                     setValidity(1);
                 } else {
                     setError(response.data.message || "Failed to fetch profile.");
@@ -59,9 +54,11 @@ function Menu (){
                                             <li className="nav-item">
                                                 <Link className="nav-link" to="/Profile">Profile</Link>
                                             </li>
-                                            <li className="nav-item">
-                                                <Link className="nav-link" to="/Ticket">Ticket Purchase</Link>
-                                            </li>
+                                            {validity === 0 && (
+                                                <li className="nav-item">
+                                                    <Link className="nav-link" to="/Ticket">Registration</Link>
+                                                </li>
+                                            )}
                                             <li className="nav-item">
                                                 <Link className="nav-link" to="/Logout">Logout </Link>
                                             </li>

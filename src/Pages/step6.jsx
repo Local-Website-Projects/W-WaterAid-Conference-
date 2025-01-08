@@ -22,7 +22,7 @@ function Step6 () {
             .then(response => {
                 console.log(response.data);
                 if(response.data === "Success"){
-                    navigate("/Cart");
+                    navigate("/Preview");
                 }
             })
             .catch(error => {
@@ -41,14 +41,14 @@ function Step6 () {
             }
 
             try {
-                const response = await axios.get("/api/fetch_profile.php", {
+                const response = await axios.get("/api/fetch_ticket_data.php", {
                     headers: {
                         "Authorization": `Bearer ${token}` // Send token as a Bearer token
                     }
                 });
 
                 if (response.data.status === "success") {
-                    setUserName(response.data.userName);
+                    setNotification(response.data.notification);
                 } else {
                     setError(response.data.message || "Failed to fetch profile.");
                 }
@@ -147,7 +147,9 @@ function Step6 () {
                                                     <div className="col-6">
                                                         <div className="btn-2">
                                                             <button className="btn-primary" name="submit-form"
-                                                                    type="button">Back
+                                                                    type="button">
+                                                                <Link to='/Fifth-Step'/>
+                                                                Back
                                                             </button>
                                                         </div>
                                                     </div>

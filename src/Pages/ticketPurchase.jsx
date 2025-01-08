@@ -16,6 +16,7 @@ function TicketPurchase() {
     const [title, setTitle] = useState("");
     const [firstName, setFirstName] = useState("");
     const [surname, setSurname] = useState("");
+    const [email, setEmail] = useState("");
 
     const handleGenderChange = (value) => {
         setGender(value); // Set gender to the selected value
@@ -84,6 +85,7 @@ function TicketPurchase() {
         fData.append('title', title);
         fData.append('firstName', firstName);
         fData.append('surname', surname);
+        fData.append('email', email);
         axios.post(url, fData)
             .then(response => {
                 console.log(response.data);
@@ -103,18 +105,26 @@ function TicketPurchase() {
 
             if (!token) {
                 setError("You are not logged in.");
-                return navigate("/Login"); // Redirect to login if no token
+                return navigate("/Login");
             }
 
             try {
-                const response = await axios.get("/api/fetch_profile.php", {
+                const response = await axios.get("/api/fetch_ticket_data.php", {
                     headers: {
-                        "Authorization": `Bearer ${token}` // Send token as a Bearer token
+                        "Authorization": `Bearer ${token}`
                     }
                 });
 
                 if (response.data.status === "success") {
-                    setUserName(response.data.userName);
+                    setTitle(response.data.title);
+                    setFirstName(response.data.first_name);
+                    setSurname(response.data.surname);
+                    setPhone(response.data.phone);
+                    setNationality(response.data.nationality);
+                    setGender(response.data.gender);
+                    setBirthYear(response.data.birth_year);
+                    setCity(response.data.city);
+                    setEmail(response.data.email);
                 } else {
                     setError(response.data.message || "Failed to fetch profile.");
                 }
@@ -123,13 +133,7 @@ function TicketPurchase() {
                 console.error(err);
             }
         };
-
         fetchSessionData();
-        // Set up polling
-        const interval = setInterval(fetchSessionData, 5000);
-
-        // Clear interval on component unmount
-        return () => clearInterval(interval);
     }, [navigate]);
     return (
         <div>
@@ -225,6 +229,24 @@ function TicketPurchase() {
                                                                 placeholder="Doe"
                                                                 value={surname}
                                                                 onChange={(e) => setSurname(e.target.value)}
+                                                                autoComplete="off"
+                                                                required
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-12">
+                                                        <div className="form-group">
+                                                            <lable>Official Email</lable>
+                                                            <br></br><small
+                                                            className="mb-3">Enter your official email address</small>
+                                                            <input
+                                                                id="inputName"
+                                                                type="email"
+                                                                name="phone"
+                                                                className="form-control"
+                                                                placeholder="johndoe@wateraid.org"
+                                                                value={email}
+                                                                onChange={(e) => setEmail(e.target.value)}
                                                                 autoComplete="off"
                                                                 required
                                                             />
@@ -426,11 +448,7 @@ function TicketPurchase() {
                                                         </div>
                                                     </div>
                                                     <div className="col-6">
-                                                        <div className="btn-2">
-                                                            <button className="btn-primary" name="submit-form"
-                                                                    type="button">Back
-                                                            </button>
-                                                        </div>
+
                                                     </div>
                                                     <div className="col-6">
                                                         <div className="btn-2">

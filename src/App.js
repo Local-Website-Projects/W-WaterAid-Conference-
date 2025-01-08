@@ -16,6 +16,7 @@ import Roombooking from "./Pages/roomBooking";
 import Cart from "./Pages/cart";
 import UpdatePassword from "./Pages/updatePassword";
 import ForgetPassword from "./Pages/frogetPassword";
+import Preview from "./Pages/preview";
 function App() {
   return (
       <div className="App">
@@ -39,6 +40,7 @@ function App() {
                   <Route path='/Cart' element={<Cart/>}/>
                   <Route path='/Update-Password' element={<UpdatePassword/>}/>
                   <Route path='/Forget-Password' element={<ForgetPassword/>}/>
+                  <Route path='/Preview' element={<Preview/>}/>
                   <Route path='/Logout' element={<Logout/>}/>
               </Routes>
           </BrowserRouter>

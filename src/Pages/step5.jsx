@@ -185,7 +185,7 @@ function Step5 () {
                                                                     <label className="form-check-label"
                                                                            htmlFor="preConferenceToggle"
                                                                            style={{fontWeight: "bold"}}>
-                                                                        Pre-Conference Tour
+                                                                        Pre-Conference Tour - 24 February 2025.
                                                                     </label>
                                                                 </div>
 
@@ -212,7 +212,7 @@ function Step5 () {
                                                                         <br/>
                                                                         <b>
                                                                             24 February 2025, Monday<br/>
-                                                                            8,500 BDT/ 70 USD<br/>
+                                                                            <span style={{color:'#296173'}}>8,500 BDT/ 70 USD</span><br/>
                                                                             Seats filled: 0/35
                                                                         </b>
                                                                         <br/>
@@ -238,7 +238,7 @@ function Step5 () {
                                                                     <label className="form-check-label"
                                                                            htmlFor="postConferenceToggle"
                                                                            style={{fontWeight: "bold"}}>
-                                                                        Post-Conference Tour
+                                                                        Post-Conference Tour - 27-28 February 2025.
                                                                     </label>
                                                                 </div>
 
@@ -400,7 +400,8 @@ function Step5 () {
                                                     <div className="col-6">
                                                         <div className="btn-2">
                                                             <button className="btn-primary" name="submit-form"
-                                                                    type="button">Back
+                                                                    type="button"><Link to='/Fourth-Step'/>
+                                                                Back
                                                             </button>
                                                         </div>
                                                     </div>

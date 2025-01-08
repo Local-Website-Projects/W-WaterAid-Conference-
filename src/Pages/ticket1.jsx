@@ -76,14 +76,21 @@ function TicketPurchase1() {
             }
 
             try {
-                const response = await axios.get("/api/fetch_profile.php", {
+                const response = await axios.get("/api/fetch_ticket_data.php", {
                     headers: {
                         "Authorization": `Bearer ${token}` // Send token as a Bearer token
                     }
                 });
 
                 if (response.data.status === "success") {
-                    setUserName(response.data.userName);
+                    setStudent(response.data.student);
+                    if(student === 'Student'){
+                        setInstitution(response.data.organization);
+                    }
+                    if (student === 'Employed') {
+                        setOrganization(response.data.organization);
+                    }
+                    setDesignation(response.data.designation);
                 } else {
                     setError(response.data.message || "Failed to fetch profile.");
                 }
@@ -94,11 +101,6 @@ function TicketPurchase1() {
         };
 
         fetchSessionData();
-        // Set up polling
-        const interval = setInterval(fetchSessionData, 5000);
-
-        // Clear interval on component unmount
-        return () => clearInterval(interval);
     }, [navigate]);
     return (
         <div>
@@ -223,7 +225,7 @@ function TicketPurchase1() {
                                                                     <div className="form-group">
                                                                         <label htmlFor="fileUpload">Upload scanned copy
                                                                             of
-                                                                            student ID card</label>
+                                                                            student ID card (JPG, PNG, or PDF format, and under 5MB)</label>
                                                                         <input
                                                                             type="file"
                                                                             id="fileUpload"
@@ -273,7 +275,9 @@ function TicketPurchase1() {
                                                     <div className="col-6">
                                                         <div className="btn-2">
                                                             <button className="btn-primary" name="submit-form"
-                                                                    type="button">Back
+                                                                    type="button"><Link to='/Ticket'>
+                                                                Back
+                                                            </Link>
                                                             </button>
                                                         </div>
                                                     </div>
