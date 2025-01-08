@@ -1,0 +1,57 @@
+.step-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    margin: 20px auto;
+    align-items: center;
+}
+
+.step-item {
+    flex: 1;
+    text-align: center;
+    padding: 10px 15px;
+    border: 2px solid #296173;
+    border-radius: 8px;
+    color: #296173;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    margin: 12px; /* Add spacing between items */
+}
+
+.step-item.completed {
+    background-color: #29a9e1;
+    color: white;
+    border-color: #29a9e1;
+}
+
+.step-item.active {
+    background-color: #296173;
+    color: white;
+    border-color: #296173;
+    transform: scale(1.1); /* Highlight active step */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .step-list {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        max-width: 100%; /* Allow full width for smaller devices */
+    }
+
+    .step-item {
+        flex: none; /* Remove flex shrinking */
+        width: calc(100% - 20px); /* Take full width with spacing */
+        margin: 10px auto; /* Center the items */
+    }
+}
+
+@media (max-width: 480px) {
+    .step-item {
+        font-size: 14px; /* Adjust font size for smaller screens */
+        padding: 8px 10px; /* Adjust padding for smaller screens */
+    }
+}

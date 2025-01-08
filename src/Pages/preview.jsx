@@ -135,7 +135,7 @@ function Preview() {
                         <div className="col-lg-12 col-md-12 col-12">
                             <div className="row">
                                 <div className="col-12 mt-5 mb-3">
-                                    <h4>Personal Information:</h4>
+                                    <h4>Recheck your information and make sure all of them are correct:</h4>
                                 </div>
                             </div>
                             <div className="row">
@@ -281,14 +281,14 @@ function Preview() {
                                 <div className="btn-2">
                                     <button className="btn-primary" name="submit-form"
                                             type="button">
-                                        <Link to='/Sixth-Step'>Back</Link>
+                                        <Link style={{color: 'white', textDecoration: 'none'}} to='/Sixth-Step'>Back</Link>
                                     </button>
                                 </div>
                             </div>
                             <div className="col-6">
                                 <div className="btn-2">
                                     <button className="btn-primary" name="submit-form"
-                                            type="button"><Link to='/Cart'>Confirm Submission</Link>
+                                            type="button"><Link style={{color: 'white', textDecoration: 'none'}} to='/Cart'>Confirm Submission</Link>
                                     </button>
                                 </div>
                             </div>

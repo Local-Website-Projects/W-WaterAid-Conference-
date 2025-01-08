@@ -14,7 +14,7 @@ function Login() {
         const token = localStorage.getItem("userToken");
         if (token) {
             setError("You are already logged in.");
-            return navigate("/Profile");
+            return navigate("/Ticket");
         }
 
         if (!email || !password) {
@@ -36,7 +36,7 @@ function Login() {
             // Handle the result based on the 'status' field from PHP
             if (result.status === 'success') {
                 localStorage.setItem("userToken", result.token);  // Store token
-                navigate("/Ticket");
+                navigate("/Profile");
             } else {
                 setErrorMessage(result.message || "Login failed. Please try again.");
             }

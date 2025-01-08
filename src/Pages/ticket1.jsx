@@ -14,6 +14,10 @@ function TicketPurchase1() {
     const [organization, setOrganization] = useState([]);
     const [designation, setDesignation] = useState([]);
 
+    const [activeStep, setActiveStep] = useState(1);
+
+    const steps = ['General information', 'Professional/Academic Information', 'Visa Invitation','Requirements', 'Technical Tour', 'Notifications'];
+
     const handleFileChange = (e) => {
         const file = e.target.files[0];
 
@@ -117,30 +121,22 @@ function TicketPurchase1() {
                             </div>
                         </div>
                     </div>
-                    <div className="row event-schedule-area-two">
-                        <div className="col-4">
-                            <ul className="nav custom-tab" id="myTab" role="tablist" style={{display:"inline"}}>
-                                <li className="nav-item">
-                                    <a className="nav-link active" id="home-taThursday" href="#home">General information</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link active" id="profile-tab" data-toggle="tab" href="#profile">Professional/Academic Information</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" id="contact-tab" data-toggle="tab" href="#contact">Visa Invitation</a>
-                                </li>
-                                <li className="nav-item d-none d-lg-block">
-                                    <a className="nav-link" id="sunday-tab" data-toggle="tab" href="#sunday">Requirements</a>
-                                </li>
-                                <li className="nav-item mr-0 d-none d-lg-block">
-                                    <a className="nav-link" id="monday-tab" data-toggle="tab" href="#monday">Technical Tour</a>
-                                </li>
-                                <li className="nav-item mr-0 d-none d-lg-block">
-                                    <a className="nav-link" id="monday-tab-2" data-toggle="tab" href="#monday">Notifications</a>
-                                </li>
+                    <div className="row">
+                        <div className="col-12">
+                            <ul className="step-list">
+                                {steps.map((step, index) => (
+                                    <li
+                                        key={index}
+                                        className={`step-item ${
+                                            index < activeStep ? 'completed' : ''
+                                        } ${index === activeStep ? 'active' : ''}`}
+                                    >
+                                        {step}
+                                    </li>
+                                ))}
                             </ul>
                         </div>
-                        <div className="col-xl-8 col-lg-8 col-md-8 col-sm-8">
+                        <div className="col-xl-12">
                             <div className="contact ct-form">
                                 <div className="row">
                                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
@@ -275,7 +271,7 @@ function TicketPurchase1() {
                                                     <div className="col-6">
                                                         <div className="btn-2">
                                                             <button className="btn-primary" name="submit-form"
-                                                                    type="button"><Link to='/Ticket'>
+                                                                    type="button"><Link style={{color:'white',textDecoration:'none'}} to='/Ticket'>
                                                                 Back
                                                             </Link>
                                                             </button>

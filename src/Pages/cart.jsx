@@ -98,7 +98,7 @@ function Cart() {
 
 
     useEffect(() => {
-        if(student === 'Yes'){
+        if(student === 'Student'){
             if (country === "Bangladesh") {
                 setSubTotal(5000);
                 setTotal(5000);
@@ -232,7 +232,7 @@ function Cart() {
                     </tr>
                     </thead>
                     <tbody>
-                    {student === 'Yes' ? (
+                    {student === 'Student' ? (
                         country === "Bangladesh" ? (
                             <tr>
                                 <th scope="row">1</th>
@@ -289,26 +289,32 @@ function Cart() {
                     )}
                     <tr>
                         <th colSpan={4}>Sub-Total</th>
-                        <td><b>{subTotal} { country === 'Bangladesh' && (
+                        <td><b>{subTotal} {country === 'Bangladesh' ? (
                             <span>BDT</span>
+                        ) : (
+                            <span>USD</span>
                         )}</b></td>
                     </tr>
                     <tr>
                         <th colSpan={4}>Discount</th>
-                        <td><b>{discount} { country === 'Bangladesh' && (
+                        <td><b>{discount} {country === 'Bangladesh' ? (
                             <span>BDT</span>
-                        )}</b></td>
+                        ): (
+                            <span>USD</span>
+                            )}</b></td>
                     </tr>
                     <tr>
                         <th colSpan={4}>Total</th>
-                        <td><b>{total} { country === 'Bangladesh' && (
+                        <td><b>{total} { country === 'Bangladesh' ? (
                             <span>BDT</span>
-                        )}</b></td>
+                        ): (
+                            <span>USD</span>
+                            )}</b></td>
                     </tr>
                     </tbody>
                 </table>
 
-                {student === 'No' && (
+                {student !== 'Student' && (
                     <div className="row mt-5">
                         <div className="col-6">
                             <form onSubmit={verifyPromoRegistration}>
@@ -357,21 +363,27 @@ function Cart() {
                     ))}
                     <tr>
                         <th colSpan={4}>Sub-Total</th>
-                        <td><b>{totalPrice} { country === 'Bangladesh' && (
+                        <td><b>{totalPrice} { country === 'Bangladesh' ? (
                             <span>BDT</span>
-                        )}</b></td>
+                        ): (
+                            <span>USD</span>
+                            )}</b></td>
                     </tr>
                     <tr>
                         <th colSpan={4}>Discount</th>
-                        <td><b>{tourDiscount} { country === 'Bangladesh' && (
+                        <td><b>{tourDiscount} { country === 'Bangladesh' ? (
                             <span>BDT</span>
-                        )}</b></td>
+                        ): (
+                            <span>USD</span>
+                            )}</b></td>
                     </tr>
                     <tr>
                         <th colSpan={4}>Total</th>
-                        <td><b>{tourGrandTotal} { country === 'Bangladesh' && (
+                        <td><b>{tourGrandTotal} { country === 'Bangladesh' ? (
                             <span>BDT</span>
-                        )}</b></td>
+                        ): (
+                            <span>USD</span>
+                            )}</b></td>
                     </tr>
                     </tbody>
                 </table>
@@ -397,9 +409,11 @@ function Cart() {
                     <tbody>
                     <tr>
                         <th colSpan={4}>Grand Total</th>
-                        <td><b>{grandTotalUpdate} { country === 'Bangladesh' && (
+                        <td><b>{grandTotalUpdate} { country === 'Bangladesh' ? (
                             <span>BDT</span>
-                        )}</b></td>
+                        ): (
+                            <span>USD</span>
+                            )}</b></td>
                     </tr>
                     </tbody>
                 </table>

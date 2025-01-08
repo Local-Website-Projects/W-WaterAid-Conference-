@@ -30,12 +30,11 @@ function Banner() {
 
             axios.post(url, fData)
                 .then(response => {
-                    alert(response.data);
                     setName('');
                     setEmail('');
                     setPassword('');
-                    if(response.data === "Your Account is created successfully! Please login to continue.") {
-                        alert('Please check your email (including spam folder) for the 6 digit verification code.');
+                    if(response.data.status === "success") {
+                        alert('Please check your email (including spam folder) for the account activation link.');
                         navigate("/Login");
                     }
                 })

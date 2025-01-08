@@ -18,6 +18,7 @@ function Menu (){
                 });
                 if (response.data.status === "Success") {
                     setValidity(1);
+                    navigate('/Profile')
                 } else {
                     setError(response.data.message || "Failed to fetch profile.");
                 }
