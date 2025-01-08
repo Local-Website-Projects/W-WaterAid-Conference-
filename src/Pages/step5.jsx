@@ -266,7 +266,8 @@ function Step5 () {
                                                                             <br/>
                                                                             <b>
                                                                                 27 February 2025, Thursday<br/>
-                                                                                7,000 BDT/55 USD<br/>
+                                                                                <span style={{color:'#296173'}}>7,000
+                                                                                BDT/55 USD</span><br/>
                                                                                 Seats filled: 0/35
                                                                             </b>
                                                                             <br/>
@@ -302,7 +303,7 @@ function Step5 () {
                                                                             <br/>
                                                                             <b>
                                                                                 27 February 2025, Thursday<br/>
-                                                                                9,000 BDT/75 USD<br/>
+                                                                                <span style={{color:'#296173'}}>9,000 BDT/75 USD</span><br/>
                                                                                 Seats filled: 0/60
                                                                             </b>
                                                                             <br/>
@@ -337,7 +338,8 @@ function Step5 () {
                                                                             <b>
                                                                                 28 February 2025 – 1 March 2025, Friday
                                                                                 and Saturday<br/>
-                                                                                32,000 BDT/260 USD<br/>
+                                                                                <span style={{color:'#296173'}}>32,000
+                                                                                BDT/260 USD</span><br/>
                                                                                 Seats Filled: 0/35
                                                                             </b>
                                                                             <br/>
@@ -372,7 +374,8 @@ function Step5 () {
                                                                             <b>
                                                                                 28 February 2025 – 1 March 2025, Friday
                                                                                 and Saturday<br/>
-                                                                                25,500 BDT/210 USD<br/>
+                                                                                <span style={{color:'#296173'}}>25,500 BDT/210
+                                                                                USD</span><br/>
                                                                                 Seats Filled: 0/25
                                                                             </b>
                                                                             <br/>

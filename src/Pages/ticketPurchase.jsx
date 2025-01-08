@@ -103,10 +103,10 @@ function TicketPurchase() {
         const fetchSessionData = async () => {
             const token = localStorage.getItem("userToken");
 
-            if (!token) {
+            /*if (!token) {
                 setError("You are not logged in.");
                 return navigate("/Login");
-            }
+            }*/
 
             try {
                 const response = await axios.get("/api/fetch_ticket_data.php", {
