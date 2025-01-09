@@ -23,11 +23,7 @@ function Header() {
                             </nav>
                         </div>
                         <div className="col-lg-2 d-none d-lg-block">
-                            <ul>
-                                <li className="header-ticket">
-                                    <Link className="pr-0" to="/Login">Login</Link>
-                                </li>
-                            </ul>
+
                         </div>
                     </div>
                 </div>

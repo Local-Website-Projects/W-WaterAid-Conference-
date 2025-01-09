@@ -54,7 +54,7 @@ function Login() {
                     <div className="row">
                         <div className="col-lg-7 col-md-6 col-sm-5 d-none d-lg-block">
                             <div className="banner-content">
-                                <h1>Registration <span style={{textTransform:"lowercase"}}>for</span></h1>
+                                <h1 style={{fontSize: '92px'}}>Registration {/*<span style={{textTransform:"lowercase"}}>for</span>*/}</h1>
                                 <h1>Toilet Conference</h1>
                                 <h2>2025</h2>
                                 <p>Dhaka, Bangladesh | 25-26 February 2025</p>
@@ -165,10 +165,10 @@ function Login() {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 pt-3">
+                        <div className="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-4 pt-3">
                             <div className="xs-mb30">
                                 <div className="spk-img">
-                                    <img className="img-fluid" src="assets/img/convenors/4.png" alt="trainer-img"/>
+                                    <img className="img-fluid" src="assets/img/convenors/4.png" style={{padding:'20px'}} alt="trainer-img"/>
                                 </div>
                             </div>
                         </div>

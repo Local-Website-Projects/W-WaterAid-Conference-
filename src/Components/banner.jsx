@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Modal from "react-modal";
 
 function Banner() {
     const [name, setName] = useState('');
@@ -8,6 +9,15 @@ function Banner() {
     const [password, setPassword] = useState('');
     const [termsAccepted, setTermsAccepted] = useState(false);
     const navigate = useNavigate();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleShowModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();  // Prevent the default form submission
@@ -47,14 +57,84 @@ function Banner() {
 
     return (
         <div>
+            <Modal
+                isOpen={isModalOpen}
+                onRequestClose={handleCloseModal}
+                contentLabel="Custom Alert"
+                ariaHideApp={false} // Add this line to suppress warning for accessibility
+                style={{
+                    content: {
+                        maxWidth: "70%",
+                        margin: "auto",
+                        padding: "20px",
+                        borderRadius: "10px",
+                    },
+                }}
+            >
+                <div className="pricing-tables-area bg-color pad100">
+                    <div className="container">
+                        <div className="row">
+                            <button className="btn-primary mb-5" type="button" onClick={handleCloseModal}>Close
+                            </button>
+                            <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                <h4 className='mb-5'>Terms & Conditions</h4>
+                                <p>By registering for the Toilet Conference 2025, you agree to the following terms and
+                                    conditions:</p>
+                                <p>1. <b>Registration Confirmation:</b>Registration is confirmed only after the full
+                                    payment is received. The Conference Secretariat reserves the right to refuse or
+                                    cancel registrations under specific circumstances.</p>
+                                <p>2. <b>Code of Conduct:</b>All participants must behave respectfully toward fellow
+                                    attendees, speakers, and organisers, maintaining professional decorum at all times.
+                                    Harassment, discrimination, or disruptive behaviour is strictly prohibited. The
+                                    Conference Secretariat reserves the right to remove participants violating these
+                                    terms, and all registration fees are non-refundable.
+                                </p>
+                                <p>3. <b>Intellectual Property:</b>All materials presented at the Conference including
+                                    presentations, handouts, and session recordings are the intellectual property of
+                                    their respective authors and the Conference Secretariat. Redistribution or
+                                    unauthorised use of these materials without explicit permission is prohibited.</p>
+                                <p>4. <b>Photography and Recording Consent:</b>By participating in the Conference, you
+                                    consent to photography, videography, and audio recording by the Conference
+                                    Secretariat and its partners. Your image, video, or audio may be used in promotional
+                                    materials, reports, and digital content, in line with the Conference Secretariat’s
+                                    content usage policies.
+                                </p>
+                                <p>5. <b>Data Protection and Privacy:</b>The Conference Secretariat (WaterAid
+                                    Bangladesh) adheres to GDPR, the UK Privacy Act, and the Bangladesh ICT Act. Your
+                                    personal data will be securely stored and used solely for conference-related
+                                    purposes. Requests to access, modify, or delete personal information can be directed
+                                    to <a
+                                        href="mailto:wateraidbangladesh@wateraid.org">wateraidbangladesh@wateraid.org</a>.
+                                </p>
+                                <p>6. <b>Travel and Accommodation:</b>Participants are responsible for arranging their
+                                    own travel, accommodation, and personal insurance unless explicitly stated otherwise
+                                    by the Conference Secretariat.
+                                </p>
+                                <p>7. <b>Event Changes and Cancellation:</b>The Conference dates are subject to change
+                                    due to unforeseen circumstances such as political unrest or natural disasters in
+                                    Bangladesh. In the event of postponement, all registrations will remain valid for
+                                    the new dates, and participants will be notified accordingly. If the event is
+                                    cancelled, participants will be informed promptly, and further instructions will be
+                                    provided.</p>
+                                <p>8. <b>Liability Disclaimer:</b>The Conference Secretariat is not responsible for any
+                                    personal injury, loss, or damage to property during the event.</p>
+                                <p>9. <b>Amendments to Terms:</b>The Conference Secretariat reserves the right to update
+                                    or amend these terms and conditions at any time. Updates will be communicated to
+                                    participants via email and the official conference website.</p>
+                                <p>By completing your registration for the Toilet Conference 2025, you confirm that you
+                                    have read, understood, and agree to these terms and conditions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Modal>
             <div className="hero-banner-area home-4 hero-bg-3 parallax no-attm">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-7 col-md-6 col-sm-5 d-none d-lg-block">
                             <div className="banner-content">
-                                <h1>Registration <span style={{textTransform: "lowercase"}}>for</span></h1>
-                                <h1>Toilet Conference</h1>
-                                <h2>2025</h2>
+                                <h1 style={{fontSize: '92px'}}>Registration {/*<span style={{textTransform:"lowercase"}}>for</span>*/}</h1>
+                                <h1>Toilet Conference 2025</h1>
                                 <p>Dhaka, Bangladesh | 25-26 February 2025</p>
                             </div>
                         </div>
@@ -73,7 +153,7 @@ function Banner() {
                                                        value={email}
                                                        onChange={(e) => setEmail(e.target.value)}
                                                        required
-                                                       autoComplete="off" />
+                                                       autoComplete="off"/>
                                             </div>
                                             <div className="col-lg-12">
                                                 <label>Password</label>
@@ -85,7 +165,7 @@ function Banner() {
                                                        placeholder="Please choose a strong password"
                                                        required
                                                        autoComplete="off"
-                                                       minLength="8" />
+                                                       minLength="8"/>
                                             </div>
                                             <div className="col-lg-12">
                                                 <div className="form-check">
@@ -99,7 +179,8 @@ function Banner() {
                                                         required
                                                     />
                                                     <label className="form-check-label" htmlFor="flexCheckChecked">
-                                                        I agree to the <a href='/Terms' target='_blank'>Terms and Conditions</a>
+                                                        I agree to the <Link onClick={handleShowModal}>Terms and
+                                                        Conditions</Link>
                                                     </label>
                                                 </div>
                                             </div>

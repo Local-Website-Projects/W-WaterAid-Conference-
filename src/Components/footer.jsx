@@ -8,7 +8,7 @@ function Footer () {
                     <div className="row">
                         <div className="col-lg-12 text-center">
                             <div className="copyright">
-                                <p>©2025. All Rights Reserved. Powered By</p>
+                                <p>Copyright © 2025. Toilet Conference 2025. Powered By</p>
                                 &nbsp;<a href="https://frogbid.com" target="_blank" style={{color:"#29a9e1"}}>FrogBID</a>
                             </div>
                         </div>

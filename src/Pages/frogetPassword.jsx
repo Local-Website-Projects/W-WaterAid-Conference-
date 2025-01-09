@@ -30,14 +30,14 @@ function ForgetPassword() {
                     <div className="row">
                         <div className="col-lg-7 col-md-6 col-sm-5 d-none d-lg-block">
                             <div className="banner-content">
-                                <h1>Registration <span style={{textTransform: "lowercase"}}>for</span></h1>
+                                <h1 style={{fontSize: '92px'}}>Registration {/*<span style={{textTransform:"lowercase"}}>for</span>*/}</h1>
                                 <h1>Toilet Conference</h1>
                                 <h2>2025</h2>
                                 <p>Dhaka, Bangladesh | 25-26 February 2025</p>
                             </div>
                         </div>
                         <div className="col-lg-5">
-                            <div className="contact-box">
+                        <div className="contact-box">
                                 <div className="inner-content">
                                     <h3>Forget Password</h3>
                                     <form

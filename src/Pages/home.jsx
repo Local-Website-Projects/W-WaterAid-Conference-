@@ -25,7 +25,6 @@ function Home() {
     }, []);
     return (
         <div>
-
             <div className="main-container">
                 {/*header part start*/}
                 <Header/>
@@ -68,10 +67,11 @@ function Home() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-4 pt-3">
+                            <div className="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-4 pt-3">
                                 <div className="xs-mb30">
                                     <div className="spk-img">
-                                        <img className="img-fluid" src="assets/img/convenors/4.png" alt="trainer-img"/>
+                                        <img className="img-fluid" src="assets/img/convenors/4.png"
+                                             style={{padding: '20px'}} alt="trainer-img"/>
                                     </div>
                                 </div>
                             </div>
