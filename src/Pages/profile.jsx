@@ -36,10 +36,10 @@ function Profile() {
         const fetchSessionData = async () => {
             const token = localStorage.getItem("userToken");
 
-            if (!token) {
+            /*if (!token) {
                 setError("You are not logged in.");
                 return navigate("/Login"); // Redirect to login if no token
-            }
+            }*/
 
             try {
                 const response = await axios.get("/api/fetch_profile.php", {
@@ -145,7 +145,7 @@ function Profile() {
                             </li>
                         </ul>
                     </div>
-                    <div className="col-lg-8 col-md-8 col-12">
+                    <div className="col-lg-6 col-md-6 col-12">
                         <div className="row">
                             <div className="col-12 mt-5 mb-3">
                                 <h4>Personal Information:</h4>
@@ -289,6 +289,9 @@ function Profile() {
                                     )}
                                 </div>
                         </div>
+                    </div>
+                    <div className="col-lg-2 col-md-2 col-12">
+                        <button style={{cursor:'default'}} className="btn btn-danger">Payment status: Due</button>
                     </div>
                 </div>
             </div>

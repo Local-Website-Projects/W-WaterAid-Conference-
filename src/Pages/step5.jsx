@@ -235,7 +235,7 @@ function Step5 () {
                                                                     <label className="form-check-label"
                                                                            htmlFor="postConferenceToggle"
                                                                            style={{fontWeight: "bold"}}>
-                                                                        Post-Conference Tour - 27-28 February 2025.
+                                                                        Post-Conference Tour - 27 February- 01 March 2025.
                                                                     </label>
                                                                 </div>
 
@@ -399,13 +399,11 @@ function Step5 () {
                                                 <div className="row">
                                                     <div className="col-6">
                                                         <div className="btn-2">
-                                                            <button className="btn-primary" name="submit-form"
-                                                                    type="button"><Link
-                                                                style={{color: 'white', textDecoration: 'none'}}
+                                                            <Link
                                                                 to='/Fourth-Step'>
-                                                                Back
+                                                                <button className="btn-primary" name="submit-form"
+                                                                        type="button">Back</button>
                                                             </Link>
-                                                            </button>
                                                         </div>
                                                     </div>
                                                     <div className="col-6">

@@ -118,12 +118,6 @@ function Preview() {
 
         // Call the function initially
         fetchSessionData();
-
-        // Set up polling
-        const interval = setInterval(fetchSessionData, 5000);
-
-        // Clear interval on component unmount
-        return () => clearInterval(interval);
     }, [navigate]);
 
 
@@ -279,17 +273,20 @@ function Preview() {
                         </div>
                             <div className="col-6">
                                 <div className="btn-2">
-                                    <button className="btn-primary" name="submit-form"
-                                            type="button">
-                                        <Link style={{color: 'white', textDecoration: 'none'}} to='/Sixth-Step'>Back</Link>
-                                    </button>
+                                    <Link
+                                        to='/Sixth-Step'>
+                                        <button className="btn-primary" name="submit-form"
+                                                type="button">Back</button>
+                                    </Link>
                                 </div>
                             </div>
                             <div className="col-6">
                                 <div className="btn-2">
-                                    <button className="btn-primary" name="submit-form"
-                                            type="button"><Link style={{color: 'white', textDecoration: 'none'}} to='/Cart'>Confirm Submission</Link>
-                                    </button>
+                                    <Link
+                                        to='/Cart'>
+                                        <button className="btn-primary" name="submit-form"
+                                                type="button">Confirm Submission</button>
+                                    </Link>
                                 </div>
                             </div>
                     </div>

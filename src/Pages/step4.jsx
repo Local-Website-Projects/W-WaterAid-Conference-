@@ -120,7 +120,8 @@ function Step4 () {
                                                   onSubmit={handleTicket}>
                                                 <div className="col-12">
                                                     <div className="form-group">
-                                                        <label>Dietary Preference *</label>
+                                                        <label>Dietary Preference *</label><br></br>
+                                                        <small>* Halal foods will be served in the venue of the conference.</small>
                                                         <div className="form-check">
                                                             <input
                                                                 className="form-check-input"
@@ -141,12 +142,12 @@ function Step4 () {
                                                                 type="radio"
                                                                 name="dietary"
                                                                 id="flexRadioFemale"
-                                                                checked={dietary === "Non-Vegetarian"}
-                                                                onChange={() => setDietary("Non-Vegetarian")}
+                                                                checked={dietary === "Non-vegetarian"}
+                                                                onChange={() => setDietary("Non-vegetarian")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
-                                                                Non-Vegetarian
+                                                                Non-vegetarian
                                                             </label>
                                                         </div>
                                                         <div className="form-check">
@@ -160,7 +161,7 @@ function Step4 () {
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
-                                                                Not applicable
+                                                                No preference
                                                             </label>
                                                         </div>
                                                         <div className="form-check">
@@ -201,34 +202,6 @@ function Step4 () {
                                                                 type="radio"
                                                                 name="accessibility"
                                                                 id="flexRadioFemale"
-                                                                checked={accessibility === "Wheelchair access"}
-                                                                onChange={() => setAccessibility("Wheelchair access")}
-                                                            />
-                                                            <label className="form-check-label"
-                                                                   htmlFor="flexRadioFemale">
-                                                                Wheelchair access
-                                                            </label>
-                                                        </div>
-                                                        <div className="form-check">
-                                                            <input
-                                                                className="form-check-input"
-                                                                type="radio"
-                                                                name="accessibility"
-                                                                id="flexRadioFemale"
-                                                                checked={accessibility === "Visual aids"}
-                                                                onChange={() => setAccessibility("Visual aids")}
-                                                            />
-                                                            <label className="form-check-label"
-                                                                   htmlFor="flexRadioFemale">
-                                                                Visual aids
-                                                            </label>
-                                                        </div>
-                                                        <div className="form-check">
-                                                            <input
-                                                                className="form-check-input"
-                                                                type="radio"
-                                                                name="accessibility"
-                                                                id="flexRadioFemale"
                                                                 checked={accessibility === "Sign language interpretation"}
                                                                 onChange={() => setAccessibility("Sign language interpretation")}
                                                             />
@@ -243,12 +216,42 @@ function Step4 () {
                                                                 type="radio"
                                                                 name="accessibility"
                                                                 id="flexRadioFemale"
-                                                                checked={accessibility === "Not applicable"}
-                                                                onChange={() => setAccessibility("Not applicable")}
+                                                                checked={accessibility === "Wheelchair access"}
+                                                                onChange={() => setAccessibility("Wheelchair access")}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
-                                                                Not applicable
+                                                                Wheelchair access
+                                                            </label>
+                                                        </div>
+                                                        <div className="form-check">
+                                                            <input
+                                                                className="form-check-input"
+                                                                type="radio"
+                                                                name="accessibility"
+                                                                id="flexRadioFemale"
+                                                                checked={accessibility === "Visually impaired"}
+                                                                onChange={() => setAccessibility("Visually impaired")}
+                                                            />
+                                                            <label className="form-check-label"
+                                                                   htmlFor="flexRadioFemale">
+                                                                Visually impaired
+                                                            </label>
+                                                        </div>
+
+
+                                                        <div className="form-check">
+                                                            <input
+                                                                className="form-check-input"
+                                                                type="radio"
+                                                                name="accessibility"
+                                                                id="flexRadioFemale"
+                                                                checked={accessibility === "Nothing"}
+                                                                onChange={() => setAccessibility("Nothing")}
+                                                            />
+                                                            <label className="form-check-label"
+                                                                   htmlFor="flexRadioFemale">
+                                                                Nothing
                                                             </label>
                                                         </div>
                                                         <div className="form-check">
@@ -316,15 +319,13 @@ function Step4 () {
                                                 <div className="row">
                                                     <div className="col-6">
                                                         <div className="btn-2">
-                                                            <button className="btn-primary" name="submit-form"
-                                                                    type="button"><Link
-                                                                style={{color: 'white', textDecoration: 'none'}}
+                                                            <Link
                                                                 to='/Third-Step'>
-                                                                Back
+                                                                <button className="btn-primary" name="submit-form"
+                                                                        type="button">Back</button>
                                                             </Link>
-                                                            </button>
-                                                        </div>
                                                     </div>
+                                                </div>
                                                     <div className="col-6">
                                                         <div className="btn-2">
                                                             <button className="btn-primary" name="submit-form"

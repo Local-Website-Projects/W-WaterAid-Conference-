@@ -36,7 +36,7 @@ function Login() {
             // Handle the result based on the 'status' field from PHP
             if (result.status === 'success') {
                 localStorage.setItem("userToken", result.token);  // Store token
-                navigate("/Profile");
+                navigate("/Ticket");
             } else {
                 setErrorMessage(result.message || "Login failed. Please try again.");
             }
@@ -55,8 +55,7 @@ function Login() {
                         <div className="col-lg-7 col-md-6 col-sm-5 d-none d-lg-block">
                             <div className="banner-content">
                                 <h1 style={{fontSize: '92px'}}>Registration {/*<span style={{textTransform:"lowercase"}}>for</span>*/}</h1>
-                                <h1>Toilet Conference</h1>
-                                <h2>2025</h2>
+                                <h1>Toilet Conference 2025</h1>
                                 <p>Dhaka, Bangladesh | 25-26 February 2025</p>
                             </div>
                         </div>

@@ -116,6 +116,7 @@ function Step6 () {
                                                                 id="flexRadioFemale"
                                                                 checked={notification === "Yes"}
                                                                 onChange={() => setNotification("Yes")}
+                                                                required
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
@@ -126,10 +127,11 @@ function Step6 () {
                                                             <input
                                                                 className="form-check-input"
                                                                 type="radio"
-                                                                name="gender"
+                                                                name="notification"
                                                                 id="flexRadioFemale"
                                                                 checked={notification === "No"}
                                                                 onChange={() => setNotification("No")}
+                                                                required
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
@@ -141,13 +143,11 @@ function Step6 () {
                                                 <div className="row">
                                                     <div className="col-6">
                                                         <div className="btn-2">
-                                                            <button className="btn-primary" name="submit-form"
-                                                                    type="button"><Link
-                                                                style={{color: 'white', textDecoration: 'none'}}
-                                                                to='/Sixth-Step'>
-                                                                Back
+                                                            <Link
+                                                                to='/Fifth-Step'>
+                                                                <button className="btn-primary" name="submit-form"
+                                                                        type="button">Back</button>
                                                             </Link>
-                                                            </button>
                                                         </div>
                                                     </div>
                                                     <div className="col-6">

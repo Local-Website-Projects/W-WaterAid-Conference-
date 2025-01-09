@@ -144,8 +144,35 @@ function TicketPurchase1() {
                                             <form id="contact-form" data-toggle="validator" role="form"
                                                   onSubmit={handleTicket}>
                                                 <div className="col-12">
-                                                    <div className="form-group">
-                                                        <label>Select your profession *</label>
+                                                    <label>Select your profession *</label>
+                                                    <div className="form-check">
+                                                        <input
+                                                            className="form-check-input"
+                                                            type="radio"
+                                                            name="gender"
+                                                            id="flexRadioFemale"
+                                                            checked={student === "Employed"}
+                                                            onChange={() => setStudent("Employed")}
+                                                        />
+                                                        <label className="form-check-label"
+                                                               htmlFor="flexRadioFemale">
+                                                            Employed
+                                                        </label>
+                                                    </div>
+                                                    <div className="form-check">
+                                                        <input
+                                                            className="form-check-input"
+                                                            type="radio"
+                                                            name="gender"
+                                                            id="flexRadioFemale"
+                                                            checked={student === "Freelancer"}
+                                                            onChange={() => setStudent("Freelancer")}
+                                                        />
+                                                        <label className="form-check-label"
+                                                               htmlFor="flexRadioFemale">
+                                                            Freelancer
+                                                        </label>
+                                                    </div>
                                                         <div className="form-check">
                                                             <input
                                                                 className="form-check-input"
@@ -160,53 +187,26 @@ function TicketPurchase1() {
                                                                 Student
                                                             </label>
                                                         </div>
-                                                        <div className="form-check">
-                                                            <input
-                                                                className="form-check-input"
-                                                                type="radio"
-                                                                name="gender"
-                                                                id="flexRadioFemale"
-                                                                checked={student === "Employed"}
-                                                                onChange={() => setStudent("Employed")}
-                                                            />
-                                                            <label className="form-check-label"
-                                                                   htmlFor="flexRadioFemale">
-                                                                Employed
-                                                            </label>
-                                                        </div>
-                                                        <div className="form-check">
-                                                            <input
-                                                                className="form-check-input"
-                                                                type="radio"
-                                                                name="gender"
-                                                                id="flexRadioFemale"
-                                                                checked={student === "Unemployed"}
-                                                                onChange={() => setStudent("Unemployed")}
-                                                            />
-                                                            <label className="form-check-label"
-                                                                   htmlFor="flexRadioFemale">
-                                                                Unemployed
-                                                            </label>
-                                                        </div>
-                                                        <div className="form-check">
-                                                            <input
-                                                                className="form-check-input"
-                                                                type="radio"
-                                                                name="gender"
-                                                                id="flexRadioFemale"
-                                                                checked={student === "Freelancer"}
-                                                                onChange={() => setStudent("Freelancer")}
-                                                            />
-                                                            <label className="form-check-label"
-                                                                   htmlFor="flexRadioFemale">
-                                                                Freelancer
-                                                            </label>
-                                                        </div>
+                                                    <div className="form-check">
+                                                        <input
+                                                            className="form-check-input"
+                                                            type="radio"
+                                                            name="gender"
+                                                            id="flexRadioFemale"
+                                                            checked={student === "Unemployed"}
+                                                            onChange={() => setStudent("Unemployed")}
+                                                        />
+                                                        <label className="form-check-label"
+                                                               htmlFor="flexRadioFemale">
+                                                            Unemployed
+                                                        </label>
+                                                    </div>
+                                                    <div className="form-group">
                                                         {student === "Student" && (
                                                             <>
                                                                 <div className="mt-3">
                                                                     <label htmlFor="otherGenderInput">Name of
-                                                                        institution</label>
+                                                                        institution *</label>
                                                                     <br></br><small>e.g., BRAC University</small>
                                                                     <input
                                                                         type="text"
@@ -221,7 +221,8 @@ function TicketPurchase1() {
                                                                     <div className="form-group">
                                                                         <label htmlFor="fileUpload">Upload scanned copy
                                                                             of
-                                                                            student ID card (JPG, PNG, or PDF format, and under 5MB)</label>
+                                                                            student ID card (JPG, PNG, or PDF format,
+                                                                            and under 5MB) *</label>
                                                                         <input
                                                                             type="file"
                                                                             id="fileUpload"
@@ -239,7 +240,7 @@ function TicketPurchase1() {
                                                             <>
                                                                 <div className="mt-3">
                                                                     <label htmlFor="otherGenderInput">Name of affiliated
-                                                                        organisation</label>
+                                                                        organisation *</label>
                                                                     <br></br><small>e.g., WaterAid Bangladesh</small>
                                                                     <input
                                                                         type="text"
@@ -252,7 +253,7 @@ function TicketPurchase1() {
                                                                 </div>
                                                                 <div className="mt-3">
                                                                     <label
-                                                                        htmlFor="otherGenderInput">Designation</label>
+                                                                        htmlFor="otherGenderInput">Designation *</label>
                                                                     <br></br><small>e.g., Chief of Operations</small>
                                                                     <input
                                                                         type="text"
@@ -270,11 +271,12 @@ function TicketPurchase1() {
                                                 <div className="row">
                                                     <div className="col-6">
                                                         <div className="btn-2">
-                                                            <button className="btn-primary" name="submit-form"
-                                                                    type="button"><Link style={{color:'white',textDecoration:'none'}} to='/Ticket'>
-                                                                Back
+                                                            <Link
+                                                                to='/Ticket'>
+                                                                <button className="btn-primary" name="submit-form"
+                                                                        type="button">Back
+                                                                </button>
                                                             </Link>
-                                                            </button>
                                                         </div>
                                                     </div>
                                                     <div className="col-6">

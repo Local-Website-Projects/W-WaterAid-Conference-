@@ -14,6 +14,7 @@ function TicketPurchase() {
     const [birthYear, setBirthYear] = useState("");
     const [flag, setFlag] = useState("1");
     const [title, setTitle] = useState("");
+    const [otherTitle, setOtherTitle] = useState("");
     const [firstName, setFirstName] = useState("");
     const [surname, setSurname] = useState("");
     const [email, setEmail] = useState("");
@@ -28,8 +29,19 @@ function TicketPurchase() {
         }
     };
 
+    const handleTitleChange = (value) => {
+        setTitle(value); // Set gender to the selected value
+        if (value !== "Other") {
+            setOtherTitle("");
+        }
+    };
+
     const handleOtherInputChange = (e) => {
-        setOtherInput(e.target.value); // Update the "Other" input field
+        setOtherInput(e.target.value);
+    };
+
+    const handleOtherTitleChange = (e) => {
+        setOtherTitle(e.target.value);
     };
     const [cities, setCities] = useState([]);
 
@@ -89,6 +101,7 @@ function TicketPurchase() {
         fData.append('firstName', firstName);
         fData.append('surname', surname);
         fData.append('email', email);
+        fData.append('otherTitle', otherTitle);
         axios.post(url, fData)
             .then(response => {
                 console.log(response.data);
@@ -178,24 +191,125 @@ function TicketPurchase() {
                                                 <div className="row">
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <lable>Salutation/Title</lable>
-                                                            <br></br><small
-                                                            className="mb-3">Mr,Miss,Ms,Mrs,Dr,Prof,Engr</small>
-                                                            <input
-                                                                id="inputName"
-                                                                type="text"
-                                                                name="phone"
-                                                                className="form-control"
-                                                                placeholder="Mr,Miss,Ms,Mrs,Dr,Prof,Engr"
-                                                                value={title}
-                                                                onChange={(e) => setTitle(e.target.value)}
-                                                                autoComplete="off"
-                                                            />
+                                                            <label>Salutation</label>
+                                                            <div className="form-check">
+                                                                <input
+                                                                    className="form-check-input"
+                                                                    type="radio"
+                                                                    name="title"
+                                                                    id="flexRadioFemale"
+                                                                    checked={title === "Mr"}
+                                                                    onChange={() => handleTitleChange("Mr")}
+                                                                />
+                                                                <label className="form-check-label"
+                                                                       htmlFor="flexRadioFemale">
+                                                                    Mr
+                                                                </label>
+                                                            </div>
+                                                            <div className="form-check">
+                                                                <input
+                                                                    className="form-check-input"
+                                                                    type="radio"
+                                                                    name="title"
+                                                                    id="flexRadioFemale"
+                                                                    checked={title === "Ms"}
+                                                                    onChange={() => handleTitleChange("Ms")}
+                                                                />
+                                                                <label className="form-check-label"
+                                                                       htmlFor="flexRadioFemale">
+                                                                    Ms
+                                                                </label>
+                                                            </div>
+                                                            <div className="form-check">
+                                                                <input
+                                                                    className="form-check-input"
+                                                                    type="radio"
+                                                                    name="title"
+                                                                    id="flexRadioFemale"
+                                                                    checked={title === "Mrs"}
+                                                                    onChange={() => handleTitleChange("Mrs")}
+                                                                />
+                                                                <label className="form-check-label"
+                                                                       htmlFor="flexRadioFemale">
+                                                                    Mrs
+                                                                </label>
+                                                            </div>
+                                                            <div className="form-check">
+                                                                <input
+                                                                    className="form-check-input"
+                                                                    type="radio"
+                                                                    name="title"
+                                                                    id="flexRadioFemale"
+                                                                    checked={title === "Dr"}
+                                                                    onChange={() => handleTitleChange("Dr")}
+                                                                />
+                                                                <label className="form-check-label"
+                                                                       htmlFor="flexRadioFemale">
+                                                                    Dr
+                                                                </label>
+                                                            </div>
+                                                            <div className="form-check">
+                                                                <input
+                                                                    className="form-check-input"
+                                                                    type="radio"
+                                                                    name="title"
+                                                                    id="flexRadioFemale"
+                                                                    checked={title === "Prof"}
+                                                                    onChange={() => handleTitleChange("Prof")}
+                                                                />
+                                                                <label className="form-check-label"
+                                                                       htmlFor="flexRadioFemale">
+                                                                    Prof
+                                                                </label>
+                                                            </div>
+                                                            <div className="form-check">
+                                                                <input
+                                                                    className="form-check-input"
+                                                                    type="radio"
+                                                                    name="title"
+                                                                    id="flexRadioFemale"
+                                                                    checked={title === "Engr"}
+                                                                    onChange={() => handleTitleChange("Engr")}
+                                                                />
+                                                                <label className="form-check-label"
+                                                                       htmlFor="flexRadioFemale">
+                                                                    Engr
+                                                                </label>
+                                                            </div>
+                                                            <div className="form-check">
+                                                                <input
+                                                                    className="form-check-input"
+                                                                    type="radio"
+                                                                    name="gender"
+                                                                    id="flexRadioOther"
+                                                                    checked={title === "Other" || (title && otherTitle)}
+                                                                    onChange={() => handleTitleChange("Other")}
+                                                                />
+                                                                <label className="form-check-label"
+                                                                       htmlFor="flexRadioOther">
+                                                                    Other
+                                                                </label>
+                                                            </div>
+
+                                                            {/* Render input field if "Other" is selected */}
+                                                            {title === "Other" && (
+                                                                <div className="mt-3">
+                                                                    <label htmlFor="otherGenderInput">Please
+                                                                        specify:</label>
+                                                                    <input
+                                                                        type="text"
+                                                                        id="otherGenderInput"
+                                                                        className="form-control"
+                                                                        value={otherTitle}
+                                                                        onChange={handleOtherTitleChange}
+                                                                    />
+                                                                </div>
+                                                            )}
                                                         </div>
                                                     </div>
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <lable>First name</lable>
+                                                            <lable>First name *</lable>
                                                             <br></br><small
                                                             className="mb-3">According to your passport</small>
                                                             <input
@@ -213,7 +327,7 @@ function TicketPurchase() {
                                                     </div>
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <lable>Given name/Surname</lable>
+                                                            <lable>Last name *</lable>
                                                             <br></br><small
                                                             className="mb-3">According to your passport</small>
                                                             <input
@@ -231,7 +345,7 @@ function TicketPurchase() {
                                                     </div>
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <lable>Official Email</lable>
+                                                            <lable>Official email</lable>
                                                             <br></br><small
                                                             className="mb-3">Enter your official email address</small>
                                                             <input
@@ -248,7 +362,7 @@ function TicketPurchase() {
                                                     </div>
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <lable>Contact Number *</lable>
+                                                            <lable>Contact number *</lable>
                                                             <br></br><small className="mb-3">Write your primary contact
                                                             number with country code (e.g., +88 01 2000 0000)</small>
                                                             <input
@@ -327,12 +441,12 @@ function TicketPurchase() {
                                                                     type="radio"
                                                                     name="gender"
                                                                     id="flexRadioThirdGender"
-                                                                    checked={gender === "Third Gender"}
-                                                                    onChange={() => handleGenderChange("Third Gender")}
+                                                                    checked={gender === "Third gender"}
+                                                                    onChange={() => handleGenderChange("Third gender")}
                                                                 />
                                                                 <label className="form-check-label"
                                                                        htmlFor="flexRadioThirdGender">
-                                                                    Third Gender
+                                                                    Third gender
                                                                 </label>
                                                             </div>
                                                             <div className="form-check">

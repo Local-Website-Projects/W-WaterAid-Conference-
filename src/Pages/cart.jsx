@@ -214,6 +214,14 @@ function Cart() {
             });
     }
 
+
+    const formatBangladeshiNumber = (number) => {
+        const formatter = new Intl.NumberFormat("bn-BD", {
+            maximumFractionDigits: 0, // No decimals (you can adjust if needed)
+        });
+        return formatter.format(number);
+    };
+
     return (
         <div>
             <Menu />
@@ -224,8 +232,8 @@ function Cart() {
                 <table className="table table-striped">
                     <thead>
                     <tr>
-                        <th scope="col">Sl No</th>
-                        <th scope="col">Item</th>
+                        <th scope="col">Serial #</th>
+                        <th scope="col">Registration</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Price</th>
                         <th scope="col">Total</th>
@@ -256,7 +264,7 @@ function Cart() {
                                 <th scope="row">1</th>
                                 <td>Early Bird Registration (Bangladeshi)</td>
                                 <td>1</td>
-                                <td>{subTotal} BDT</td>
+                                <td><del>15000</del> {subTotal} BDT</td>
                                 <td>{subTotal} BDT</td>
                             </tr>
                         ) : (
@@ -264,7 +272,7 @@ function Cart() {
                                 <th scope="row">1</th>
                                 <td>Early Bird Registration (Foreign)</td>
                                 <td>1</td>
-                                <td>{subTotal} USD</td>
+                                <td><del>150</del> {subTotal} USD</td>
                                 <td>{subTotal} USD</td>
                             </tr>
                         )
@@ -340,8 +348,8 @@ function Cart() {
                 <table className="table table-striped">
                     <thead>
                     <tr>
-                        <th scope="col">Sl No</th>
-                        <th scope="col">Item</th>
+                        <th scope="col">Serial #</th>
+                        <th scope="col">Registration</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Price</th>
                         <th scope="col">Total</th>
@@ -409,7 +417,7 @@ function Cart() {
                     <tbody>
                     <tr>
                         <th colSpan={4}>Grand Total</th>
-                        <td><b>{grandTotalUpdate} { country === 'Bangladesh' ? (
+                        <td style={{textAlign:'end'}}><b>{grandTotalUpdate} { country === 'Bangladesh' ? (
                             <span>BDT</span>
                         ): (
                             <span>USD</span>
@@ -419,7 +427,7 @@ function Cart() {
                 </table>
                 <div className="row mt-3 mb-5 d-flex align-items-end justify-content-end">
                     <div className="col-2">
-                        <button className="btn btn-secondary" disabled={true}>
+                        <button className="btn btn-danger" disabled={true}>
                             Pay Now
                         </button>
                     </div>

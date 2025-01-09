@@ -14,6 +14,21 @@ function Step3 () {
     const [activeStep, setActiveStep] = useState(2);
 
     const steps = ['General information', 'Professional/Academic Information', 'Visa Invitation','Requirements', 'Technical Tour', 'Notifications'];
+
+    const [errorMessage, setErrorMessage] = useState("");
+
+    const handleExpireDateChange = (e) => {
+        const selectedExpireDate = e.target.value;
+
+        // Validate if expire date is greater than issue date
+        if (issueDate && new Date(selectedExpireDate) <= new Date(issueDate)) {
+            setErrorMessage("Expiration date must be later than the issue date.");
+        } else {
+            setErrorMessage(""); // Clear the error message
+        }
+
+        setExpireDate(selectedExpireDate);
+    };
     const handleFileChange = (e) => {
         const file = e.target.files[0];
 
@@ -48,6 +63,10 @@ function Step3 () {
 
     const handleTicket = (event) => {
         event.preventDefault();
+        if (new Date(expireDate) <= new Date(issueDate)) {
+            setErrorMessage("Expiration date must be later than the issue date.");
+            return;
+        }
         const url = '/api/purchase_ticket.php';
         let fData = new FormData();
         fData.append('invitation', invitation);
@@ -173,7 +192,7 @@ function Step3 () {
                                                             <>
                                                                 <div className="mt-3">
                                                                     <label htmlFor="otherGenderInput">Provide passport
-                                                                        number</label>
+                                                                        number *</label>
                                                                     <input
                                                                         type="text"
                                                                         id="otherGenderInput"
@@ -184,37 +203,40 @@ function Step3 () {
                                                                     />
                                                                 </div>
                                                                 <div className="mt-3">
-                                                                    <label htmlFor="otherGenderInput">Passport issue
-                                                                        date </label>
-                                                                    <br></br><small>Please input date (Format
-                                                                    mm/dd/yyyy)</small>
+                                                                    <label htmlFor="issueDate">Passport Issue Date
+                                                                        *</label>
+                                                                    <br/>
+                                                                    <small>Please input date (Format mm/dd/yyyy)</small>
                                                                     <input
                                                                         type="date"
-                                                                        id="otherGenderInput"
+                                                                        id="issueDate"
                                                                         className="form-control"
                                                                         value={issueDate}
                                                                         onChange={(e) => setIssueDate(e.target.value)}
-                                                                        required={invitation === "Yes"}
+                                                                        required
                                                                     />
                                                                 </div>
                                                                 <div className="mt-3">
-                                                                    <label htmlFor="otherGenderInput">Passport
-                                                                        expiration date</label>
-                                                                    <br></br><small>Please input date (Format
-                                                                    mm/dd/yyyy)</small>
+                                                                    <label htmlFor="expireDate">Passport Expiration Date
+                                                                        *</label>
+                                                                    <br/>
+                                                                    <small>Please input date (Format mm/dd/yyyy)</small>
                                                                     <input
                                                                         type="date"
-                                                                        id="otherGenderInput"
+                                                                        id="expireDate"
                                                                         className="form-control"
                                                                         value={expireDate}
-                                                                        onChange={(e) => setExpireDate(e.target.value)}
-                                                                        required={invitation === "Yes"}
+                                                                        onChange={handleExpireDateChange}
+                                                                        required
                                                                     />
+                                                                    {errorMessage && (
+                                                                        <small style={{ color: "red" }}>{errorMessage}</small>
+                                                                    )}
                                                                 </div>
                                                                 <div className="col-12 mt-3">
                                                                     <div className="form-group">
                                                                         <label htmlFor="fileUpload">Upload scanned copy
-                                                                            of passport (JPG, PNG, or PDF format, and under 5MB)</label>
+                                                                            of passport (JPG, PNG, or PDF format, and under 5MB) *</label>
                                                                         <input
                                                                             type="file"
                                                                             id="fileUpload"
@@ -233,13 +255,11 @@ function Step3 () {
                                                 <div className="row">
                                                     <div className="col-6">
                                                         <div className="btn-2">
-                                                            <button className="btn-primary" name="submit-form"
-                                                                    type="button"><Link
-                                                                style={{color: 'white', textDecoration: 'none'}}
+                                                            <Link
                                                                 to='/Second-Step'>
-                                                                Back
+                                                                <button className="btn-primary" name="submit-form"
+                                                                        type="button">Back</button>
                                                             </Link>
-                                                            </button>
                                                         </div>
                                                     </div>
                                                     <div className="col-6">
