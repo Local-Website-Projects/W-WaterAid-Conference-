@@ -55,8 +55,8 @@ function Login() {
                         <div className="col-lg-7 col-md-6 col-sm-5 d-none d-lg-block">
                             <div className="banner-content">
                                 <h1 style={{fontSize: '92px'}}>Registration {/*<span style={{textTransform:"lowercase"}}>for</span>*/}</h1>
-                                <p>Toilet Conference 2025</p>
-                                <p>Dhaka, Bangladesh | 25-26 February 2025</p>
+                                <p style={{marginBottom:'0', marginTop:'20px'}}>Toilet Conference 2025</p>
+                                <p style={{marginBottom:'0', marginTop:'20px'}}>Dhaka, Bangladesh | 25-26 February 2025</p>
                             </div>
                         </div>
                         <div className="col-lg-5">
