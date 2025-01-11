@@ -3115,3 +3115,56 @@ lable{
 .form-check-label{
     font-size: 17px;
 }
+
+.ReactModal__Overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+.ReactModal__Content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    height: 100%; /* Full height */
+    max-height: 100%; /* Prevent overflow */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* To space the content and buttons */
+}
+
+.ReactModal__Content h2 {
+    margin-bottom: 20px; /* Space between header and content */
+}
+
+.ReactModal__Content p {
+    margin-bottom: 20px; /* Space between content and buttons */
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff; /* Blue background */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.modal-buttons button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}

@@ -109,7 +109,7 @@ function Step5 () {
                             <div className="section-title">
                                 <div className="title-text pl">
                                     <h2>Registration</h2>
-                                    <p>* Signed Input fields must be filled up</p>
+                                    <p>* signed Input fields must be filled up</p>
                                 </div>
                             </div>
                         </div>
@@ -182,7 +182,7 @@ function Step5 () {
                                                                     <label className="form-check-label"
                                                                            htmlFor="preConferenceToggle"
                                                                            style={{fontWeight: "bold"}}>
-                                                                        Pre-Conference Tour - 24 February 2025.
+                                                                        Pre- Conference Tour | 24 February 2025.
                                                                     </label>
                                                                 </div>
 
@@ -204,24 +204,23 @@ function Step5 () {
                                                                         <label className="form-check-label"
                                                                                htmlFor="sakhipurTour"
                                                                                style={{fontWeight: "bold"}}>
-                                                                            Tour 1- FSTP visit, Sakhipur, Bangladesh
+                                                                            Tour 1 | Faecal Sludge Treatment Plant at Sakhipur, Tangail, Bangladesh
                                                                         </label>
                                                                         <br/>
                                                                         <b>
-                                                                            24 February 2025, Monday<br/>
-                                                                            <span style={{color:'#296173'}}>8,500 BDT/ 70 USD</span><br/>
-                                                                            Seats filled: 0/35
+                                                                            Date: 24 February 2025 (Monday)<br/>
+                                                                            <span style={{color:'#296173'}}>Price: BDT 9,500 ≈ USD 80</span><br/>
+                                                                            Seats left: 30
                                                                         </b>
                                                                         <br/>
-                                                                        Sakhipur FSTP, located in the Tangail district
-                                                                        under Sakhipur Municipality...
+                                                                        Explore the Sakhipur Faecal Sludge Treatment Plant (FSTP) in Tangail, a pioneering model of integrated faecal sludge and solid waste management. Previously, Sakhipur faced significant environmental and health risks in absence of faecal sludge management. The municipality now operates an efficient FSTP recognised in the Government's 8th Five-Year Plan for its scalability. Visitors will witness innovative, community-driven waste management practices that address urban sanitation challenges, demonstrating a replicable solution for safe sanitation in Bangladesh.
                                                                         <br/>
-                                                                        <a style={{
+                                                                        {/* <a style={{
                                                                             fontSize: "18px",
                                                                             fontWeight: "bold"
                                                                         }} href="#" target="_blank">
                                                                             Learn More
-                                                                        </a>
+                                                                        </a> */}
                                                                     </div>
                                                                 )}
                                                                 <div className="form-check mt-3">
@@ -235,7 +234,7 @@ function Step5 () {
                                                                     <label className="form-check-label"
                                                                            htmlFor="postConferenceToggle"
                                                                            style={{fontWeight: "bold"}}>
-                                                                        Post-Conference Tour - 27 February- 01 March 2025.
+                                                                        Post- Conference Tour | 27 February, 28 February - 01 March 2025.
                                                                     </label>
                                                                 </div>
 
@@ -257,26 +256,24 @@ function Step5 () {
                                                                             <label className="form-check-label"
                                                                                    htmlFor="dasherkandiTour"
                                                                                    style={{fontWeight: "bold"}}>
-                                                                                Tour 2 - Sewage Treatment Plant visit,
-                                                                                Dasherkandi, Dhaka, Bangladesh
+                                                                                Tour 2 | Public Toilet and Low Income Community Visit at Dhaka, Bangladesh
                                                                             </label>
                                                                             <br/>
                                                                             <b>
-                                                                                27 February 2025, Thursday<br/>
-                                                                                <span style={{color:'#296173'}}>7,000
-                                                                                BDT/55 USD</span><br/>
-                                                                                Seats filled: 0/35
+                                                                                Date: 27 February 2025 (Thursday) <br/>
+                                                                                <span style={{color:'#296173'}}>
+                                                                                Price: BDT 6,000 ≈ USD 50 </span><br/>
+                                                                                Seats left: 50
                                                                             </b>
                                                                             <br/>
-                                                                            The Dasherkandi Sewage Treatment Plant has
-                                                                            set several records...
+                                                                            This tour offers an opportunity to explore WASH interventions in Dhaka, at public domain and low-income communities. The tour begins with a visit to a public toilet facility showcasing inclusive, gender-sensitive design and sustainable operation models. Afterwards, the visitors will visit Korail slum, one of Dhaka’s largest informal settlements, to witness community-managed WASH initiatives. This visit will highlight the initiatives addressing critical sanitation challenges and demonstration of scalable solutions.
                                                                             <br/>
-                                                                            <a style={{
+                                                                            {/* <a style={{
                                                                                 fontSize: "18px",
                                                                                 fontWeight: "bold"
                                                                             }} href="#" target="_blank">
                                                                                 Learn More
-                                                                            </a>
+                                                                            </a> */}
                                                                         </div>
 
                                                                         <div className="form-check mt-3">
@@ -294,26 +291,24 @@ function Step5 () {
                                                                             <label className="form-check-label"
                                                                                    htmlFor="faridpurTour"
                                                                                    style={{fontWeight: "bold"}}>
-                                                                                Tour 3- Sanitation Workers' Forum visit,
-                                                                                Faridpur, Bangladesh
+                                                                                Tour 3 | A day with sanitation workers at Faridpur, Dhaka, Bangladesh
                                                                             </label>
                                                                             <br/>
                                                                             <b>
-                                                                                27 February 2025, Thursday<br/>
-                                                                                <span style={{color:'#296173'}}>9,000 BDT/75 USD</span><br/>
-                                                                                Seats filled: 0/60
+                                                                                Date: 27 February 2025 (Thursday)<br/>
+                                                                                <span style={{color:'#296173'}}>
+                                                                                <strike>BDT 9,500 ≈ USD 80</strike> (Sponsored by the conference secretariat)</span><br/>
+                                                                                Seats left: 30
                                                                             </b>
                                                                             <br/>
-                                                                            Visit Faridpur and learn about the
-                                                                            challenges, opportunities, needs, and
-                                                                            desires...
+                                                                            Visit Faridpur to learn about the challenges, opportunities and needs of sanitation workers. The visitors will get the opportunity to hear directly from the sanitation workers about their transformative cooperative model and discuss the next steps in improving their lives and livelihoods. At the same time, the visitors will get the chance to visit the Faridpur faecal sludge treatment plant.
                                                                             <br/>
-                                                                            <a style={{
+                                                                            {/* <a style={{
                                                                                 fontSize: "18px",
                                                                                 fontWeight: "bold"
                                                                             }} href="#" target="_blank">
                                                                                 Learn More
-                                                                            </a>
+                                                                            </a> */}
                                                                         </div>
 
                                                                         <div className="form-check mt-3">
@@ -328,28 +323,24 @@ function Step5 () {
                                                                             <label className="form-check-label"
                                                                                    htmlFor="coxsTour"
                                                                                    style={{fontWeight: "bold"}}>
-                                                                                Tour 4 – Omni Processor visit, Cox’s
-                                                                                Bazar, Bangladesh
+                                                                                Tour 4 | Omni Processor at Cox’s Bazar, Chattogram, Bangladesh
                                                                             </label>
                                                                             <br/>
                                                                             <b>
-                                                                                28 February 2025 – 1 March 2025, Friday
-                                                                                and Saturday<br/>
-                                                                                <span style={{color:'#296173'}}>32,000
-                                                                                BDT/260 USD</span><br/>
-                                                                                Seats Filled: 0/35
+                                                                                Date : 28 February - 01 March 2025 (Friday - Saturday)
+                                                                            <br/>
+                                                                                <span style={{color:'#296173'}}>Price: BDT 47,000 ≈ USD 400</span><br/>
+                                                                                Seats left: 25
                                                                             </b>
                                                                             <br/>
-                                                                            Omni Processor in Cox’s Bazar, a government
-                                                                            initiative to introduce groundbreaking
-                                                                            technology...
+                                                                            Visit the Omni Processor at Cox’s Bazar, a groundbreaking technology introduced for the 1st time in Bangladesh. This technology converts faecal sludge into clean water, and electricity. The visitors will have the opportunity to witness this innovative solution which addresses the sanitation challenges, providing scope for sustainable waste management and resource recovery.
                                                                             <br/>
-                                                                            <a style={{
+                                                                            {/* <a style={{
                                                                                 fontSize: "18px",
                                                                                 fontWeight: "bold"
                                                                             }} href="#" target="_blank">
                                                                                 Learn More
-                                                                            </a>
+                                                                            </a> */}
                                                                         </div>
 
                                                                         <div className="form-check mt-3">
@@ -364,29 +355,23 @@ function Step5 () {
                                                                             <label className="form-check-label"
                                                                                    htmlFor="saidpurTour"
                                                                                    style={{fontWeight: "bold"}}>
-                                                                                Tour 5 –FSTP visit, Saidpur, Nilphamari,
-                                                                                Bangladesh
+                                                                                Tour 5 | Faecal Sludge Treatment Plant at Saidpur, Nilphamari, Bangladesh
                                                                             </label>
                                                                             <br/>
                                                                             <b>
-                                                                                28 February 2025 – 1 March 2025, Friday
-                                                                                and Saturday<br/>
-                                                                                <span style={{color:'#296173'}}>25,500 BDT/210
-                                                                                USD</span><br/>
-                                                                                Seats Filled: 0/25
+                                                                                Date : 28 February - 01 March 2025 (Friday - Saturday)<br/>
+                                                                                <span style={{color:'#296173'}}>Price: BDT 36,500 ≈ USD 300</span><br/>
+                                                                                Seats left: 25
                                                                             </b>
                                                                             <br/>
-                                                                            Explore the Faecal Sludge Treatment Plant in
-                                                                            Saidpur, a vital facility that ensures safe
-                                                                            and
-                                                                            effective treatment of faecal sludge...
+                                                                            Explore the Faecal Sludge Treatment Plant (FSTP) in Saidpur, a vital facility that ensures safe and effective treatment of faecal sludge (FS) and solid waste (SW). This tour will highlight the processes involved in FS and SW treatment, from collection to disposal, and the measures taken to prevent environmental contamination. The visitors will gain insights into the plant's capacity, technology used, and the role it plays in improving public health and sanitation in the region.
                                                                             <br/>
-                                                                            <a style={{
+                                                                            {/* <a style={{
                                                                                 fontSize: "18px",
                                                                                 fontWeight: "bold"
                                                                             }} href="#" target="_blank">
                                                                                 Learn More
-                                                                            </a>
+                                                                            </a> */}
                                                                         </div>
                                                                     </>
                                                                 )}
@@ -409,7 +394,7 @@ function Step5 () {
                                                     <div className="col-6">
                                                         <div className="btn-2">
                                                             <button className="btn-primary" name="submit-form"
-                                                                    type="submit">Save and Continue
+                                                                    type="submit">Save and continue
                                                             </button>
                                                         </div>
                                                     </div>

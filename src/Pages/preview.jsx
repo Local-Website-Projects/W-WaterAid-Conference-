@@ -73,11 +73,11 @@ function Preview() {
                     setLanguage(response.data.language);
 
                     const tourValues = [
-                        "Pre conference technical tour - Sakhipur",
-                        "Post conference technical tour - Dasherkandi (DWASA)",
-                        "Post conference technical tour - Faridpur",
-                        "Post conference technical tour – Cox’s Bazar (DPHE)",
-                        "Post conference technical tour – Saidpur (WaterAid)",
+                        "Tour 1 | Faecal Sludge Treatment Plant at Sakhipur, Tangail, Bangladesh",
+                        "Tour 2 | Public Toilet and Low Income Community Visit at Dhaka, Bangladesh",
+                        "Tour 3 | A day with sanitation workers at Faridpur, Dhaka, Bangladesh",
+                        "Tour 4 | Omni Processor at Cox’s Bazar, Chattogram, Bangladesh",
+                        "Tour 5 | Faecal Sludge Treatment Plant at Saidpur, Nilphamari, Bangladesh",
                     ];
 
                     const toursArray = response.data.tours ? response.data.tours.split(",") : [];
@@ -129,12 +129,12 @@ function Preview() {
                         <div className="col-lg-12 col-md-12 col-12">
                             <div className="row">
                                 <div className="col-12 mt-5 mb-3">
-                                    <h4>Recheck your information and make sure all of them are correct:</h4>
+                                    <h4>Ensure that all the information provided is accurate and complete before proceeding with the submission.</h4>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-6">
-                                    <h6>Full Name</h6>
+                                    <h6>Full name</h6>
                                 </div>
                                 <div className="col-6">
                                     <p>{title} {firstName} {surname}</p>
@@ -142,7 +142,7 @@ function Preview() {
                             </div>
                             <div className="row mt-3">
                                 <div className="col-6">
-                                    <h6>Email Address</h6>
+                                    <h6>Email address</h6>
                                 </div>
                                 <div className="col-6">
                                     <p>{email}</p>
@@ -150,7 +150,7 @@ function Preview() {
                             </div>
                             <div className="row mt-3">
                                 <div className="col-6">
-                                    <h6>Contact Number</h6>
+                                    <h6>Contact number</h6>
                                 </div>
                                 <div className="col-6">
                                     <p>{phone}</p>
@@ -158,7 +158,7 @@ function Preview() {
                             </div>
                             <div className="row mt-3">
                                 <div className="col-6">
-                                    <h6>Country of Residence</h6>
+                                    <h6>Country of residence</h6>
                                 </div>
                                 <div className="col-6">
                                     <p>{country}</p>
@@ -182,7 +182,7 @@ function Preview() {
                             </div>
                             <div className="row mt-3">
                                 <div className="col-6">
-                                    <h6>Birth Year</h6>
+                                    <h6>Birth year</h6>
                                 </div>
                                 <div className="col-6">
                                     <p>{birthYear}</p>
@@ -210,7 +210,7 @@ function Preview() {
                                 <>
                                     <div className="row mt-3">
                                         <div className="col-6">
-                                            <h6>Passport No</h6>
+                                            <h6>Passport no</h6>
                                         </div>
                                         <div className="col-6">
                                             <p>{passportNo}</p>
@@ -218,7 +218,7 @@ function Preview() {
                                     </div>
                                     <div className="row mt-3">
                                         <div className="col-6">
-                                            <h6>Passport Issue Date</h6>
+                                            <h6>Passport issue date</h6>
                                         </div>
                                         <div className="col-6">
                                             <p>{formattedDate}</p>
@@ -226,7 +226,7 @@ function Preview() {
                                     </div>
                                     <div className="row mt-3">
                                         <div className="col-6">
-                                            <h6>Passport Expire Date</h6>
+                                            <h6>Passport expire date</h6>
                                         </div>
                                         <div className="col-6">
                                             <p>{formattedExpireDate}</p>
@@ -236,7 +236,7 @@ function Preview() {
                             )}
                             <div className="row mt-3">
                                 <div className="col-6">
-                                    <h6>Dietary Preference</h6>
+                                    <h6>Dietary preference</h6>
                                 </div>
                                 <div className="col-6">
                                     <p>{dietary}</p>
@@ -244,7 +244,7 @@ function Preview() {
                             </div>
                             <div className="row mt-3">
                                 <div className="col-6">
-                                    <h6>Accessibility Needs</h6>
+                                    <h6>Accessibility needs</h6>
                                 </div>
                                 <div className="col-6">
                                     <p>{accessibility}</p>
@@ -252,7 +252,7 @@ function Preview() {
                             </div>
                             <div className="row mt-3">
                                 <div className="col-6">
-                                    <h6>Language Preference</h6>
+                                    <h6>Language preference</h6>
                                 </div>
                                 <div className="col-6">
                                     <p>{language}</p>
@@ -285,7 +285,7 @@ function Preview() {
                                     <Link
                                         to='/Cart'>
                                         <button className="btn-primary" name="submit-form"
-                                                type="button">Confirm Submission</button>
+                                                type="button">Confirm submission</button>
                                     </Link>
                                 </div>
                             </div>

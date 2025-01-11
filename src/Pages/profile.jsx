@@ -36,10 +36,10 @@ function Profile() {
         const fetchSessionData = async () => {
             const token = localStorage.getItem("userToken");
 
-            /*if (!token) {
+            if (!token) {
                 setError("You are not logged in.");
                 return navigate("/Login"); // Redirect to login if no token
-            }*/
+            }
 
             try {
                 const response = await axios.get("/api/fetch_profile.php", {
@@ -73,11 +73,11 @@ function Profile() {
                     setLanguage(response.data.language);
 
                     const tourValues = [
-                        "Pre conference technical tour - Sakhipur",
-                        "Post conference technical tour - Dasherkandi (DWASA)",
-                        "Post conference technical tour - Faridpur",
-                        "Post conference technical tour – Cox’s Bazar (DPHE)",
-                        "Post conference technical tour – Saidpur (WaterAid)",
+                        "Tour 1 | Faecal Sludge Treatment Plant at Sakhipur, Tangail, Bangladesh",
+                        "Tour 2 | Public Toilet and Low Income Community Visit at Dhaka, Bangladesh",
+                        "Tour 3 | A day with sanitation workers at Faridpur, Dhaka, Bangladesh",
+                        "Tour 4 | Omni Processor at Cox’s Bazar, Chattogram, Bangladesh",
+                        "Tour 5 | Faecal Sludge Treatment Plant at Saidpur, Nilphamari, Bangladesh",
                     ];
 
                     const toursArray = response.data.tours ? response.data.tours.split(",") : [];
@@ -138,22 +138,22 @@ function Profile() {
                                 <Link className="nav-link active" id="home-taThursday" to='/Profile'>General information</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="https://regtoiletconference.org/user_invoice/index.php" target='_blank'>Download Invoice</a>
+                                <a className="nav-link" href="https://regtoiletconference.org/user_invoice/index.php" target='_blank'>Download invoice</a>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/Update-Password">Update Password</Link>
+                                <Link className="nav-link" to="/Update-Password">Update password</Link>
                             </li>
                         </ul>
                     </div>
                     <div className="col-lg-6 col-md-6 col-12">
                         <div className="row">
                             <div className="col-12 mt-5 mb-3">
-                                <h4>Personal Information:</h4>
+                                <h4>Personal information:</h4>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-6">
-                                <h6>Full Name</h6>
+                                <h6>Full name</h6>
                             </div>
                             <div className="col-6">
                                 <p>{title} {firstName} {surname}</p>
@@ -161,7 +161,7 @@ function Profile() {
                         </div>
                         <div className="row mt-3">
                             <div className="col-6">
-                                <h6>Email Address</h6>
+                                <h6>Email address</h6>
                             </div>
                             <div className="col-6">
                                 <p>{email}</p>
@@ -169,7 +169,7 @@ function Profile() {
                         </div>
                         <div className="row mt-3">
                             <div className="col-6">
-                                <h6>Contact Number</h6>
+                                <h6>Contact number</h6>
                             </div>
                             <div className="col-6">
                                 <p>{phone}</p>
@@ -177,7 +177,7 @@ function Profile() {
                         </div>
                         <div className="row mt-3">
                         <div className="col-6">
-                                    <h6>Country of Residence</h6>
+                                    <h6>Country of residence</h6>
                                 </div>
                                 <div className="col-6">
                                     <p>{country}</p>
@@ -201,7 +201,7 @@ function Profile() {
                             </div>
                             <div className="row mt-3">
                                 <div className="col-6">
-                                    <h6>Birth Year</h6>
+                                    <h6>Birth year</h6>
                                 </div>
                                 <div className="col-6">
                                     <p>{birthYear}</p>
@@ -229,7 +229,7 @@ function Profile() {
                                 <>
                                     <div className="row mt-3">
                                         <div className="col-6">
-                                            <h6>Passport No</h6>
+                                            <h6>Passport no</h6>
                                         </div>
                                         <div className="col-6">
                                             <p>{passportNo}</p>
@@ -237,7 +237,7 @@ function Profile() {
                                     </div>
                                     <div className="row mt-3">
                                         <div className="col-6">
-                                            <h6>Passport Issue Date</h6>
+                                            <h6>Passport issue date</h6>
                                         </div>
                                         <div className="col-6">
                                             <p>{formattedDate}</p>
@@ -245,7 +245,7 @@ function Profile() {
                                     </div>
                                     <div className="row mt-3">
                                         <div className="col-6">
-                                            <h6>Passport Expire Date</h6>
+                                            <h6>Passport expire date</h6>
                                         </div>
                                         <div className="col-6">
                                             <p>{formattedExpireDate}</p>
@@ -255,7 +255,7 @@ function Profile() {
                             )}
                             <div className="row mt-3">
                                 <div className="col-6">
-                                    <h6>Dietary Preference</h6>
+                                    <h6>Dietary preference</h6>
                                 </div>
                                 <div className="col-6">
                                     <p>{dietary}</p>
@@ -263,7 +263,7 @@ function Profile() {
                             </div>
                             <div className="row mt-3">
                                 <div className="col-6">
-                                    <h6>Accessibility Needs</h6>
+                                    <h6>Accessibility needs</h6>
                                 </div>
                                 <div className="col-6">
                                     <p>{accessibility}</p>
@@ -271,7 +271,7 @@ function Profile() {
                             </div>
                             <div className="row mt-3">
                                 <div className="col-6">
-                                    <h6>Language Preference</h6>
+                                    <h6>Language preference</h6>
                                 </div>
                                 <div className="col-6">
                                     <p>{language}</p>

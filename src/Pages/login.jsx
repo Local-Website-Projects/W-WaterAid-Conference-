@@ -55,7 +55,7 @@ function Login() {
                         <div className="col-lg-7 col-md-6 col-sm-5 d-none d-lg-block">
                             <div className="banner-content">
                                 <h1 style={{fontSize: '92px'}}>Registration {/*<span style={{textTransform:"lowercase"}}>for</span>*/}</h1>
-                                <h1>Toilet Conference 2025</h1>
+                                <p>Toilet Conference 2025</p>
                                 <p>Dhaka, Bangladesh | 25-26 February 2025</p>
                             </div>
                         </div>
@@ -104,7 +104,7 @@ function Login() {
                                                     name="submit"
                                                     id="submit"
                                                 >
-                                                    Log In
+                                                    Log in
                                                 </button>
                                             </div>
                                             {errorMessage && (
@@ -114,12 +114,12 @@ function Login() {
                                             )}
                                             <div className="p-3">
                                                 <p>
-                                                    You don't have an account? <Link to="/Register">Register Now.</Link>
+                                                    You don't have an account? <Link to="/Register">Register now.</Link>
                                                 </p>
                                             </div>
                                             <div className="p-3">
                                                 <p>
-                                                    Forget your password? <Link to="/Forget-Password">Click Here!</Link>
+                                                    Forget your password? <Link to="/Forget-Password">Click here!</Link>
                                                 </p>
                                             </div>
                                         </div>

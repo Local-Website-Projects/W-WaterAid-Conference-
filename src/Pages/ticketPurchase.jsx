@@ -3,6 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import Footer from "../Components/footer";
 import Menu from "../Components/menu";
+import Modal from 'react-modal';
 
 function TicketPurchase() {
     const navigate = useNavigate();
@@ -161,13 +162,13 @@ function TicketPurchase() {
                             <div className="section-title">
                                 <div className="title-text pl">
                                     <h2>Registration</h2>
-                                    <p>* Signed Input fields must be filled up</p>
+                                    <p>* signed input fields must be filled up</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-12">
+                    <div className="col-12">
                             <ul className="step-list">
                                 {steps.map((step, index) => (
                                     <li
@@ -280,7 +281,7 @@ function TicketPurchase() {
                                                                 <input
                                                                     className="form-check-input"
                                                                     type="radio"
-                                                                    name="gender"
+                                                                    name="title"
                                                                     id="flexRadioOther"
                                                                     checked={title === "Other" || (title && otherTitle)}
                                                                     onChange={() => handleTitleChange("Other")}
@@ -345,9 +346,9 @@ function TicketPurchase() {
                                                     </div>
                                                     <div className="col-12">
                                                         <div className="form-group">
-                                                            <lable>Official email</lable>
+                                                            <lable>Secondary email address</lable>
                                                             <br></br><small
-                                                            className="mb-3">Enter your official email address</small>
+                                                            className="mb-3">Enter your secondary email address</small>
                                                             <input
                                                                 id="inputName"
                                                                 type="email"
@@ -364,13 +365,14 @@ function TicketPurchase() {
                                                         <div className="form-group">
                                                             <lable>Contact number *</lable>
                                                             <br></br><small className="mb-3">Write your primary contact
-                                                            number with country code (e.g., +88 01 2000 0000)</small>
+                                                            number. You must include your country code (e.g., +88 01
+                                                            2000 0000)</small>
                                                             <input
                                                                 id="inputName"
                                                                 type="text"
                                                                 name="phone"
                                                                 className="form-control"
-                                                                placeholder="+88 01 2000 0000"
+                                                                placeholder="+880120000000"
                                                                 value={phone}
                                                                 onChange={(e) => setPhone(e.target.value)}
                                                                 autoComplete="off"
@@ -415,6 +417,7 @@ function TicketPurchase() {
                                                                     id="flexRadioFemale"
                                                                     checked={gender === "Female"}
                                                                     onChange={() => handleGenderChange("Female")}
+                                                                    required
                                                                 />
                                                                 <label className="form-check-label"
                                                                        htmlFor="flexRadioFemale">
@@ -429,6 +432,7 @@ function TicketPurchase() {
                                                                     id="flexRadioMale"
                                                                     checked={gender === "Male"}
                                                                     onChange={() => handleGenderChange("Male")}
+                                                                    required
                                                                 />
                                                                 <label className="form-check-label"
                                                                        htmlFor="flexRadioMale">
@@ -443,6 +447,7 @@ function TicketPurchase() {
                                                                     id="flexRadioThirdGender"
                                                                     checked={gender === "Third gender"}
                                                                     onChange={() => handleGenderChange("Third gender")}
+                                                                    required
                                                                 />
                                                                 <label className="form-check-label"
                                                                        htmlFor="flexRadioThirdGender">
@@ -457,10 +462,11 @@ function TicketPurchase() {
                                                                     id="flexRadioNonBinary"
                                                                     checked={gender === "Non-binary"}
                                                                     onChange={() => handleGenderChange("Non-binary")}
+                                                                    required
                                                                 />
                                                                 <label className="form-check-label"
                                                                        htmlFor="flexRadioNonBinary">
-                                                                    Non-binary
+                                                                    Non- binary
                                                                 </label>
                                                             </div>
                                                             <div className="form-check">
@@ -471,6 +477,7 @@ function TicketPurchase() {
                                                                     id="flexRadioPreferNotToSay"
                                                                     checked={gender === "Prefer not to say"}
                                                                     onChange={() => handleGenderChange("Prefer not to say")}
+                                                                    required
                                                                 />
                                                                 <label
                                                                     className="form-check-label"
@@ -487,6 +494,7 @@ function TicketPurchase() {
                                                                     id="flexRadioOther"
                                                                     checked={gender === "Other" || (gender && otherInput)}
                                                                     onChange={() => handleGenderChange("Other")}
+                                                                    required
                                                                 />
                                                                 <label className="form-check-label"
                                                                        htmlFor="flexRadioOther">
@@ -505,6 +513,7 @@ function TicketPurchase() {
                                                                         className="form-control"
                                                                         value={otherInput}
                                                                         onChange={handleOtherInputChange}
+                                                                        required
                                                                     />
                                                                 </div>
                                                             )}
@@ -521,7 +530,7 @@ function TicketPurchase() {
                                                                 onChange={(e) => setBirthYear(e.target.value)}
                                                                 required
                                                             >
-                                                                <option value="">Select Birth Year</option>
+                                                                <option value="">Select your birth year</option>
                                                                 {Array.from({length: 125}, (_, i) => {
                                                                     const year = new Date().getFullYear() - i;
                                                                     return <option key={year}
@@ -561,7 +570,7 @@ function TicketPurchase() {
                                                     <div className="col-6">
                                                         <div className="btn-2">
                                                             <button className="btn-primary" name="submit-form"
-                                                                    type="submit">Save and Continue
+                                                                    type="submit">Save and continue
                                                             </button>
                                                         </div>
                                                     </div>

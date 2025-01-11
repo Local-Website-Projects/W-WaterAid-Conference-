@@ -91,7 +91,7 @@ function Step4 () {
                             <div className="section-title">
                                 <div className="title-text pl">
                                     <h2>Registration</h2>
-                                    <p>* Signed Input fields must be filled up</p>
+                                    <p>* signed input fields must be filled up</p>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +121,8 @@ function Step4 () {
                                                 <div className="col-12">
                                                     <div className="form-group">
                                                         <label>Dietary Preference *</label><br></br>
-                                                        <small>* Halal foods will be served in the venue of the conference.</small>
+                                                        <small style = {{display: "block", marginTop: "0" }}>
+                                                            <i>Halal foods will be served during the conference.</i></small>
                                                         <div className="form-check">
                                                             <input
                                                                 className="form-check-input"
@@ -180,7 +181,7 @@ function Step4 () {
                                                         </div>
                                                         {dietary === "Other" && (
                                                             <div className="mt-3">
-                                                                <label htmlFor="otherGenderInput">Please Specify</label>
+                                                                <label htmlFor="otherGenderInput">Please specify</label>
                                                                 <input
                                                                     type="text"
                                                                     id="otherGenderInput"
@@ -195,8 +196,8 @@ function Step4 () {
                                                 </div>
                                                 <div className="col-12">
                                                     <div className="form-group">
-                                                        <label>Accessibility Need *</label>
-                                                        <div className="form-check">
+                                                        <label>Accessibility need *</label>
+                                                        {/* <div className="form-check">
                                                             <input
                                                                 className="form-check-input"
                                                                 type="radio"
@@ -209,37 +210,7 @@ function Step4 () {
                                                                    htmlFor="flexRadioFemale">
                                                                 Sign language interpretation
                                                             </label>
-                                                        </div>
-                                                        <div className="form-check">
-                                                            <input
-                                                                className="form-check-input"
-                                                                type="radio"
-                                                                name="accessibility"
-                                                                id="flexRadioFemale"
-                                                                checked={accessibility === "Wheelchair access"}
-                                                                onChange={() => setAccessibility("Wheelchair access")}
-                                                            />
-                                                            <label className="form-check-label"
-                                                                   htmlFor="flexRadioFemale">
-                                                                Wheelchair access
-                                                            </label>
-                                                        </div>
-                                                        <div className="form-check">
-                                                            <input
-                                                                className="form-check-input"
-                                                                type="radio"
-                                                                name="accessibility"
-                                                                id="flexRadioFemale"
-                                                                checked={accessibility === "Visually impaired"}
-                                                                onChange={() => setAccessibility("Visually impaired")}
-                                                            />
-                                                            <label className="form-check-label"
-                                                                   htmlFor="flexRadioFemale">
-                                                                Visually impaired
-                                                            </label>
-                                                        </div>
-
-
+                                                        </div> */}
                                                         <div className="form-check">
                                                             <input
                                                                 className="form-check-input"
@@ -260,6 +231,34 @@ function Step4 () {
                                                                 type="radio"
                                                                 name="accessibility"
                                                                 id="flexRadioFemale"
+                                                                checked={accessibility === "Wheelchair access"}
+                                                                onChange={() => setAccessibility("Wheelchair access")}
+                                                            />
+                                                            <label className="form-check-label"
+                                                                   htmlFor="flexRadioFemale">
+                                                                Wheelchair access
+                                                            </label>
+                                                        </div>
+                                                        {/* <div className="form-check">
+                                                            <input
+                                                                className="form-check-input"
+                                                                type="radio"
+                                                                name="accessibility"
+                                                                id="flexRadioFemale"
+                                                                checked={accessibility === "Visually impaired"}
+                                                                onChange={() => setAccessibility("Visually impaired")}
+                                                            />
+                                                            <label className="form-check-label"
+                                                                   htmlFor="flexRadioFemale">
+                                                                Visually impaired
+                                                            </label>
+                                                        </div> */}
+                                                        <div className="form-check">
+                                                            <input
+                                                                className="form-check-input"
+                                                                type="radio"
+                                                                name="accessibility"
+                                                                id="flexRadioFemale"
                                                                 checked={accessibility === "Other"}
                                                                 onChange={() => setAccessibility("Other")}
                                                             />
@@ -270,7 +269,7 @@ function Step4 () {
                                                         </div>
                                                         {accessibility === "Other" && (
                                                             <div className="mt-3">
-                                                                <label htmlFor="otherGenderInput">Please Specify</label>
+                                                                <label htmlFor="otherGenderInput">Please specify</label>
                                                                 <input
                                                                     type="text"
                                                                     id="otherGenderInput"
@@ -329,7 +328,7 @@ function Step4 () {
                                                     <div className="col-6">
                                                         <div className="btn-2">
                                                             <button className="btn-primary" name="submit-form"
-                                                                    type="submit">Save and Continue
+                                                                    type="submit">Save and continue
                                                             </button>
                                                         </div>
                                                     </div>

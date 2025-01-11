@@ -78,7 +78,7 @@ function Step6 () {
                             <div className="section-title">
                                 <div className="title-text pl">
                                     <h2>Registration</h2>
-                                    <p>* Signed Input fields must be filled up</p>
+                                    <p>* signed input fields must be filled up</p>
                                 </div>
                             </div>
                         </div>

@@ -80,7 +80,7 @@ function UpdatePassword (){
                                                     </div>
                                                     <div className="btn-2">
                                                         <button className="btn-primary"
-                                                                type="submit">Update Password
+                                                                type="submit">Update password
                                                         </button>
                                                     </div>
                                                 </form>

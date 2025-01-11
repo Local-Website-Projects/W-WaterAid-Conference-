@@ -3,6 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import Footer from "../Components/footer";
 import Menu from "../Components/menu";
+import Modal from "react-modal";
 
 function Step3 () {
     const navigate = useNavigate();
@@ -12,6 +13,17 @@ function Step3 () {
     const [issueDate, setIssueDate] = useState("");
     const [expireDate, setExpireDate] = useState("");
     const [activeStep, setActiveStep] = useState(2);
+    const [isModalOpen, setModalOpen] = useState(false);
+    const [confirmed, setConfirmed] = useState(0);
+
+    const openModal = (event) => {
+        setModalOpen(true);
+    }
+    const closeModal = () => {
+        setModalOpen(false);
+        setConfirmed(1);
+    }
+
 
     const steps = ['General information', 'Professional/Academic Information', 'Visa Invitation','Requirements', 'Technical Tour', 'Notifications'];
 
@@ -31,7 +43,6 @@ function Step3 () {
     };
     const handleFileChange = (e) => {
         const file = e.target.files[0];
-
         if (file) {
             // Allowed file types (MIME types)
             const allowedFileTypes = ["image/jpeg", "image/png", "application/pdf"];
@@ -63,8 +74,15 @@ function Step3 () {
 
     const handleTicket = (event) => {
         event.preventDefault();
+
+
         if (new Date(expireDate) <= new Date(issueDate)) {
             setErrorMessage("Expiration date must be later than the issue date.");
+            return;
+        }
+
+        if(confirmed === 0){
+            openModal();
             return;
         }
         const url = '/api/purchase_ticket.php';
@@ -125,12 +143,45 @@ function Step3 () {
             <Menu/>
             <div className="ct-2 contact-area pad100">
                 <div className="container">
+                    <div>
+                        <Modal
+                            isOpen={isModalOpen}
+                            onRequestClose={closeModal}
+                            contentLabel="Example Modal"
+                            style={{
+                                overlay: {
+                                    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
+                                },
+                                content: {
+                                    position: 'relative',
+                                    backgroundColor: 'white',
+                                    padding: '20px',
+                                    borderRadius: '8px',
+                                    width: '400px',
+                                    height: 'auto',
+                                    maxHeight: '100%',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'space-between',
+                                },
+                            }}
+                        >
+                            <h2>Alert</h2>
+                            <p style={{fontWeight:'bold'}}>Please be aware that the information you provide cannot be modified later.</p>
+                                <p>Ensure that all the details are correct before submitting.</p>
+                            <div className='row'>
+                                <div className='col-6'>
+                                    <button className='btn btn-primary' onClick={closeModal}>Ok</button>
+                                </div>
+                            </div>
+                        </Modal>
+                    </div>
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="section-title">
                                 <div className="title-text pl">
                                     <h2>Registration</h2>
-                                    <p>* Signed Input fields must be filled up</p>
+                                    <p>* signed input fields must be filled up</p>
                                 </div>
                             </div>
                         </div>
@@ -155,8 +206,7 @@ function Step3 () {
                                 <div className="row">
                                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                         <div className="contact-form">
-                                            <form id="contact-form" data-toggle="validator" role="form"
-                                                  onSubmit={handleTicket}>
+                                            <form id="contact-form" data-toggle="validator" role="form" onSubmit={handleTicket}>
                                                 <div className="col-12">
                                                     <div className="form-group">
                                                         <label>Do you need visa invitation letter? *</label>
@@ -168,6 +218,7 @@ function Step3 () {
                                                                 id="flexRadioFemale"
                                                                 checked={invitation === "Yes"}
                                                                 onChange={() => setInvitation("Yes")}
+                                                                required={true}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
@@ -182,6 +233,7 @@ function Step3 () {
                                                                 id="flexRadioFemale"
                                                                 checked={invitation === "No"}
                                                                 onChange={() => setInvitation("No")}
+                                                                required={true}
                                                             />
                                                             <label className="form-check-label"
                                                                    htmlFor="flexRadioFemale">
@@ -203,7 +255,7 @@ function Step3 () {
                                                                     />
                                                                 </div>
                                                                 <div className="mt-3">
-                                                                    <label htmlFor="issueDate">Passport Issue Date
+                                                                    <label htmlFor="issueDate">Passport issue date
                                                                         *</label>
                                                                     <br/>
                                                                     <small>Please input date (Format mm/dd/yyyy)</small>
@@ -213,11 +265,11 @@ function Step3 () {
                                                                         className="form-control"
                                                                         value={issueDate}
                                                                         onChange={(e) => setIssueDate(e.target.value)}
-                                                                        required
+                                                                        required={invitation === "Yes"}
                                                                     />
                                                                 </div>
                                                                 <div className="mt-3">
-                                                                    <label htmlFor="expireDate">Passport Expiration Date
+                                                                    <label htmlFor="expireDate">Passport expiration date
                                                                         *</label>
                                                                     <br/>
                                                                     <small>Please input date (Format mm/dd/yyyy)</small>
@@ -227,16 +279,19 @@ function Step3 () {
                                                                         className="form-control"
                                                                         value={expireDate}
                                                                         onChange={handleExpireDateChange}
-                                                                        required
+                                                                        required={invitation === "Yes"}
                                                                     />
                                                                     {errorMessage && (
-                                                                        <small style={{ color: "red" }}>{errorMessage}</small>
+                                                                        <small
+                                                                            style={{color: "red"}}>{errorMessage}</small>
                                                                     )}
                                                                 </div>
                                                                 <div className="col-12 mt-3">
                                                                     <div className="form-group">
                                                                         <label htmlFor="fileUpload">Upload scanned copy
-                                                                            of passport (JPG, PNG, or PDF format, and under 5MB) *</label>
+                                                                            of your passport (Must be in JPG, PNG, or
+                                                                            PDF format, and under 5MB file size)
+                                                                            *</label>
                                                                         <input
                                                                             type="file"
                                                                             id="fileUpload"
@@ -250,6 +305,38 @@ function Step3 () {
                                                             </>
 
                                                         )}
+
+                                                        {invitation === 'No' && (
+                                                            <>
+                                                                <div className="mt-3">
+                                                                    <label htmlFor="otherGenderInput">Enter your ID
+                                                                        number (Passport/ NID/ Driving) *</label>
+                                                                    <input
+                                                                        type="text"
+                                                                        id="otherGenderInput"
+                                                                        className="form-control"
+                                                                        value={passport}
+                                                                        onChange={(e) => setPassport(e.target.value)}
+                                                                        required={invitation === "No"}
+                                                                    />
+                                                                </div>
+                                                                <div className="col-12 mt-3">
+                                                                    <div className="form-group">
+                                                                        <label htmlFor="fileUpload">Upload scanned copy
+                                                                            of your ID (Passport/ NID/ Driving)
+                                                                            *</label>
+                                                                        <input
+                                                                            type="file"
+                                                                            id="fileUpload"
+                                                                            className="form-control pt-3"
+                                                                            onChange={handleFileChange}
+                                                                            required={invitation === "No"}
+                                                                            accept=".jpg,.png,.pdf"
+                                                                        />
+                                                                    </div>
+                                                                </div>
+                                                            </>
+                                                        )}
                                                     </div>
                                                 </div>
                                                 <div className="row">
@@ -258,14 +345,15 @@ function Step3 () {
                                                             <Link
                                                                 to='/Second-Step'>
                                                                 <button className="btn-primary" name="submit-form"
-                                                                        type="button">Back</button>
+                                                                        type="button">Back
+                                                                </button>
                                                             </Link>
                                                         </div>
                                                     </div>
                                                     <div className="col-6">
                                                         <div className="btn-2">
                                                             <button className="btn-primary" name="submit-form"
-                                                                    type="submit">Save and Continue
+                                                                    type="submit">Save and continue
                                                             </button>
                                                         </div>
                                                     </div>

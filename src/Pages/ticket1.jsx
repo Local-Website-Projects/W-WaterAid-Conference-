@@ -116,7 +116,7 @@ function TicketPurchase1() {
                             <div className="section-title">
                                 <div className="title-text pl">
                                     <h2>Registration</h2>
-                                    <p>* Signed Input fields must be filled up</p>
+                                    <p>* signed input fields must be filled up</p>
                                 </div>
                             </div>
                         </div>
@@ -144,7 +144,7 @@ function TicketPurchase1() {
                                             <form id="contact-form" data-toggle="validator" role="form"
                                                   onSubmit={handleTicket}>
                                                 <div className="col-12">
-                                                    <label>Select your profession *</label>
+                                                    <label>Select your employment status *</label>
                                                     <div className="form-check">
                                                         <input
                                                             className="form-check-input"
@@ -193,12 +193,12 @@ function TicketPurchase1() {
                                                             type="radio"
                                                             name="gender"
                                                             id="flexRadioFemale"
-                                                            checked={student === "Unemployed"}
-                                                            onChange={() => setStudent("Unemployed")}
+                                                            checked={student === "Currently not employed"}
+                                                            onChange={() => setStudent("Currently not employed")}
                                                         />
                                                         <label className="form-check-label"
                                                                htmlFor="flexRadioFemale">
-                                                            Unemployed
+                                                            Currently not employed
                                                         </label>
                                                     </div>
                                                     <div className="form-group">
@@ -207,7 +207,7 @@ function TicketPurchase1() {
                                                                 <div className="mt-3">
                                                                     <label htmlFor="otherGenderInput">Name of
                                                                         institution *</label>
-                                                                    <br></br><small>e.g., BRAC University</small>
+                                                                    <br></br><small>e.g., Dhaka University</small>
                                                                     <input
                                                                         type="text"
                                                                         id="otherGenderInput"
@@ -219,10 +219,10 @@ function TicketPurchase1() {
                                                                 </div>
                                                                 <div className="col-12">
                                                                     <div className="form-group">
-                                                                        <label htmlFor="fileUpload">Upload scanned copy
-                                                                            of
-                                                                            student ID card (JPG, PNG, or PDF format,
-                                                                            and under 5MB) *</label>
+                                                                        <label htmlFor="fileUpload">Upload a scanned copy
+                                                                            of your
+                                                                            student ID card (Must be in JPG, PNG, or PDF format,
+                                                                            and under 5MB file size) *</label>
                                                                         <input
                                                                             type="file"
                                                                             id="fileUpload"
@@ -254,7 +254,7 @@ function TicketPurchase1() {
                                                                 <div className="mt-3">
                                                                     <label
                                                                         htmlFor="otherGenderInput">Designation *</label>
-                                                                    <br></br><small>e.g., Chief of Operations</small>
+                                                                    <br></br><small>e.g., Head of programmes</small>
                                                                     <input
                                                                         type="text"
                                                                         id="otherGenderInput"
@@ -282,7 +282,7 @@ function TicketPurchase1() {
                                                     <div className="col-6">
                                                         <div className="btn-2">
                                                             <button className="btn-primary" name="submit-form"
-                                                                    type="submit">Save and Continue
+                                                                    type="submit">Save and continue
                                                             </button>
                                                         </div>
                                                     </div>

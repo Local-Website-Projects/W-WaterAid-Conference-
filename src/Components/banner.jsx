@@ -80,45 +80,45 @@ function Banner() {
                                 <h4 className='mb-5'>Terms & Conditions</h4>
                                 <p>By registering for the Toilet Conference 2025, you agree to the following terms and
                                     conditions:</p>
-                                <p>1. <b>Registration Confirmation:</b>Registration is confirmed only after the full
+                                <p>1. <b>Registration Confirmation: </b> Registration is confirmed only after the full
                                     payment is received. The Conference Secretariat reserves the right to refuse or
                                     cancel registrations under specific circumstances.</p>
-                                <p>2. <b>Code of Conduct:</b>All participants must behave respectfully toward fellow
+                                <p>2. <b>Code of Conduct: </b> All participants must behave respectfully toward fellow
                                     attendees, speakers, and organisers, maintaining professional decorum at all times.
                                     Harassment, discrimination, or disruptive behaviour is strictly prohibited. The
                                     Conference Secretariat reserves the right to remove participants violating these
                                     terms, and all registration fees are non-refundable.
                                 </p>
-                                <p>3. <b>Intellectual Property:</b>All materials presented at the Conference including
+                                <p>3. <b>Intellectual Property: </b> All materials presented at the Conference including
                                     presentations, handouts, and session recordings are the intellectual property of
                                     their respective authors and the Conference Secretariat. Redistribution or
                                     unauthorised use of these materials without explicit permission is prohibited.</p>
-                                <p>4. <b>Photography and Recording Consent:</b>By participating in the Conference, you
+                                <p>4. <b>Photography and Recording Consent: </b> By participating in the Conference, you
                                     consent to photography, videography, and audio recording by the Conference
                                     Secretariat and its partners. Your image, video, or audio may be used in promotional
                                     materials, reports, and digital content, in line with the Conference Secretariat’s
                                     content usage policies.
                                 </p>
-                                <p>5. <b>Data Protection and Privacy:</b>The Conference Secretariat (WaterAid
+                                <p>5. <b>Data Protection and Privacy: </b> The Conference Secretariat (WaterAid
                                     Bangladesh) adheres to GDPR, the UK Privacy Act, and the Bangladesh ICT Act. Your
                                     personal data will be securely stored and used solely for conference-related
                                     purposes. Requests to access, modify, or delete personal information can be directed
                                     to <a
                                         href="mailto:wateraidbangladesh@wateraid.org">wateraidbangladesh@wateraid.org</a>.
                                 </p>
-                                <p>6. <b>Travel and Accommodation:</b>Participants are responsible for arranging their
+                                <p>6. <b>Travel and Accommodation: </b> Participants are responsible for arranging their
                                     own travel, accommodation, and personal insurance unless explicitly stated otherwise
                                     by the Conference Secretariat.
                                 </p>
-                                <p>7. <b>Event Changes and Cancellation:</b>The Conference dates are subject to change
+                                <p>7. <b>Event Changes and Cancellation: </b> The Conference dates are subject to change
                                     due to unforeseen circumstances such as political unrest or natural disasters in
                                     Bangladesh. In the event of postponement, all registrations will remain valid for
                                     the new dates, and participants will be notified accordingly. If the event is
                                     cancelled, participants will be informed promptly, and further instructions will be
                                     provided.</p>
-                                <p>8. <b>Liability Disclaimer:</b>The Conference Secretariat is not responsible for any
+                                <p>8. <b>Liability Disclaimer: </b> The Conference Secretariat is not responsible for any
                                     personal injury, loss, or damage to property during the event.</p>
-                                <p>9. <b>Amendments to Terms:</b>The Conference Secretariat reserves the right to update
+                                <p>9. <b>Amendments to Terms: </b> The Conference Secretariat reserves the right to update
                                     or amend these terms and conditions at any time. Updates will be communicated to
                                     participants via email and the official conference website.</p>
                                 <p>By completing your registration for the Toilet Conference 2025, you confirm that you
