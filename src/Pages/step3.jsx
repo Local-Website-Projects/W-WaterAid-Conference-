@@ -168,7 +168,7 @@ function Step3 () {
                         >
                             <h2>Alert</h2>
                             <p style={{fontWeight:'bold'}}>Please be aware that the information you provide cannot be modified later.</p>
-                                <p>Ensure that all the details are correct before submitting.</p>
+                            <p>Ensure that all the details are correct before submitting.</p>
                             <div className='row'>
                                 <div className='col-6'>
                                     <button className='btn btn-primary' onClick={closeModal}>Ok</button>
@@ -310,7 +310,7 @@ function Step3 () {
                                                             <>
                                                                 <div className="mt-3">
                                                                     <label htmlFor="otherGenderInput">Enter your ID
-                                                                        number (Passport/ NID/ Driving) *</label>
+                                                                        number (Passport/ NID/ Driving license) *</label>
                                                                     <input
                                                                         type="text"
                                                                         id="otherGenderInput"
@@ -323,7 +323,8 @@ function Step3 () {
                                                                 <div className="col-12 mt-3">
                                                                     <div className="form-group">
                                                                         <label htmlFor="fileUpload">Upload scanned copy
-                                                                            of your ID (Passport/ NID/ Driving)
+                                                                            of your Passport/ NID/ Driving license (Must be in JPG, PNG, or
+                                                                            PDF format, and under 5MB file size)
                                                                             *</label>
                                                                         <input
                                                                             type="file"

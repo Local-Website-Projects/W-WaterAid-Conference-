@@ -36,10 +36,10 @@ function Cart() {
         const fetchSessionData = async () => {
             const token = localStorage.getItem("userToken");
 
-            if (!token) {
+            /*if (!token) {
                 setError("You are not logged in.");
                 return navigate("/Login"); // Redirect to login if no token
-            }
+            }*/
 
             try {
                 const response = await axios.get("/api/fetch_profile.php", {
@@ -450,7 +450,7 @@ function Cart() {
                 </table>
                 <div className="row mt-3 mb-5 d-flex align-items-end justify-content-end">
                     <div className="col-2">
-                        <button className="btn btn-primary" disabled={true}>
+                        <button className="btn btn-primary" disabled={true} style={{color:'#000', backgroundColor:'#ccc'}}>
                             Pay Now
                         </button>
                     </div>
