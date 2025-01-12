@@ -20,6 +20,7 @@ function TicketPurchase() {
     const [surname, setSurname] = useState("");
     const [email, setEmail] = useState("");
     const [activeStep, setActiveStep] = useState(0);
+    const [primaryEmail, setPrimaryEmail] = useState("");
 
     const steps = ['General information', 'Professional/Academic Information', 'Visa Invitation','Requirements', 'Technical Tour', 'Notifications'];
 
@@ -142,6 +143,24 @@ function TicketPurchase() {
                     setBirthYear(response.data.birth_year);
                     setCity(response.data.city);
                     setEmail(response.data.email);
+                    setPrimaryEmail(response.data.primaryEmail);
+                } else {
+                    setError(response.data.message || "Failed to fetch profile.");
+                }
+            } catch (err) {
+                setError("Failed to fetch session data");
+                console.error(err);
+            }
+
+            try {
+                const response = await axios.get("/api/fetch_user_email.php", {
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                });
+
+                if (response.data.status === "success") {
+                    setPrimaryEmail(response.data.primaryEmail);
                 } else {
                     setError(response.data.message || "Failed to fetch profile.");
                 }
@@ -341,6 +360,20 @@ function TicketPurchase() {
                                                                 onChange={(e) => setSurname(e.target.value)}
                                                                 autoComplete="off"
                                                                 required
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-12">
+                                                        <div className="form-group">
+                                                            <lable>Primary email address</lable>
+                                                            <input
+                                                                id="inputName"
+                                                                type="email"
+                                                                name="phone"
+                                                                className="form-control"
+                                                                value={primaryEmail}
+                                                                autoComplete="off"
+                                                                disabled={true}
                                                             />
                                                         </div>
                                                     </div>
