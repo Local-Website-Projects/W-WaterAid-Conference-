@@ -54,15 +54,15 @@ function Login() {
                     <div className="row">
                         <div className="col-lg-7 col-md-6 col-sm-5 d-none d-lg-block">
                             <div className="banner-content">
-                                <h1 style={{fontSize: '92px'}}>Registration {/*<span style={{textTransform:"lowercase"}}>for</span>*/}</h1>
-                                <p style={{marginBottom:'0', marginTop:'20px'}}>Toilet Conference 2025</p>
+                                <h1 style={{fontSize: '88px'}}>Registration {/*<span style={{textTransform:"lowercase"}}>for</span>*/}</h1>
+                                <h3 style={{marginBottom:'0', marginTop:'20px'}}>Toilet Conference 2025</h3>
                                 <p style={{marginBottom:'0', marginTop:'20px'}}>Dhaka, Bangladesh | 25-26 February 2025</p>
                             </div>
                         </div>
                         <div className="col-lg-5">
                             <div className="contact-box">
                                 <div className="inner-content">
-                                    <h3>Login</h3>
+                                    <h3>Log in</h3>
                                     <form
                                         action="#"
                                         onSubmit={(e) => {

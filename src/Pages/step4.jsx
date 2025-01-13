@@ -121,36 +121,8 @@ function Step4 () {
                                                 <div className="col-12">
                                                     <div className="form-group">
                                                         <label>Dietary Preference *</label><br></br>
-                                                        <small style = {{display: "block", marginTop: "0" }}>
+                                                        <small style = {{display: "block", marginTop: "0px", marginBottom: "5px" }}>
                                                             <i>Halal foods will be served during the conference.</i></small>
-                                                        <div className="form-check">
-                                                            <input
-                                                                className="form-check-input"
-                                                                type="radio"
-                                                                name="dietary"
-                                                                id="flexRadioFemale"
-                                                                checked={dietary === "Vegetarian"}
-                                                                onChange={() => setDietary("Vegetarian")}
-                                                            />
-                                                            <label className="form-check-label"
-                                                                   htmlFor="flexRadioFemale">
-                                                                Vegetarian
-                                                            </label>
-                                                        </div>
-                                                        <div className="form-check">
-                                                            <input
-                                                                className="form-check-input"
-                                                                type="radio"
-                                                                name="dietary"
-                                                                id="flexRadioFemale"
-                                                                checked={dietary === "Non-vegetarian"}
-                                                                onChange={() => setDietary("Non-vegetarian")}
-                                                            />
-                                                            <label className="form-check-label"
-                                                                   htmlFor="flexRadioFemale">
-                                                                Non-vegetarian
-                                                            </label>
-                                                        </div>
                                                         <div className="form-check">
                                                             <input
                                                                 className="form-check-input"
@@ -165,6 +137,39 @@ function Step4 () {
                                                                 No preference
                                                             </label>
                                                         </div>
+
+                                                        <div className="form-check">
+                                                            <input
+                                                                className="form-check-input"
+                                                                type="radio"
+                                                                name="dietary"
+                                                                id="flexRadioFemale"
+                                                                checked={dietary === "Non-vegetarian"}
+                                                                onChange={() => setDietary("Non-vegetarian")}
+                                                            />
+                                                            <label className="form-check-label"
+                                                                   htmlFor="flexRadioFemale">
+                                                                Non-vegetarian
+                                                            </label>
+                                                        </div>
+
+                                                        
+                                                        <div className="form-check">
+                                                            <input
+                                                                className="form-check-input"
+                                                                type="radio"
+                                                                name="dietary"
+                                                                id="flexRadioFemale"
+                                                                checked={dietary === "Vegetarian"}
+                                                                onChange={() => setDietary("Vegetarian")}
+                                                            />
+                                                            <label className="form-check-label"
+                                                                   htmlFor="flexRadioFemale">
+                                                                Vegetarian
+                                                            </label>
+                                                        </div>
+                                                       
+                                                 
                                                         <div className="form-check">
                                                             <input
                                                                 className="form-check-input"

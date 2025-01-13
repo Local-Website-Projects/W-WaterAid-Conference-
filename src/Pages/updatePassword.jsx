@@ -44,10 +44,10 @@ function UpdatePassword (){
                                 <li className="nav-item">
                                     <a className="nav-link"
                                        href="https://regtoiletconference.org/user_invoice/index.php" target='_blank'>Download
-                                        Invoice</a>
+                                        invoice</a>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link active" to="/Update-Password">Update Password</Link>
+                                    <Link className="nav-link active" to="/Update-Password">Update password</Link>
                                 </li>
                             </ul>
                         </div>
@@ -56,7 +56,7 @@ function UpdatePassword (){
                                 <div className="contact ct-form">
                                     <div className="row">
                                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                                            <h4 className="mb-5">Update Password</h4>
+                                            <h4 className="mb-5">Update password</h4>
                                             <div className="contact-form">
                                                 <form onSubmit={updatePassword}>
                                                     <div className="form-group">

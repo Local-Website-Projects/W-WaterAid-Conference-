@@ -109,7 +109,7 @@ function Step5 () {
                             <div className="section-title">
                                 <div className="title-text pl">
                                     <h2>Registration</h2>
-                                    <p>* signed Input fields must be filled up</p>
+                                    <p>* signed input fields must be filled up</p>
                                 </div>
                             </div>
                         </div>
@@ -262,7 +262,8 @@ function Step5 () {
                                                                             <b>
                                                                                 Date: 27 February 2025 (Thursday) <br/>
                                                                                 <span style={{color:'#296173'}}>
-                                                                                Price: BDT 6,000 ≈ USD 50 </span><br/>
+                                                                                Price:
+                                                                                <strike>BDT 6,000 ≈ USD 50</strike> (Sponsored by the conference secretariat)</span><br/>
                                                                                 Seats left: 50
                                                                             </b>
                                                                             <br/>
@@ -297,6 +298,7 @@ function Step5 () {
                                                                             <b>
                                                                                 Date: 27 February 2025 (Thursday)<br/>
                                                                                 <span style={{color:'#296173'}}>
+                                                                                Price: 
                                                                                 <strike>BDT 9,500 ≈ USD 80</strike> (Sponsored by the conference secretariat)</span><br/>
                                                                                 Seats left: 30
                                                                             </b>

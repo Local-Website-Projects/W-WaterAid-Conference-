@@ -398,8 +398,7 @@ function TicketPurchase() {
                                                         <div className="form-group">
                                                             <lable>Contact number *</lable>
                                                             <br></br><small className="mb-3">Write your primary contact
-                                                            number. You must include your country code (e.g., +88 01
-                                                            2000 0000)</small>
+                                                            number. You must include your country code (e.g., +880120000000)</small>
                                                             <input
                                                                 id="inputName"
                                                                 type="text"

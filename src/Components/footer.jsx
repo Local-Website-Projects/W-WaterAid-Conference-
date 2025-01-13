@@ -13,7 +13,7 @@ function Footer () {
                         </div>
                         <div className="col-lg-6 d-flex align-items-end justify-content-end">
                             <div className="copyright">
-                               <p>Powered By</p><a href="https://frogbid.com" target="_blank"
+                               <p>Powered by</p><a href="https://frogbid.com" target="_blank"
                                          style={{color: "#29a9e1"}}> FrogBID</a>
                             </div>
                         </div>

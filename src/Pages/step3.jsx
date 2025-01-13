@@ -310,7 +310,7 @@ function Step3 () {
                                                             <>
                                                                 <div className="mt-3">
                                                                     <label htmlFor="otherGenderInput">Enter your ID
-                                                                        number (Passport/ NID/ Driving license) *</label>
+                                                                        number (Passport/ National ID/ Driving license) *</label>
                                                                     <input
                                                                         type="text"
                                                                         id="otherGenderInput"
@@ -323,7 +323,7 @@ function Step3 () {
                                                                 <div className="col-12 mt-3">
                                                                     <div className="form-group">
                                                                         <label htmlFor="fileUpload">Upload scanned copy
-                                                                            of your Passport/ NID/ Driving license (Must be in JPG, PNG, or
+                                                                            of your Passport/ National ID/ Driving license (Must be in JPG, PNG, or
                                                                             PDF format, and under 5MB file size)
                                                                             *</label>
                                                                         <input

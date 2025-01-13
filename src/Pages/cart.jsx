@@ -72,9 +72,9 @@ function Cart() {
 
                     let tourPricing = [];
                     if (response.data.country === "Bangladesh") {
-                        tourPricing = [9500, 6000, 0, 47000, 36500];
+                        tourPricing = [9500, 0, 0, 47000, 36500];
                     } else {
-                        tourPricing = [80, 50, 0, 400, 300];
+                        tourPricing = [80, 0, 0, 400, 300];
                     }
 
                     const toursArray = response.data.tours ? response.data.tours.split(",") : [];
@@ -131,8 +131,8 @@ function Cart() {
                     setTotal(15000);
                     setDiscount(0);
                 } else {
-                    setSubTotal(150);
-                    setTotal(150);
+                    setSubTotal(125);  // Assuming foreign Regular price is 125 USD
+                    setTotal(125);
                     setDiscount(0);
                 }
             }
@@ -295,7 +295,7 @@ function Cart() {
                                 <th scope="row">1</th>
                                 <td>Early bird registration (Foreign)</td>
                                 <td>1</td>
-                                <td><del>150</del> {formatBangladeshiNumber (subTotal)} USD</td>
+                                <td><del>125</del> {formatBangladeshiNumber (subTotal)} USD</td>
                                 <td>{formatBangladeshiNumber (subTotal)} USD</td>
                             </tr>
                         )
