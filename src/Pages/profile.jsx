@@ -31,6 +31,7 @@ function Profile() {
     const navigate = useNavigate();
     const [formattedDate, setFormattedDate] = useState("");
     const [formattedExpireDate, setFormattedExpireDate] = useState("");
+    const [paymentStatus, setPaymentStatus] = useState(0);
 
     useEffect(() => {
         const fetchSessionData = async () => {
@@ -109,6 +110,22 @@ function Profile() {
                     }
                 } else {
                     setError(response.data.message || "Failed to fetch profile.");
+                }
+            } catch (err) {
+                setError("Failed to fetch session data");
+                console.error(err);
+            }
+            try {
+                const response = await axios.get("/api/fetch_payment_status.php", {
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                    },
+                });
+
+                if (response.data.status === "success") {
+                    setPaymentStatus(response.data.paymentStatus);
+                } else {
+                    setError(response.data.message || "Failed to fetch status.");
                 }
             } catch (err) {
                 setError("Failed to fetch session data");
@@ -291,8 +308,13 @@ function Profile() {
                         </div>
                     </div>
                     <div className="col-lg-2 col-md-2 col-12">
-                        <button style={{cursor:'default'}} className="btn btn-danger">Payment status: Due</button>
-                    </div>
+                        {paymentStatus === '0' ? (
+                            <button style={{cursor: 'default'}} className="btn btn-danger">Payment status: Due</button>
+                        ) : (
+                            <button style={{cursor: 'default'}} className="btn btn-success">Payment status: Paid
+                    </button>
+                    )}
+                </div>
                 </div>
             </div>
 

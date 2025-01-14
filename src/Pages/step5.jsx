@@ -38,10 +38,28 @@ function Step5 () {
 
     const handleCheckboxChange = (event) => {
         const { name, checked } = event.target;
-        setSelectedTours((prevState) => ({
-            ...prevState,
-            [name]: checked
-        }));
+
+        setSelectedTours((prevState) => {
+            // Group 1: dasherkandi and faridpur
+            if (name === "dasherkandi" || name === "faridpur") {
+                return {
+                    ...prevState,
+                    dasherkandi: name === "dasherkandi" ? checked : false,
+                    faridpur: name === "faridpur" ? checked : false,
+                };
+            }
+
+            // Group 2: coxs and saidpur
+            if (name === "coxs" || name === "saidpur") {
+                return {
+                    ...prevState,
+                    coxs: name === "coxs" ? checked : false,
+                    saidpur: name === "saidpur" ? checked : false,
+                };
+            }
+
+            return prevState;
+        });
     };
 
 
@@ -69,10 +87,10 @@ function Step5 () {
         const fetchSessionData = async () => {
             const token = localStorage.getItem("userToken");
 
-            if (!token) {
+            /*if (!token) {
                 setError("You are not logged in.");
                 return navigate("/Login"); // Redirect to login if no token
-            }
+            }*/
 
             try {
                 const response = await axios.get("/api/fetch_profile.php", {
@@ -242,15 +260,13 @@ function Step5 () {
                                                                 {isPostConferenceSelected && (
                                                                     <>
                                                                         <div className="form-check mt-3">
+                                                                            <lable className="form-check-label" style={{fontWeight: "bold"}}>Important: Tours 2 & 3 and Tours 4 & 5 are scheduled on the same date- so you can select only one from each pair.<br></br> </lable>
                                                                             <input
                                                                                 className="form-check-input"
                                                                                 type="checkbox"
                                                                                 name="dasherkandi"
                                                                                 checked={selectedTours.dasherkandi}
-                                                                                onChange={(e) => setSelectedTours({
-                                                                                    ...selectedTours,
-                                                                                    dasherkandi: e.target.checked
-                                                                                })}
+                                                                                onChange={handleCheckboxChange}
                                                                                 id="dasherkandiTour"
                                                                             />
                                                                             <label className="form-check-label"
@@ -283,10 +299,7 @@ function Step5 () {
                                                                                 type="checkbox"
                                                                                 name="faridpur"
                                                                                 checked={selectedTours.faridpur}
-                                                                                onChange={(e) => setSelectedTours({
-                                                                                    ...selectedTours,
-                                                                                    faridpur: e.target.checked
-                                                                                })}
+                                                                                onChange={handleCheckboxChange}
                                                                                 id="faridpurTour"
                                                                             />
                                                                             <label className="form-check-label"
