@@ -28,6 +28,7 @@ function Profile() {
     const [language, setLanguage] = useState("");
     const [tours, setTours] = useState([]);
     const [error, setError] = useState("");
+    const [uniqueId, setUniqueId] = useState("");
     const navigate = useNavigate();
     const [formattedDate, setFormattedDate] = useState("");
     const [formattedExpireDate, setFormattedExpireDate] = useState("");
@@ -72,6 +73,7 @@ function Profile() {
                     setDietary(response.data.dietary);
                     setAccessibility(response.data.accessibility);
                     setLanguage(response.data.language);
+                    setUniqueId(response.data.uniqueId);
 
                     const tourValues = [
                         "Tour 1 | Faecal Sludge Treatment Plant at Sakhipur, Tangail, Bangladesh",
@@ -155,7 +157,14 @@ function Profile() {
                                 <Link className="nav-link active" id="home-taThursday" to='/Profile'>General information</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="https://regtoiletconference.org/user_invoice/index.php" target='_blank'>Download invoice</a>
+                                {paymentStatus === '0' ? (
+                                    <a className="nav-link" href="https://regtoiletconference.org/user_invoice/index.php" target='_blank'>Download invoice</a>
+                                ) : (
+                                    <a className="nav-link"
+                                       href={`https://regtoiletconference.org/user_invoice/confirmation.php?user=${uniqueId}`} target='_blank'>Download
+                                        confirmation</a>
+                                )}
+
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/Update-Password">Update password</Link>
