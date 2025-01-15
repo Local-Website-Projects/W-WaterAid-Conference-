@@ -24,6 +24,8 @@ function Cart() {
     const [grandTotalUpdate, setGrandTotalUpdate] = useState(0);
     const [student, setStudent] = useState(0);
 
+    const [sslPay, setsslPay] = useState(false);
+
 
     useEffect(() => {
         setGrandTotalUpdate(total + tourGrandTotal);
@@ -36,10 +38,10 @@ function Cart() {
         const fetchSessionData = async () => {
             const token = localStorage.getItem("userToken");
 
-            /*if (!token) {
+            if (!token) {
                 setError("You are not logged in.");
                 return navigate("/Login"); // Redirect to login if no token
-            }*/
+            }
 
             try {
                 const response = await axios.get("/api/fetch_profile.php", {
@@ -207,8 +209,12 @@ function Cart() {
         axios.post(url, fData)
             .then(response => {
                 if (response.data.status === "Success") {
-                    alert('Please download the invoice for future use');
-                    window.location.href = 'https://regtoiletconference.org/user_invoice';
+                    if(sslPay === false){
+                        alert('Please download the invoice for future use');
+                        window.location.href = 'https://regtoiletconference.org/user_invoice';
+                    } else{
+                        window.location.href = 'https://regtoiletconference.org/api/payment';
+                    }
                 } else {
                     alert("Something Went Wrong");
                 }
