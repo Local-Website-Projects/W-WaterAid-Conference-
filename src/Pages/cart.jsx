@@ -23,6 +23,8 @@ function Cart() {
     const [tourGrandTotal, setTourGrandTotal] = useState(0);
     const [grandTotalUpdate, setGrandTotalUpdate] = useState(0);
     const [student, setStudent] = useState(0);
+    const [registrationPromoApplied, setRegistrationPromoApplied] = useState(false);
+    const [tourPromoApplied, setTourPromoApplied] = useState(false);
 
     const [sslPay, setsslPay] = useState(false);
 
@@ -156,6 +158,7 @@ function Cart() {
                     const newTotal = total - newDiscount;
                     setDiscount(newDiscount);
                     setTotal(newTotal);
+                    setRegistrationPromoApplied(true);
                 } else {
                     alert("Invalid promo code");
                 }
@@ -182,6 +185,7 @@ function Cart() {
 
                     setTourDiscount(newDiscount);
                     setTourGrandTotal(newTotal);
+                    setTourPromoApplied(true);
                 } else {
                     alert("Invalid promo code");
                 }
@@ -364,8 +368,9 @@ function Cart() {
                                     onChange={(e) => setRegistrationPromo(e.target.value)}
                                     required
                                     autoComplete="off"
+                                    disabled={registrationPromoApplied}
                                 />
-                                <button className="btn-primary mt-3" type="submit">Apply</button>
+                                <button className="btn-primary mt-3" type="submit" disabled={registrationPromoApplied}>Apply</button>
                             </form>
                         </div>
                     </div>
@@ -435,8 +440,9 @@ function Cart() {
                             onChange={(e) => setTourPromo(e.target.value)}
                             required
                             autoComplete="off"
+                            disabled={tourPromoApplied}
                         />
-                        <button className="btn-primary mt-3" type="submit">Apply</button>
+                        <button className="btn-primary mt-3" type="submit" disabled={tourPromoApplied}>Apply</button>
                     </form>
                 </div>
 
