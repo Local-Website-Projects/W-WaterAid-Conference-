@@ -12,7 +12,7 @@ function Landing() {
                             <div className="col-lg-12 col-md-12 col-sm-12">
                                 <div className="banner-content">
                                     <h1>Toilet Conference 2025</h1>
-                                    <h2>Registration will open soon!</h2>
+                                    <h2>We will get back soon!</h2>
                                     <p>Dhaka, Bangladesh | 25-26 February 2025</p>
                                 </div>
                             </div>

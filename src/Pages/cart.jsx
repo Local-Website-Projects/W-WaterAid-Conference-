@@ -26,8 +26,6 @@ function Cart() {
     const [registrationPromoApplied, setRegistrationPromoApplied] = useState(false);
     const [tourPromoApplied, setTourPromoApplied] = useState(false);
 
-    const [sslPay, setsslPay] = useState(false);
-
 
     useEffect(() => {
         setGrandTotalUpdate(total + tourGrandTotal);
@@ -196,6 +194,34 @@ function Cart() {
             });
     }
 
+    function payNow (event) {
+        event.preventDefault();
+        const url = '/api/insert_invoice.php';
+        let fData = new FormData();
+        fData.append('tourPromo', tourPromo);
+        fData.append('registrationPromo', registrationPromo);
+        fData.append('tours', tours);
+        fData.append('grandTotalUpdate', grandTotalUpdate);
+        fData.append('nationality', nationality);
+        fData.append('country', country);
+        fData.append('isBeforeDate', isBeforeDate);
+        fData.append('discount', discount);
+        fData.append('tourDiscount', tourDiscount);
+        fData.append('student', student);
+        axios.post(url, fData)
+            .then(response => {
+                if (response.data.status === "Success") {
+                    window.location.href = 'https://regtoiletconference.org/api/payment';
+                } else {
+                    alert("Something Went Wrong");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Network error occurred');
+            });
+    };
+
     function submitInvoiceData (event) {
         event.preventDefault();
         const url = '/api/insert_invoice.php';
@@ -213,12 +239,8 @@ function Cart() {
         axios.post(url, fData)
             .then(response => {
                 if (response.data.status === "Success") {
-                    if(sslPay === false){
-                        alert('Please download the invoice for future use');
-                        window.location.href = 'https://regtoiletconference.org/user_invoice';
-                    } else{
-                        window.location.href = 'https://regtoiletconference.org/api/payment';
-                    }
+                    alert('Please download the invoice for future use');
+                    window.location.href = 'https://regtoiletconference.org/user_invoice';
                 } else {
                     alert("Something Went Wrong");
                 }
@@ -354,8 +376,6 @@ function Cart() {
                     </tr>
                     </tbody>
                 </table>
-
-                {student !== 'Student' && (
                     <div className="row mt-5">
                         <div className="col-6">
                             <form onSubmit={verifyPromoRegistration}>
@@ -374,7 +394,6 @@ function Cart() {
                             </form>
                         </div>
                     </div>
-                )}
 
 
                 <h6 className="mt-5">Technical Tours</h6>
@@ -462,7 +481,7 @@ function Cart() {
                 </table>
                 <div className="row mt-3 mb-5 d-flex align-items-end justify-content-end">
                     <div className="col-2">
-                        <button className="btn btn-primary" disabled={true} style={{color:'#000', backgroundColor:'#ccc'}}>
+                        <button className="btn btn-primary" disabled={false} onClick={payNow}>
                             Pay Now
                         </button>
                     </div>
