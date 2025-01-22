@@ -38,10 +38,10 @@ function Profile() {
         const fetchSessionData = async () => {
             const token = localStorage.getItem("userToken");
 
-            if (!token) {
+            /*if (!token) {
                 setError("You are not logged in.");
                 return navigate("/Login"); // Redirect to login if no token
-            }
+            }*/
 
             try {
                 const response = await axios.get("/api/fetch_profile.php", {
@@ -158,7 +158,10 @@ function Profile() {
                             </li>
                             <li className="nav-item">
                                 {paymentStatus === '0' ? (
+                                    <>
                                     <a className="nav-link" href="https://regtoiletconference.org/user_invoice/index.php" target='_blank'>Download invoice</a>
+                                    <Link className="nav-link" to="/Proof">Proof of payment</Link>
+                                    </>
                                 ) : (
                                     <a className="nav-link"
                                        href={`https://regtoiletconference.org/user_invoice/confirmation.php?user=${uniqueId}`} target='_blank'>Download

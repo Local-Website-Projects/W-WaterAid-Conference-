@@ -17,6 +17,7 @@ import Cart from "./Pages/cart";
 import UpdatePassword from "./Pages/updatePassword";
 import ForgetPassword from "./Pages/frogetPassword";
 import Preview from "./Pages/preview";
+import Proof from "./Pages/proofPayment";
 function App() {
   return (
       <div className="App">
@@ -41,6 +42,7 @@ function App() {
                   <Route path='/Update-Password' element={<UpdatePassword/>}/>
                   <Route path='/Forget-Password' element={<ForgetPassword/>}/>
                   <Route path='/Preview' element={<Preview/>}/>
+                  <Route path='/Proof' element={<Proof/>}/>
                   <Route path='/Logout' element={<Logout/>}/>
               </Routes>
           </BrowserRouter>

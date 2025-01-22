@@ -19,7 +19,7 @@ function Menu (){
                 });
                 if (response.data.status === "Success") {
                     setValidity(1);
-                    if (!location.pathname.endsWith("/Update-Password")) {
+                    if (!location.pathname.endsWith("/Update-Password") && !location.pathname.endsWith("/Proof")) {
                         navigate('/Profile');
                     }
                 } else {
@@ -41,7 +41,7 @@ function Menu (){
                         <div className="row">
                             <div className="col-lg-2">
                                 <div className="brand-logo">
-                                    <a className="eventex-brand" href="index-2.html"><img
+                                    <a className="eventex-brand" href=""><img
                                         src="assets/img/logo/logo-3.png" alt=""/></a>
                                 </div>
                             </div>

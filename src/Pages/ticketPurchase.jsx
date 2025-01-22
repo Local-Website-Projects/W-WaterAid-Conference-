@@ -554,6 +554,9 @@ function TicketPurchase() {
                                                     <div className="col-12">
                                                         <div className="form-group">
                                                             <label>Birth year *</label>
+                                                            <br/>
+                                                            <small>Participants must be 18 years old or above to attend
+                                                                the conference.</small>
                                                             <select
                                                                 id="birthYearDropdown"
                                                                 name="birthYear"
@@ -564,9 +567,17 @@ function TicketPurchase() {
                                                             >
                                                                 <option value="">Select your birth year</option>
                                                                 {Array.from({length: 125}, (_, i) => {
-                                                                    const year = new Date().getFullYear() - i;
-                                                                    return <option key={year}
-                                                                                   value={year}>{year}</option>;
+                                                                    const currentYear = new Date().getFullYear();
+                                                                    const minYear = currentYear - 18;
+                                                                    const year = minYear - i;
+                                                                    if (year >= currentYear - 125) {
+                                                                        return (
+                                                                            <option key={year} value={year}>
+                                                                                {year}
+                                                                            </option>
+                                                                        );
+                                                                    }
+                                                                    return null;
                                                                 })}
                                                             </select>
                                                         </div>
