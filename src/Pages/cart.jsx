@@ -487,7 +487,7 @@ function Cart() {
                     </div>
                     <div className="col-2">
                         <button className="btn btn-primary" disabled={false} onClick={submitInvoiceData}>
-                            Pay Later
+                            Pay via Bank transfer
                         </button>
                     </div>
                 </div>
