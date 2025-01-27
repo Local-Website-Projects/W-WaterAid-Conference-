@@ -152,7 +152,7 @@ function Banner() {
                                                        placeholder="Please enter your email"
                                                        name="email"
                                                        value={email}
-                                                       onChange={(e) => setEmail(e.target.value)}
+                                                       onChange={(e) => setEmail(e.target.value.toLowerCase())}
                                                        required
                                                        autoComplete="off"/>
                                             </div>

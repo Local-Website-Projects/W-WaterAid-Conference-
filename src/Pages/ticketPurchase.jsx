@@ -389,7 +389,7 @@ function TicketPurchase() {
                                                                 className="form-control"
                                                                 placeholder="johndoe@wateraid.org"
                                                                 value={email}
-                                                                onChange={(e) => setEmail(e.target.value)}
+                                                                onChange={(e) => setEmail(e.target.value.toLowerCase())}
                                                                 autoComplete="off"
                                                             />
                                                         </div>

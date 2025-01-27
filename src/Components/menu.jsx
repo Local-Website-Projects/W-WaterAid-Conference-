@@ -19,7 +19,7 @@ function Menu (){
                 });
                 if (response.data.status === "Success") {
                     setValidity(1);
-                    if (!location.pathname.endsWith("/Update-Password") && !location.pathname.endsWith("/Proof")) {
+                    if (!location.pathname.endsWith("/Update-Password") && !location.pathname.endsWith("/Proof") && !location.pathname.endsWith("/Cart")) {
                         navigate('/Profile');
                     }
                 } else {
