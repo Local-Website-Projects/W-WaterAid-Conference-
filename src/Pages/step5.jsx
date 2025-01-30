@@ -222,6 +222,7 @@ function Step5 () {
                                                                                 sakhipur: e.target.checked
                                                                             })}
                                                                             id="sakhipurTour"
+                                                                            disabled={tour1 >= 30}
                                                                         />
                                                                         <label className="form-check-label"
                                                                                htmlFor="sakhipurTour"
@@ -272,6 +273,7 @@ function Step5 () {
                                                                                 checked={selectedTours.dasherkandi}
                                                                                 onChange={handleCheckboxChange}
                                                                                 id="dasherkandiTour"
+                                                                                disabled={tour2 >= 50}
                                                                             />
                                                                             <label className="form-check-label"
                                                                                    htmlFor="dasherkandiTour"
@@ -305,6 +307,7 @@ function Step5 () {
                                                                                 checked={selectedTours.faridpur}
                                                                                 onChange={handleCheckboxChange}
                                                                                 id="faridpurTour"
+                                                                                disabled={tour3 >= 30}
                                                                             />
                                                                             <label className="form-check-label"
                                                                                    htmlFor="faridpurTour"
@@ -338,6 +341,7 @@ function Step5 () {
                                                                                 checked={selectedTours.coxs}
                                                                                 onChange={handleCheckboxChange}
                                                                                 id="coxsTour"
+                                                                                disabled={tour4 >= 25}
                                                                             />
                                                                             <label className="form-check-label"
                                                                                    htmlFor="coxsTour"
@@ -370,6 +374,7 @@ function Step5 () {
                                                                                 checked={selectedTours.saidpur}
                                                                                 onChange={handleCheckboxChange}
                                                                                 id="saidpurTour"
+                                                                                disabled={tour5 >= 25}
                                                                             />
                                                                             <label className="form-check-label"
                                                                                    htmlFor="saidpurTour"

@@ -481,13 +481,17 @@ function Cart() {
                 </table>
                 <div className="row mt-3 mb-5 d-flex align-items-end justify-content-end">
                     <div className="col-2">
-                        <button className="btn btn-primary" disabled={false} onClick={payNow}>
+                        <button className="btn btn-primary" disabled={grandTotalUpdate < 100} onClick={payNow}>
                             Pay Now
                         </button>
                     </div>
                     <div className="col-2">
                         <button className="btn btn-primary" disabled={false} onClick={submitInvoiceData}>
-                            Pay via Bank transfer
+                            {grandTotalUpdate === 0 ? (
+                                'Confirm Registration'
+                            ): (
+                                'Pay via Bank transfer'
+                            )}
                         </button>
                     </div>
                 </div>

@@ -55,12 +55,13 @@ function Menu (){
 
                                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                         <ul className="navbar-nav ml-auto">
-                                            <li className="nav-item">
-                                                <Link className="nav-link" to="/Profile">Profile</Link>
-                                            </li>
-                                            {validity === 0 && (
+                                            {validity === 0 ? (
                                                 <li className="nav-item">
                                                     <Link className="nav-link" to="/Ticket">Registration</Link>
+                                                </li>
+                                            ) : (
+                                                <li className="nav-item">
+                                                    <Link className="nav-link" to="/Profile">Profile</Link>
                                                 </li>
                                             )}
                                             <li className="nav-item">
