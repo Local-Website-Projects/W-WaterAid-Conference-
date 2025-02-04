@@ -449,7 +449,7 @@ function Cart() {
                     </tbody>
                 </table>
                 <div className="col-6">
-                    <form onSubmit={verifyTourPromo}>
+                    <form onSubmit={verifyTourPromo} style={{display:'none'}}>
                         <label>Promo code for tours:</label>
                         <input
                             className="form-control"
