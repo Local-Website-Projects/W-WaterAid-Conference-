@@ -23,7 +23,11 @@ function Header() {
                             </nav>
                         </div>
                         <div className="col-lg-2 d-none d-lg-block">
-
+                            <ul>
+                                <li className="header-ticket">
+                                    <a className="pr-0" href="https://youtu.be/_3A5C0cLdWU" target="_blank">View Tutorial</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
