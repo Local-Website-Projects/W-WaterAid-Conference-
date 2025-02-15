@@ -25,7 +25,7 @@ function Header() {
                         <div className="col-lg-2 d-none d-lg-block">
                             <ul>
                                 <li className="header-ticket">
-                                    <a className="pr-0" href="https://youtu.be/_3A5C0cLdWU" target="_blank">View Tutorial</a>
+                                    <a className="pr-0" href="https://drive.google.com/file/d/1zjs1XkIAEmtEFGAjX_GqzMl2TmHhug5Y/view?usp=sharing" target="_blank">View Tutorial</a>
                                 </li>
                             </ul>
                         </div>
