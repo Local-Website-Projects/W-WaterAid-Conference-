@@ -92,10 +92,10 @@ function Step5 () {
         const fetchSessionData = async () => {
             const token = localStorage.getItem("userToken");
 
-            /*if (!token) {
+            if (!token) {
                 setError("You are not logged in.");
                 return navigate("/Login"); // Redirect to login if no token
-            }*/
+            }
 
             try {
                 const response = await axios.get("/api/fetch_tour_data.php", {
@@ -374,7 +374,7 @@ function Step5 () {
                                                                                 checked={selectedTours.saidpur}
                                                                                 onChange={handleCheckboxChange}
                                                                                 id="saidpurTour"
-                                                                                disabled={tour5 >= 25}
+                                                                                disabled={tour5 >= 10}
                                                                             />
                                                                             <label className="form-check-label"
                                                                                    htmlFor="saidpurTour"
@@ -385,7 +385,7 @@ function Step5 () {
                                                                             <b>
                                                                                 Date : 28 February - 01 March 2025 (Friday - Saturday)<br/>
                                                                                 <span style={{color:'#296173'}}>Price: BDT 36,500 ≈ USD 300</span><br/>
-                                                                                Seats left: {25-tour5}
+                                                                                Seats left: {10-tour5}
                                                                             </b>
                                                                             <br/>
                                                                             Explore the Faecal Sludge Treatment Plant (FSTP) in Saidpur, a vital facility that ensures safe and effective treatment of faecal sludge (FS) and solid waste (SW). This tour will highlight the processes involved in FS and SW treatment, from collection to disposal, and the measures taken to prevent environmental contamination. The visitors will gain insights into the plant's capacity, technology used, and the role it plays in improving public health and sanitation in the region.
