@@ -127,7 +127,7 @@ ul {
 
 .section-title .title-text h2 {
     color: #296173;
-    font-size: 45px;
+    font-size: 24px;
     line-height: 45px;
     font-weight: 600;
     text-transform: capitalize;
@@ -918,7 +918,7 @@ a:focus {
 }
 
 .hero-banner-area .banner-content h2 {
-    font-size: 64px;
+    font-size: 32px;
     line-height: 1.8em;
     font-weight: 600;
     color: #fff;

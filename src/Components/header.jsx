@@ -22,13 +22,13 @@ function Header() {
                                 </button>
                             </nav>
                         </div>
-                        <div className="col-lg-2 d-none d-lg-block">
+                        {/*<div className="col-lg-2 d-none d-lg-block">
                             <ul>
                                 <li className="header-ticket">
                                     <a className="pr-0" href="https://drive.google.com/file/d/1zjs1XkIAEmtEFGAjX_GqzMl2TmHhug5Y/view?usp=sharing" target="_blank">View Tutorial</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div>*/}
                     </div>
                 </div>
             </header>

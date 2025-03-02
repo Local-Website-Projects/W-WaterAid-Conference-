@@ -18,6 +18,7 @@ import UpdatePassword from "./Pages/updatePassword";
 import ForgetPassword from "./Pages/frogetPassword";
 import Preview from "./Pages/preview";
 import Proof from "./Pages/proofPayment";
+import Success from "./Pages/success";
 function App() {
   return (
       <div className="App">
@@ -26,8 +27,8 @@ function App() {
           </div>
           <BrowserRouter>
               <Routes>
-                  <Route path='/' element={<Login/>}/>
-                  <Route path='/Register' element={<Home/>}/>
+                  <Route path='/' element={<Success/>}/>
+                  {/*<Route path='/Register' element={<Home/>}/>
                   <Route path='/Login' element={<Login/>}/>
                   <Route path='/Profile' element={<Profile/>}/>
                   <Route path='/Ticket' element={<TicketPurchase/>}/>
@@ -43,7 +44,7 @@ function App() {
                   <Route path='/Forget-Password' element={<ForgetPassword/>}/>
                   <Route path='/Preview' element={<Preview/>}/>
                   <Route path='/Proof' element={<Proof/>}/>
-                  <Route path='/Logout' element={<Logout/>}/>
+                  <Route path='/Logout' element={<Logout/>}/>*/}
               </Routes>
           </BrowserRouter>
       </div>
